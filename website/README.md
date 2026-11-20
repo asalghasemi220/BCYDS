@@ -8,7 +8,8 @@ Focus: consulting and support for B.C. kids, families and schools, including stu
 ## Design
 - Minimal product-page style (Apple / Square): centred hero, app-style icons, bento blocks, colour letter tiles, short copy.
 - Logo: `../brand/logo-original.png` as supplied; web cut-outs in `images/brand/`.
-- Colours: brand navy `#002E5D` and teal `#00B79F`, on white and light grey `#F5F5F7`, with bright accents: blue `#0A84FF`, rose `#FF375F`, amber `#FFB020`, violet `#6E4BE0`.
+- Colours: navy `#002E5D` and blue `#1D64D8` only (plus light blue `#4C8DF6`, sky `#BFD9FF`, ice `#EEF5FF`), on white. The logo's teal trail stays inside the logo artwork only.
+- Mascot: Pilot (`images/mascot/`), in the hero, the contact block and the footer.
 - Type: Plus Jakarta Sans.
 - Motion is light: hero fade-in, hover lifts, and the video (muted, pauses when scrolled away). Everything stops for "reduce motion".
 

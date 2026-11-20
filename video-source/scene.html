@@ -4,7 +4,7 @@
 @font-face { font-family: PJS; font-weight: 500; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-500-normal.woff2); }
 @font-face { font-family: PJS; font-weight: 700; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2); }
 @font-face { font-family: PJS; font-weight: 800; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-800-normal.woff2); }
-:root { --navy:#002e5d; --teal:#00b79f; --blue:#0a84ff; --rose:#ff375f; --amber:#ffb020; --violet:#6e4be0; }
+:root { --navy:#002e5d; --blue:#1d64d8; --blue2:#4c8df6; --sky:#bfd9ff; --ice:#eef5ff; }
 html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #fff; font-family: PJS, sans-serif; }
 .scene { position: absolute; inset: 0; overflow: hidden; opacity: 0; }
 .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; }
@@ -29,7 +29,8 @@ html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; backgrou
 
 <!-- S1 logo -->
 <div class="scene" id="s1" style="background:#fff">
-  <img id="logo1" src="../website/images/brand/logo-full.png" style="position:absolute; left:50%; top:110px; width:470px; margin-left:-235px">
+  <img id="logo1" src="../website/images/brand/logo-full.png" style="position:absolute; left:250px; top:130px; width:440px">
+  <img id="pilot1" src="../brand/mascot/pilot-wave.svg" style="position:absolute; left:760px; top:150px; height:420px">
 </div>
 
 <!-- S2 kids -->
@@ -42,14 +43,14 @@ html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; backgrou
 
 <!-- S3 consulting -->
 <div class="scene" id="s3" style="background: var(--navy)">
-  <div id="i3" style="position:absolute; left:50%; top:150px; margin-left:-46px"><span class="app" style="background: linear-gradient(160deg,#3fe0c6,var(--teal))"><svg viewBox="0 0 24 24"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2.5L16 18h-3"/></svg></span></div>
+  <div id="i3" style="position:absolute; left:50%; top:150px; margin-left:-46px"><span class="app" style="background: linear-gradient(160deg,var(--blue2),var(--blue))"><svg viewBox="0 0 24 24"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2.5L16 18h-3"/></svg></span></div>
   <h2 class="center" id="t3a" style="top: 300px; font-size: 72px; color:#fff">Consulting and support</h2>
-  <h2 class="center" id="t3b" style="top: 400px; font-size: 40px; color:#7cf0dc; font-weight:700; letter-spacing:-.02em">for kids, families and schools.</h2>
+  <h2 class="center" id="t3b" style="top: 400px; font-size: 40px; color:var(--sky); font-weight:700; letter-spacing:-.02em">for kids, families and schools.</h2>
 </div>
 
 <!-- S4 inclusion -->
 <div class="scene split" id="s4">
-  <div class="panel" style="background: linear-gradient(160deg,#ff5f7e,var(--rose))">
+  <div class="panel" style="background: linear-gradient(160deg,var(--blue2),var(--blue))">
     <span class="app" style="background: rgba(255,255,255,.22); box-shadow:none"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></svg></span>
     <h3 id="t4a">Every child belongs.</h3>
     <p id="t4b">Including students with ADHD, autism and other needs.</p>
@@ -59,7 +60,7 @@ html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; backgrou
 
 <!-- S5 robotics -->
 <div class="scene split" id="s5">
-  <div class="panel" style="background: linear-gradient(160deg,#4aa3ff,var(--blue))">
+  <div class="panel" style="background: var(--navy)">
     <span class="app" style="background: rgba(255,255,255,.22); box-shadow:none"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></svg></span>
     <h3 id="t5a" style="font-size:52px">Robotics gives kids a hands-on way to focus, create and work together.</h3>
   </div>
@@ -67,14 +68,14 @@ html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; backgrou
 </div>
 
 <!-- S6 STEAM -->
-<div class="scene" id="s6" style="background:#f5f5f7">
+<div class="scene" id="s6" style="background:var(--ice)">
   <h2 class="center" id="t6" style="top: 120px; font-size: 70px; color: var(--navy)">Hands-on STEAM</h2>
   <div class="steam" id="steam">
-    <div class="b" style="background: linear-gradient(160deg,#3fe0c6,var(--teal))"><big>S</big><div><span>Science</span><small>Ask &amp; test</small></div></div>
-    <div class="b" style="background: linear-gradient(160deg,#5aaeff,var(--blue))"><big>T</big><div><span>Technology</span><small>Code &amp; create</small></div></div>
-    <div class="b" style="background: linear-gradient(160deg,#9d82ff,var(--violet))"><big>E</big><div><span>Engineering</span><small>Design &amp; build</small></div></div>
-    <div class="b" style="background: linear-gradient(160deg,#ff7a93,var(--rose))"><big>A</big><div><span>Arts</span><small>Imagine &amp; share</small></div></div>
-    <div class="b" style="background: linear-gradient(160deg,#ffcf5c,var(--amber)); color: var(--navy)"><big>M</big><div><span>Math</span><small>Measure &amp; solve</small></div></div>
+    <div class="b" style="background: var(--navy)"><big>S</big><div><span>Science</span><small>Ask &amp; test</small></div></div>
+    <div class="b" style="background: linear-gradient(160deg,var(--blue2),var(--blue))"><big>T</big><div><span>Technology</span><small>Code &amp; create</small></div></div>
+    <div class="b" style="background: var(--sky); color: var(--navy)"><big>E</big><div><span>Engineering</span><small>Design &amp; build</small></div></div>
+    <div class="b" style="background: linear-gradient(160deg,var(--blue2),var(--blue))"><big>A</big><div><span>Arts</span><small>Imagine &amp; share</small></div></div>
+    <div class="b" style="background: var(--navy)"><big>M</big><div><span>Math</span><small>Measure &amp; solve</small></div></div>
   </div>
 </div>
 
@@ -87,8 +88,9 @@ html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; backgrou
 
 <!-- S8 end -->
 <div class="scene" id="s8" style="background:#fff">
-  <img id="logo8" src="../website/images/brand/logo-full.png" style="position:absolute; left:50%; top:96px; width:380px; margin-left:-190px">
-  <div id="cta8" style="position:absolute; left:50%; top:520px; transform: translateX(-50%); background: var(--teal); color: var(--navy); font-weight: 800; font-size: 34px; letter-spacing: -.02em; padding: 22px 46px; border-radius: 999px; white-space: nowrap">Get in touch</div>
+  <img id="logo8" src="../website/images/brand/logo-full.png" style="position:absolute; left:270px; top:96px; width:360px">
+  <img id="pilot8" src="../brand/mascot/pilot-cheer.svg" style="position:absolute; left:700px; top:110px; height:360px">
+  <div id="cta8" style="position:absolute; left:50%; top:520px; transform: translateX(-50%); background: var(--blue); color: #fff; font-weight: 800; font-size: 34px; letter-spacing: -.02em; padding: 22px 46px; border-radius: 999px; white-space: nowrap">Get in touch</div>
 </div>
 
 <script>
@@ -102,6 +104,7 @@ const kb = (el, p, a = 1.04, b = 1.14) => { el.style.transform = `scale(${a + (b
 window.renderAt = function (t) {
   for (const [id, [s, e]] of Object.entries(S)) $(id).style.opacity = id === 's1' ? Math.min(1, clamp((e - t) / .45)) : alpha(t, s, e);
   const l1 = ease((t - .2) / 1.1); $('logo1').style.opacity = l1; $('logo1').style.transform = `scale(${.92 + .08 * l1})`;
+  const p1 = ease((t - .9) / .9); $('pilot1').style.opacity = p1; $('pilot1').style.transform = `translateY(${(1 - p1) * 60}px) rotate(${Math.sin(t * 3) * 3}deg)`;
   kb($('ph2'), clamp((t - 3.2) / 5.2)); rise($('c2'), ease((t - 3.9) / .9), 40);
   rise($('i3'), ease((t - 8.3) / .7)); rise($('t3a'), ease((t - 8.6) / .8)); rise($('t3b'), ease((t - 9.3) / .8));
   kb($('ph4'), clamp((t - 12.2) / 4.6)); rise($('t4a'), ease((t - 12.6) / .8)); rise($('t4b'), ease((t - 13.4) / .8));
@@ -110,6 +113,7 @@ window.renderAt = function (t) {
   [...$('steam').children].forEach((b, i) => { const q = ease((t - 21.6 - i * .16) / .6); b.style.opacity = q; b.style.transform = `translateY(${(1 - q) * 50}px) scale(${.9 + .1 * q})`; });
   kb($('ph7'), clamp((t - 24.6) / 4), 1.03, 1.1); rise($('c7'), ease((t - 25.1) / .9), 40);
   const l8 = ease((t - 28.5) / .9); $('logo8').style.opacity = l8; $('logo8').style.transform = `scale(${.94 + .06 * l8})`;
+  const p8 = ease((t - 28.9) / .8); $('pilot8').style.opacity = p8; $('pilot8').style.transform = `translateY(${(1 - p8) * 60 - Math.abs(Math.sin(t * 4)) * 10}px)`;
   $('cta8').dataset.base = 'translateX(-50%)'; rise($('cta8'), ease((t - 29.4) / .8), 20);
 };
 renderAt(0);

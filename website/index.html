@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
 <style>
-/* Layout: clean product-page rhythm. Centred hero with the film as its picture, a bento of what we do
-   (consulting first), STEAM as five colour blocks plus real class builds, one colourful promise line,
-   three steps, partners and a contact block. Logo navy + teal on white and light grey; bright accents
-   for each block. One light theme on purpose, matching the logo. */
+/* Layout: clean product-page rhythm. Centred hero with Pilot (the mascot) and the film, a bento of what
+   we do (consulting first), STEAM as five blocks plus real class builds, one promise line, three steps,
+   partners and a contact block. Brand palette is navy + blue only, matching the logo; white and ice
+   backgrounds. One light theme on purpose. */
 :root {
   color-scheme: light;
   --white: #ffffff;
@@ -24,11 +24,11 @@
   --ink-2: #5b6576;
   --line: #e4e7ec;
   --navy: #002e5d;
-  --teal: #00b79f;   --teal-2: #3fe0c6;
-  --blue: #0a84ff;   --blue-2: #5aaeff;
-  --rose: #ff375f;   --rose-2: #ff7a93;
-  --amber: #ffb020;  --amber-2: #ffcf5c;
-  --violet: #6e4be0; --violet-2: #9d82ff;
+  --navy-deep: #001f40;
+  --blue: #1d64d8;
+  --blue-2: #4c8df6;
+  --sky: #bfd9ff;
+  --ice: #eef5ff;
 
   --font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --r-lg: 28px;
@@ -45,7 +45,7 @@ img { height: auto; }
 a { color: inherit; }
 h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -.035em; line-height: 1.05; text-wrap: balance; color: var(--ink); }
 p { margin: 0; }
-:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 8px; }
+:focus-visible { outline: 3px solid var(--blue-2); outline-offset: 3px; border-radius: 8px; }
 .wrap { max-width: var(--wrap); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 .section { padding-block: clamp(4.5rem, 9vw, 7rem); }
 .title { font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.6rem); text-align: center; }
@@ -56,12 +56,13 @@ p { margin: 0; }
 .app { width: 52px; height: 52px; border-radius: 15px; flex: none; display: grid; place-items: center; }
 .app svg { width: 58%; height: 58%; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .app.glass { background: rgba(255, 255, 255, .2); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3); }
-.app.teal { background: linear-gradient(160deg, var(--teal-2), var(--teal)); }
+.app.blue { background: linear-gradient(160deg, var(--blue-2), var(--blue)); }
+.app.navy { background: var(--navy); }
 
 /* Buttons */
 .btn {
   display: inline-flex; align-items: center; gap: .55rem; padding: .9rem 1.4rem; border: 0; border-radius: 999px;
-  background: var(--teal); color: var(--navy); font: 700 1rem/1 var(--font); text-decoration: none; cursor: pointer; white-space: nowrap;
+  background: var(--blue); color: #fff; font: 700 1rem/1 var(--font); text-decoration: none; cursor: pointer; white-space: nowrap;
   transition: transform .3s var(--ease), filter .3s var(--ease);
 }
 .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
@@ -87,11 +88,13 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
 
 /* ---------- Hero ---------- */
-.hero { padding-block: calc(var(--header-h) + clamp(3rem, 7vw, 5rem)) 0; text-align: center; }
-.pill { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .85rem; border-radius: 999px; background: var(--grey); font-size: .85rem; font-weight: 700; color: var(--ink-2); }
-.pill i { width: .5rem; height: .5rem; border-radius: 50%; background: var(--teal); }
+.hero { padding-block: calc(var(--header-h) + clamp(2rem, 5vw, 3.5rem)) 0; text-align: center; }
+.mascot { display: block; width: clamp(104px, 14vw, 140px); height: auto; margin: 0 auto .6rem; animation: hop 3.2s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+@keyframes hop { 0% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-2deg); } 100% { transform: translateY(0) rotate(1.5deg); } }
+.pill { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .85rem; border-radius: 999px; background: var(--ice); font-size: .85rem; font-weight: 700; color: var(--ink-2); }
+.pill i { width: .5rem; height: .5rem; border-radius: 50%; background: var(--blue); }
 .hero h1 { font-size: clamp(2.9rem, 1.5rem + 6vw, 5.8rem); letter-spacing: -.055em; margin-top: 1.4rem; animation: up 1s var(--ease) both; }
-.hero h1 span { background: linear-gradient(90deg, var(--blue), var(--teal) 35%, var(--amber) 65%, var(--rose)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero h1 span { color: var(--blue); }
 .hero .sub { max-width: 34rem; margin: 1.3rem auto 0; color: var(--ink-2); font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); animation: up 1s .12s var(--ease) both; }
 .hero .actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 2rem; animation: up 1s .24s var(--ease) both; }
 @keyframes up { from { opacity: 0; transform: translateY(18px); } }
@@ -122,8 +125,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .tile p { margin-top: .5rem; opacity: .9; max-width: 26rem; }
 .t-consult { grid-area: consult; background: var(--navy); }
 .t-consult h3 { font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem); }
-.t-include { grid-area: include; background: linear-gradient(160deg, var(--rose-2), var(--rose)); }
-.t-robot { grid-area: robot; background: linear-gradient(160deg, var(--blue-2), var(--blue)); }
+.t-include { grid-area: include; background: linear-gradient(160deg, var(--blue-2), var(--blue)); }
+.t-robot { grid-area: robot; background: var(--ice); color: var(--navy); }
+.t-robot p { opacity: 1; color: var(--ink-2); }
 .t-photo { grid-area: photo; padding: 0; min-height: 420px; }
 .t-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform 1.2s var(--ease); }
 .t-photo:hover img { transform: scale(1.04); }
@@ -139,7 +143,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 
 /* ---------- STEAM ---------- */
-.steam { background: var(--grey); }
+.steam { background: var(--ice); }
 .letters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; list-style: none; margin: 0; padding: 0; }
 .letters li {
   border-radius: 24px; padding: 1.25rem 1.2rem 1.35rem; min-height: 210px; color: #fff;
@@ -150,11 +154,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .letters b { font-size: clamp(3.4rem, 2.6rem + 2.4vw, 4.8rem); font-weight: 800; line-height: .85; letter-spacing: -.04em; }
 .letters span { display: block; font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; }
 .letters small { display: block; font-size: .9rem; font-weight: 600; opacity: .9; margin-top: .15rem; }
-.l-s { background: linear-gradient(160deg, var(--teal-2), var(--teal)); color: var(--navy) !important; }
-.l-t { background: linear-gradient(160deg, var(--blue-2), var(--blue)); }
-.l-e { background: linear-gradient(160deg, var(--violet-2), var(--violet)); }
-.l-a { background: linear-gradient(160deg, var(--rose-2), var(--rose)); }
-.l-m { background: linear-gradient(160deg, var(--amber-2), var(--amber)); color: var(--navy) !important; }
+.l-s, .l-m { background: var(--navy); }
+.l-t, .l-a { background: linear-gradient(160deg, var(--blue-2), var(--blue)); }
+.l-e { background: var(--sky); color: var(--navy) !important; }
 .builds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
 .builds figure { margin: 0; position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 3; background: var(--line); }
 .builds img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
@@ -170,11 +172,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* ---------- Promise ---------- */
 .promise p { text-align: center; font: 800 clamp(2rem, 1.2rem + 3.6vw, 4rem)/1.12 var(--font); letter-spacing: -.045em; max-width: 58rem; margin-inline: auto; text-wrap: balance; }
 .hl { white-space: nowrap; }
-.hl-1 { color: var(--blue); } .hl-2 { color: #e08600; } .hl-3 { color: #e0244a; }
+.promise p { color: var(--navy); }
+.hl { color: var(--blue); }
 
 /* ---------- Steps ---------- */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.steps li { background: var(--grey); border-radius: var(--r-lg); padding: 1.8rem; display: grid; gap: .5rem; align-content: start; }
+.steps li { background: var(--ice); border-radius: var(--r-lg); padding: 1.8rem; display: grid; gap: .5rem; align-content: start; }
 .steps .num { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: .9rem; }
 .steps h3 { font-size: 1.5rem; }
 .steps p { color: var(--ink-2); }
@@ -202,15 +205,17 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .cta::before {
   content: ""; position: absolute; inset: 0; z-index: -1; opacity: .55;
   background:
-    radial-gradient(28rem 18rem at 8% 0%, color-mix(in srgb, var(--blue) 60%, transparent), transparent 70%),
-    radial-gradient(24rem 16rem at 95% 100%, color-mix(in srgb, var(--rose) 50%, transparent), transparent 70%),
-    radial-gradient(20rem 14rem at 70% 0%, color-mix(in srgb, var(--teal) 55%, transparent), transparent 70%);
+    radial-gradient(30rem 20rem at 10% 0%, color-mix(in srgb, var(--blue) 70%, transparent), transparent 70%),
+    radial-gradient(26rem 18rem at 95% 100%, color-mix(in srgb, var(--blue-2) 45%, transparent), transparent 70%);
 }
 .cta h2 { color: #fff; font-size: clamp(2.2rem, 1.4rem + 3.4vw, 3.8rem); }
 .cta > p { color: rgba(255, 255, 255, .8); margin: 1rem auto 0; max-width: 32rem; }
 .email { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .6rem; margin-top: 2rem; padding: .5rem .5rem .5rem 1.2rem; border-radius: 999px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18); max-width: 100%; }
 .email code { font: 700 1.02rem/1.3 var(--font); color: #fff; user-select: all; overflow-wrap: anywhere; }
-.status { display: block; min-height: 1.4em; margin-top: .8rem; font-size: .88rem; color: var(--teal); }
+.status { display: block; min-height: 1.4em; margin-top: .8rem; font-size: .88rem; color: var(--sky); }
+.cta-pilot { width: 132px; height: 132px; margin: 0 auto 1.4rem; border-radius: 50%; background: var(--ice); display: grid; place-items: center; }
+.cta-pilot img { width: 96px; height: auto; margin-top: 8px; }
+.footer .pilot-head { width: 34px; height: 34px; border-radius: 50%; background: var(--ice); padding: 3px; }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; font-size: .85rem; color: var(--ink-2); }
@@ -250,6 +255,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
+      <img class="mascot" src="images/mascot/pilot-wave.svg" width="270" height="320" alt="Pilot, our robot mascot, waving hello">
       <span class="pill"><i></i>B.C. not-for-profit</span>
       <h1 id="hero-title">Helping B.C. kids <span>thrive.</span></h1>
       <p class="sub">Consulting and support for kids, families and schools, with hands-on robotics and STEAM.</p>
@@ -276,7 +282,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <div class="head"><h2 class="title" id="what-title">What we do.</h2></div>
       <div class="bento">
         <article class="tile t-consult">
-          <span class="app teal"><svg><use href="#i-chat"/></svg></span>
+          <span class="app blue"><svg><use href="#i-chat"/></svg></span>
           <div><h3>Consulting &amp; support</h3><p>We listen first, then help kids, families and schools find the right support.</p></div>
         </article>
         <article class="tile t-include">
@@ -284,7 +290,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
           <div><h3>Every child belongs</h3><p>Support for students with ADHD, autism and other needs.</p></div>
         </article>
         <article class="tile t-robot">
-          <span class="app glass"><svg><use href="#i-robot"/></svg></span>
+          <span class="app navy"><svg><use href="#i-robot"/></svg></span>
           <div><h3>Robotics</h3><p>A hands-on way to focus, create and work together.</p></div>
         </article>
         <figure class="tile t-photo">
@@ -325,9 +331,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <div class="wrap">
       <div class="head"><h2 class="title" id="how-title">Getting started is simple.</h2></div>
       <ol class="steps">
-        <li><span class="num" style="background: linear-gradient(160deg, var(--blue-2), var(--blue))">1</span><h3>Reach out</h3><p>Tell us about your child, class or school.</p></li>
-        <li><span class="num" style="background: linear-gradient(160deg, var(--teal-2), var(--teal))">2</span><h3>We listen</h3><p>A short conversation to understand each child’s needs.</p></li>
-        <li><span class="num" style="background: linear-gradient(160deg, var(--rose-2), var(--rose))">3</span><h3>Grow together</h3><p>Support and hands-on sessions that fit.</p></li>
+        <li><span class="num" style="background: var(--navy)">1</span><h3>Reach out</h3><p>Tell us about your child, class or school.</p></li>
+        <li><span class="num" style="background: var(--blue)">2</span><h3>We listen</h3><p>A short conversation to understand each child’s needs.</p></li>
+        <li><span class="num" style="background: var(--blue-2)">3</span><h3>Grow together</h3><p>Support and hands-on sessions that fit.</p></li>
       </ol>
       <p class="note">We’re a not-for-profit. Fees cover delivery costs, and any surplus funds future youth programs.</p>
     </div>
@@ -358,6 +364,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <div class="cta">
+        <div class="cta-pilot"><img src="images/mascot/pilot-cheer.svg" width="280" height="320" alt="Pilot cheering"></div>
         <h2 id="contact-title">Get in touch.</h2>
         <p>Tell us about your child, class or school, and how we can help.</p>
         <!-- TODO: replace with the society's email once it is set up. -->
@@ -378,7 +385,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
       <img class="mark" src="images/brand/logo-mark.png" width="600" height="316" alt="">
       <img class="word" src="images/brand/logo-wordmark.png" width="700" height="305" alt="BC Youth Discovery Society">
     </a>
-    <span>© 2026 BC Youth Discovery Society · A B.C. not-for-profit</span>
+    <span style="display:inline-flex; align-items:center; gap:.6rem"><img class="pilot-head" src="images/mascot/pilot-head.svg" width="34" height="34" alt="">© 2026 BC Youth Discovery Society · A B.C. not-for-profit</span>
   </div>
 </footer>
 
