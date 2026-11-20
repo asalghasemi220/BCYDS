@@ -5,108 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BC Youth Discovery Society</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="BC Youth Discovery Society helps British Columbia schools bring hands-on learning into the classroom, starting with robotics workshops.">
+<meta name="description" content="Hands-on classes for British Columbia schools in robotics, science, the arts, outdoor learning and everyday life skills.">
+<meta name="theme-color" content="#10231e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-32 -32 64 64'%3E%3Cg%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%232f5bea'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%2312a19b' transform='rotate(60)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%23e04e65' transform='rotate(120)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%233c8a4c' transform='rotate(180)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%23f0a13a' transform='rotate(240)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%237b5bd1' transform='rotate(300)'/%3E%3Ccircle r='7' fill='%2310231e'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* Layout: a workbench page. Asymmetric hero (claim left, classroom photo right), then a "lab sheet"
-   for the sample activity, a three-step booking path, and an inquiry card. Sensor-yellow is the one loud note. */
+/* Layout: the logo's six petals are the system. Each activity owns one petal colour; the page is a deep
+   evergreen frame (BC coast) around bright, paper-light content. Cinematic hero collage -> verb marquee ->
+   scroll-driven activity tour whose colour follows the active petal -> outcomes -> sample lab sheet ->
+   booking path -> collaborators (small) -> inquiry. */
 :root {
-  --paper: #f5f8f7;
+  --forest: #10231e;
+  --forest-2: #183229;
+  --paper: #f6f7f3;
   --surface: #ffffff;
-  --ink: #0f2b33;
-  --ink-soft: #46616a;
-  --line: #d3dfdd;
-  --sea: #1f6f63;
-  --sea-tint: #e3f0ed;
-  --signal: #f2c230;
-  --signal-ink: #2a2100;
-  --grid: rgba(15, 43, 51, 0.06);
+  --ink: #12211c;
+  --ink-soft: #4d5f58;
+  --line: #dde3dc;
+  --on-forest: #eef3ee;
+  --on-forest-soft: #a9bcb3;
+
+  --robotics: #2f5bea;
+  --science: #12a19b;
+  --arts: #e04e65;
+  --outdoor: #3c8a4c;
+  --life: #f0a13a;
+  --projects: #7b5bd1;
+
+  --accent: var(--robotics);
 
   --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --f-body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 
-  --step--1: 0.875rem;
-  --step-0: 1.0625rem;
-  --step-1: 1.25rem;
-  --step-2: 1.6rem;
-  --step-3: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
-  --step-4: clamp(2.4rem, 1.6rem + 3.6vw, 4.1rem);
+  --s-label: 0.74rem;
+  --s-small: 0.9rem;
+  --s-body: 1.0625rem;
+  --s-lead: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+  --s-h3: clamp(1.3rem, 1.1rem + 0.8vw, 1.65rem);
+  --s-h2: clamp(2rem, 1.3rem + 3vw, 3.6rem);
+  --s-h1: clamp(2.7rem, 1.4rem + 5.6vw, 6.2rem);
 
-  --radius: 14px;
-  --wrap: 72rem;
+  --r: 18px;
+  --wrap: 78rem;
+  --ease: cubic-bezier(.2, .7, .1, 1);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0c1b20;
-    --surface: #12262c;
-    --ink: #e7f0ee;
-    --ink-soft: #a3b9b6;
-    --line: #24414a;
-    --sea: #6cc7b5;
-    --sea-tint: #16343a;
-    --signal: #f5cc4a;
-    --signal-ink: #2a2100;
-    --grid: rgba(231, 240, 238, 0.05);
+    --paper: #0d1916;
+    --surface: #13231f;
+    --ink: #e9efea;
+    --ink-soft: #a3b4ac;
+    --line: #253831;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0c1b20;
-  --surface: #12262c;
-  --ink: #e7f0ee;
-  --ink-soft: #a3b9b6;
-  --line: #24414a;
-  --sea: #6cc7b5;
-  --sea-tint: #16343a;
-  --signal: #f5cc4a;
-  --signal-ink: #2a2100;
-  --grid: rgba(231, 240, 238, 0.05);
+  --paper: #0d1916;
+  --surface: #13231f;
+  --ink: #e9efea;
+  --ink-soft: #a3b4ac;
+  --line: #253831;
   color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--f-body);
-  font-size: var(--step-0);
-  line-height: 1.6;
+  font: 400 var(--s-body)/1.62 var(--f-body);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--sea); text-underline-offset: 3px; }
-a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
-h1, h2, h3 { font-family: var(--f-display); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--life); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; line-height: 1.02; letter-spacing: -0.025em; text-wrap: balance; }
 p { margin: 0; }
-
 .wrap {
   max-width: var(--wrap);
   margin-inline: auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-left: max(18px, env(safe-area-inset-left, 0px));
+  padding-right: max(18px, env(safe-area-inset-right, 0px));
 }
-@media (min-width: 640px) {
-  .wrap {
-    padding-left: max(32px, env(safe-area-inset-left, 0px));
-    padding-right: max(32px, env(safe-area-inset-right, 0px));
-  }
+@media (min-width: 720px) {
+  .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); }
 }
-
-.label {
-  font-family: var(--f-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font: 500 var(--s-label)/1 var(--f-mono);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--sea);
+  color: var(--ink-soft);
 }
+.eyebrow::before { content: ""; width: 1.6rem; height: 2px; background: currentColor; opacity: 0.6; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  --b-bg: var(--life);
+  --b-fg: #1c1302;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.95rem 1.35rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--b-bg);
+  color: var(--b-fg);
+  font: 700 1rem/1 var(--f-body);
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .35s var(--ease);
+  white-space: nowrap;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #fff;
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:hover::after { opacity: .18; }
+.btn .arrow { transition: transform .35s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+.btn-line { --b-bg: transparent; --b-fg: currentColor; box-shadow: inset 0 0 0 1.5px currentColor; }
+.btn-sm { padding: 0.7rem 1rem; font-size: 0.92rem; }
 
 /* ---------- Header ---------- */
 body::before {
@@ -114,377 +150,434 @@ body::before {
   position: fixed;
   inset: 0 0 auto;
   height: env(safe-area-inset-top, 0px);
-  z-index: 10;
-  background: var(--paper);
+  z-index: 60;
+  background: var(--forest);
 }
 .site-header {
-  position: sticky;
+  position: fixed;
   top: env(safe-area-inset-top, 0px);
-  z-index: 9;
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  color: var(--on-forest);
+  transition: background-color .4s var(--ease), box-shadow .4s var(--ease);
 }
-.site-header .wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block: 0.75rem;
+.site-header.is-solid {
+  background: color-mix(in srgb, var(--forest) 90%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06);
 }
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  color: var(--ink);
-  text-decoration: none;
-  min-width: 0;
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; }
+.logo { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; min-width: 0; }
+.logo svg { flex: none; }
+.logo-mark { transition: transform 1.2s var(--ease); }
+.logo:hover .logo-mark { transform: rotate(60deg); }
+.logo-word { display: grid; line-height: 1; }
+.logo-word b { font: 800 1.12rem/1 var(--f-display); letter-spacing: -0.02em; }
+.logo-word span { margin-top: .32rem; font: 500 .62rem/1 var(--f-mono); letter-spacing: .32em; text-transform: uppercase; opacity: .7; }
+.nav { display: flex; align-items: center; gap: 1.75rem; }
+.nav a:not(.btn) { position: relative; text-decoration: none; font-weight: 500; font-size: .95rem; opacity: .85; }
+.nav a:not(.btn)::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: currentColor;
+  transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
 }
-.brand svg { flex: none; }
-.brand-name {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  line-height: 1.1;
-}
-.brand-name small {
-  display: block;
-  font-family: var(--f-body);
-  font-weight: 400;
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-}
-.nav { display: flex; align-items: center; gap: 1.5rem; }
-.nav a:not(.btn) {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-.nav a:not(.btn):hover { color: var(--sea); }
-@media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--f-body);
-  font-weight: 700;
-  font-size: 0.98rem;
-  line-height: 1;
-  padding: 0.85rem 1.2rem;
-  border-radius: 999px;
-  border: 2px solid transparent;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease;
-  white-space: nowrap;
-}
-.btn-primary { background: var(--signal); color: var(--signal-ink); }
-.btn-primary:hover { transform: translateY(-1px); }
-.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-.btn-ghost:hover { border-color: var(--ink); }
-.btn-sm { padding: 0.6rem 0.95rem; font-size: 0.9rem; }
-@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn-primary:hover { transform: none; } }
+.nav a:not(.btn):hover { opacity: 1; }
+.nav a:not(.btn):hover::after { transform: scaleX(1); }
+@media (max-width: 900px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .logo-word b { font-size: 1rem; } .nav .btn { padding: .65rem .85rem; } }
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 3.5rem; } }
-.hero-copy { display: grid; gap: 1.4rem; min-width: 0; }
-.hero h1 { font-size: var(--step-4); font-weight: 800; }
-.hero h1 .mark {
-  background: linear-gradient(transparent 62%, var(--signal) 62%, var(--signal) 92%, transparent 92%);
-  padding-inline: 0.06em;
-}
-.hero .lede { font-size: var(--step-1); color: var(--ink-soft); max-width: 34rem; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-
-.hero-figure { margin: 0; position: relative; min-width: 0; }
-.hero-figure img {
-  width: 100%;
-  aspect-ratio: 4 / 3.2;
-  object-fit: cover;
-  object-position: 62% 50%;
-  border-radius: var(--radius);
-  box-shadow: 0 1px 0 var(--line), 0 24px 48px -28px rgba(15, 43, 51, 0.45);
-}
-.hero-figure figcaption {
-  margin-top: 0.6rem;
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-}
-.hero-tag {
-  position: absolute;
-  left: -0.75rem;
-  bottom: 2.6rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 0.6rem 0.85rem;
-  font-family: var(--f-mono);
-  font-size: 0.78rem;
-  line-height: 1.4;
-  box-shadow: 0 12px 24px -16px rgba(15, 43, 51, 0.5);
-}
-.hero-tag b { color: var(--sea); font-weight: 600; }
-@media (max-width: 520px) { .hero-tag { left: 0.6rem; } }
-
-/* ---------- Programs ---------- */
-.programs { padding-block: clamp(3rem, 7vw, 5rem); border-top: 1px solid var(--line); }
-.section-head { display: grid; gap: 0.75rem; max-width: 40rem; margin-bottom: 2rem; }
-.section-head h2 { font-size: var(--step-3); font-weight: 700; }
-.section-head p { color: var(--ink-soft); }
-.program-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  gap: 1rem;
-}
-.program {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  gap: 0.6rem;
-  padding: 1.4rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-.program.is-first { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.program.is-first p { color: color-mix(in srgb, var(--paper) 78%, var(--ink)); }
-.program .status {
-  justify-self: start;
-  font-family: var(--f-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.55rem;
-  border-radius: 999px;
-  background: var(--sea-tint);
-  color: var(--sea);
-}
-.program.is-first .status { background: var(--signal); color: var(--signal-ink); }
-.program h3 { font-size: var(--step-1); font-weight: 700; }
-.program p { color: var(--ink-soft); font-size: 0.97rem; }
-
-/* ---------- Workshop / lab sheet ---------- */
-.workshop { padding-block: clamp(3rem, 7vw, 5.5rem); background: var(--surface); border-block: 1px solid var(--line); }
-.workshop-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
-@media (min-width: 900px) { .workshop-grid { grid-template-columns: 0.95fr 1.05fr; gap: 3.5rem; align-items: start; } }
-.challenge {
-  font-family: var(--f-display);
-  font-size: var(--step-3);
-  font-weight: 700;
-  line-height: 1.12;
-  text-wrap: balance;
-}
-.workshop-intro { display: grid; gap: 1.25rem; min-width: 0; }
-.workshop-intro > p { color: var(--ink-soft); max-width: 36rem; }
-.workshop-figure { margin: 0; display: grid; gap: 0.5rem; }
-.workshop-figure img { border-radius: var(--radius); width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-.workshop-figure figcaption { font-size: 0.78rem; color: var(--ink-soft); }
-
-.sheet {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--paper);
+  position: relative;
+  background: var(--forest);
+  color: var(--on-forest);
+  padding-block: calc(env(safe-area-inset-top, 0px) + 7.5rem) 5rem;
+  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
   overflow: hidden;
+  isolation: isolate;
+}
+.hero::before {
+  /* soft petal-coloured light pooling behind the collage */
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto 35%;
+  height: 120%;
+  z-index: -1;
+  background:
+    radial-gradient(40% 35% at 70% 30%, color-mix(in srgb, var(--robotics) 38%, transparent), transparent 70%),
+    radial-gradient(35% 30% at 40% 70%, color-mix(in srgb, var(--science) 30%, transparent), transparent 70%),
+    radial-gradient(30% 30% at 85% 75%, color-mix(in srgb, var(--arts) 26%, transparent), transparent 70%);
+  filter: blur(20px);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+@keyframes drift { to { transform: translate3d(-6%, 4%, 0) scale(1.08); } }
+.grain {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; align-items: center; }
+@media (min-width: 980px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; } }
+.hero-copy { display: grid; gap: 1.6rem; min-width: 0; }
+.hero .eyebrow { color: var(--on-forest-soft); }
+.hero h1 { font-size: var(--s-h1); font-weight: 800; }
+.hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+.hero h1 .line > span { display: inline-block; animation: rise 1.1s var(--ease) both; }
+.hero h1 .line:nth-child(2) > span { animation-delay: .12s; }
+.hero h1 .line:nth-child(3) > span { animation-delay: .24s; }
+@keyframes rise { from { transform: translateY(105%); } }
+.rotator {
+  display: inline-grid;
+  vertical-align: bottom;
+  color: var(--rot, var(--life));
+  transition: color .6s var(--ease);
+}
+.rotator > span { grid-area: 1 / 1; transition: transform .7s var(--ease), opacity .5s var(--ease); white-space: nowrap; }
+.rotator > span:not(.on) { opacity: 0; transform: translateY(60%); }
+.rotator > span.off { opacity: 0; transform: translateY(-60%); }
+.hero .lead { font-size: var(--s-lead); color: var(--on-forest-soft); max-width: 36rem; animation: fadeup 1s .45s var(--ease) both; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; animation: fadeup 1s .6s var(--ease) both; }
+@keyframes fadeup { from { opacity: 0; transform: translateY(18px); } }
+
+/* collage */
+.collage {
+  position: relative;
+  aspect-ratio: 1 / 1.02;
+  max-width: 100%;
   min-width: 0;
 }
-.sheet-head {
+.tile {
+  position: absolute;
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgba(0,0,0,.7);
+  animation: tile-in 1.2s var(--ease) both;
+  will-change: transform;
+}
+.tile img { width: 100%; height: 100%; object-fit: cover; }
+.tile-a { left: 0; top: 6%; width: 64%; height: 62%; animation-delay: .15s; }
+.tile-b img { object-position: 30% 70%; }
+.tile-c img { object-position: 60% 40%; }
+.tile-a img { object-position: 60% 50%; animation: kenburns 22s ease-in-out infinite alternate; }
+.tile-b { right: 0; top: 0; width: 32%; height: 30%; background: var(--arts); animation-delay: .3s; }
+.tile-c { right: 0; top: 34%; width: 32%; height: 34%; background: var(--science); animation-delay: .4s; }
+.tile-d { left: 8%; bottom: 0; width: 40%; height: 28%; background: var(--outdoor); animation-delay: .5s; }
+.tile-e { right: 0; bottom: 0; width: 48%; height: 28%; animation-delay: .6s; }
+.tile-e img { object-position: 35% 60%; }
+@keyframes tile-in { from { opacity: 0; transform: translateY(40px) scale(.96); } }
+@keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.14) translate(-2%, -1%); } }
+.tile .tile-label {
+  position: absolute; left: .9rem; bottom: .8rem;
+  font: 500 .66rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; padding: .45rem .6rem; border-radius: 999px; background: rgba(0,0,0,.28); backdrop-filter: blur(6px);
+}
+.tile svg.art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.collage-caption {
+  position: absolute; left: 0; top: calc(68% + .6rem); width: 64%;
+  font-size: .72rem; color: var(--on-forest-soft); opacity: .8; display: none;
+}
+
+.hero-foot {
+  margin-top: 4rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
   flex-wrap: wrap;
-  padding: 0.9rem 1.25rem;
-  border-bottom: 1px dashed var(--line);
-  font-family: var(--f-mono);
-  font-size: 0.78rem;
-  color: var(--ink-soft);
+  gap: 1.5rem 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+  color: var(--on-forest-soft);
+  font-size: .95rem;
 }
-.sheet-head strong { color: var(--ink); font-weight: 600; }
-.steps { list-style: none; margin: 0; padding: 0.5rem 1.25rem 1.25rem; counter-reset: step; }
-.steps li {
-  counter-increment: step;
-  display: grid;
-  grid-template-columns: 2.4rem 1fr;
-  gap: 0.25rem 1rem;
-  padding-block: 1rem;
-  border-bottom: 1px solid var(--line);
-}
-.steps li:last-child { border-bottom: 0; }
-.steps li::before {
-  content: counter(step);
-  grid-row: span 2;
-  width: 2.4rem;
-  height: 2.4rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  border: 2px solid var(--ink);
-  font-family: var(--f-mono);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-.steps h3 { font-size: var(--step-1); font-weight: 700; align-self: center; }
-.steps p { color: var(--ink-soft); font-size: 0.97rem; }
+.hero-foot div { display: flex; align-items: center; gap: .7rem; }
+.hero-foot i { width: .6rem; height: .6rem; border-radius: 50%; background: var(--c); flex: none; }
 
-.code {
-  margin: 0 1.25rem 1.25rem;
-  padding: 1rem 1.15rem;
-  border-radius: 10px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--f-mono);
-  font-size: 0.86rem;
-  line-height: 1.7;
-  overflow-x: auto;
+/* ---------- Marquee ---------- */
+.marquee {
+  background: var(--forest-2);
+  color: var(--on-forest);
+  overflow: hidden;
+  border-block: 1px solid rgba(255,255,255,.06);
 }
-.code .c { color: color-mix(in srgb, var(--paper) 55%, var(--ink)); }
-.code .k { color: var(--signal); font-weight: 600; }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  padding-block: 1.15rem;
+  animation: marquee 38s linear infinite;
+}
+.marquee span {
+  display: inline-flex; align-items: center; gap: 2.5rem;
+  font: 600 clamp(1.3rem, 1rem + 1.2vw, 2rem)/1 var(--f-display);
+  letter-spacing: -.02em; white-space: nowrap;
+}
+.marquee span::after { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--c, var(--life)); }
+@keyframes marquee { to { transform: translateX(-50%); } }
 
-/* ---------- Partnerships ---------- */
-.partner { padding-block: clamp(3rem, 7vw, 5.5rem); }
-.path {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  counter-reset: path;
+/* ---------- Section scaffolding ---------- */
+.section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
+.head { display: grid; gap: 1.1rem; max-width: 46rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.head h2 { font-size: var(--s-h2); font-weight: 800; }
+.head p { font-size: var(--s-lead); color: var(--ink-soft); }
+
+/* ---------- Activities (scroll tour) ---------- */
+.activities { position: relative; }
+.tour { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 980px) {
+  .tour { grid-template-columns: 0.9fr 1.1fr; gap: 4rem; align-items: start; }
 }
-@media (min-width: 820px) { .path { grid-template-columns: repeat(3, 1fr); } }
-.path li {
-  counter-increment: path;
+.tour-stage {
+  display: none;
+}
+@media (min-width: 980px) {
+  .tour-stage {
+    display: block;
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 6.5rem);
+    height: min(70vh, 38rem);
+    border-radius: calc(var(--r) + 6px);
+    background: var(--forest);
+    overflow: hidden;
+    isolation: isolate;
+  }
+}
+.stage-glow {
+  position: absolute; inset: -30%; z-index: -1;
+  background: radial-gradient(45% 45% at 50% 55%, var(--accent), transparent 70%);
+  opacity: .55; transition: background .8s var(--ease);
+}
+.stage-flower {
+  position: absolute; left: 50%; top: 46%; width: 62%; translate: -50% -50%;
+  transition: rotate 1.1s var(--ease);
+}
+.stage-flower ellipse { transition: opacity .6s var(--ease), transform .8s var(--ease); transform-box: fill-box; transform-origin: center; }
+.stage-flower ellipse:not(.is-on) { opacity: .22; }
+.stage-flower ellipse.is-on { transform: scale(1.08); }
+.stage-meta {
+  position: absolute; left: 1.75rem; right: 1.75rem; bottom: 1.6rem;
+  display: flex; justify-content: space-between; align-items: end; gap: 1rem;
+  color: var(--on-forest);
+}
+.stage-count { font: 800 clamp(3rem, 2rem + 3vw, 5rem)/.9 var(--f-display); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.stage-count small { font-size: .3em; letter-spacing: 0; opacity: .6; margin-left: .3em; }
+.stage-name { font: 500 .8rem/1.3 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; text-align: right; opacity: .85; }
+
+.act-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.act {
+  --c: var(--robotics);
   position: relative;
   display: grid;
-  gap: 0.6rem;
-  align-content: start;
-  padding: 1.5rem 1.4rem 1.6rem;
-  border-top: 4px solid var(--ink);
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  padding: clamp(1.4rem, 3vw, 2.1rem);
+  border-radius: var(--r);
   background: var(--surface);
-  border-radius: 0 0 var(--radius) var(--radius);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: border-color .5s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
 }
-.path li::before {
-  content: "Step " counter(path);
-  font-family: var(--f-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--sea);
+@media (min-width: 980px) { .act { min-height: 22rem; align-content: center; } }
+.act::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--c);
+  transform: scaleY(.25); transform-origin: top; transition: transform .7s var(--ease);
 }
-.path h3 { font-size: var(--step-2); font-weight: 700; }
-.path p { color: var(--ink-soft); }
-.fees {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1.25rem 1.4rem;
-  border-radius: var(--radius);
-  background: var(--sea-tint);
-  max-width: 48rem;
+.act.is-active { border-color: color-mix(in srgb, var(--c) 45%, var(--line)); box-shadow: 0 30px 60px -40px color-mix(in srgb, var(--c) 70%, transparent); }
+.act.is-active::before { transform: scaleY(1); }
+.act-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.act-icon {
+  width: 3.4rem; height: 3.4rem; border-radius: 14px; display: grid; place-items: center;
+  background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--c);
 }
-.fees svg { flex: none; margin-top: 0.15rem; color: var(--sea); }
-.fees p { min-width: 0; }
+.status {
+  font: 500 .66rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase;
+  padding: .5rem .7rem; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft);
+}
+.status.is-first { border-color: transparent; background: var(--c); color: #fff; }
+.act h3 { font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem); font-weight: 800; }
+.act p { color: var(--ink-soft); max-width: 34rem; }
+.act .example {
+  display: flex; gap: .8rem; align-items: baseline; flex-wrap: wrap;
+  padding-top: 1rem; border-top: 1px dashed var(--line);
+  font-size: .97rem;
+}
+.act .example b { font: 500 .68rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--c); }
+.act-photo { margin: 0; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; }
+.act-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.act:hover .act-photo img { transform: scale(1.05); }
 
-/* ---------- Inquiries ---------- */
-.inquiry { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(3.5rem, 8vw, 6rem); }
-.inquiry-card {
+/* ---------- Outcomes ---------- */
+.outcomes { background: var(--forest); color: var(--on-forest); position: relative; overflow: hidden; isolation: isolate; }
+.outcomes .eyebrow { color: var(--on-forest-soft); }
+.outcomes .head p { color: var(--on-forest-soft); }
+.outcome-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.outcome {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  border-radius: calc(var(--radius) + 6px);
-  background: var(--ink);
-  color: var(--paper);
+  gap: .6rem 3rem;
+  padding-block: clamp(1.6rem, 3.5vw, 2.6rem);
+  border-top: 1px solid rgba(255,255,255,.12);
+  align-items: baseline;
 }
-@media (min-width: 900px) { .inquiry-card { grid-template-columns: 1fr 1fr; gap: 3rem; } }
-.inquiry-card h2 { font-size: var(--step-3); font-weight: 700; }
-.inquiry-card .label { color: var(--signal); }
-.inquiry-card > div { display: grid; gap: 1.1rem; align-content: start; min-width: 0; }
-.inquiry-card p { color: color-mix(in srgb, var(--paper) 80%, var(--ink)); }
-.email-box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1rem;
-  border-radius: 12px;
-  border: 1px dashed color-mix(in srgb, var(--paper) 35%, var(--ink));
+.outcome:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
+@media (min-width: 900px) { .outcome { grid-template-columns: 1.15fr 1fr; } }
+.outcome h3 {
+  font-size: clamp(2.1rem, 1.2rem + 4vw, 4.6rem); font-weight: 800; letter-spacing: -.035em;
+  background: linear-gradient(90deg, var(--on-forest) 0 50%, var(--c) 50% 100%);
+  background-size: 200% 100%; background-position: 0 0;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  transition: background-position 1s var(--ease);
 }
-.email-box code {
-  font-family: var(--f-mono);
-  font-size: 1rem;
-  color: var(--paper);
-  overflow-wrap: anywhere;
-  user-select: all;
-  flex: 1 1 12rem;
+.outcome:hover h3, .outcome.in-view h3 { background-position: -100% 0; }
+.outcome p { color: var(--on-forest-soft); font-size: var(--s-lead); max-width: 30rem; }
+
+/* ---------- Sample workshop ---------- */
+.lab { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 980px) { .lab { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; } }
+.lab-photo { margin: 0; position: relative; border-radius: calc(var(--r) + 6px); overflow: hidden; aspect-ratio: 4 / 3.4; }
+.lab-photo img { width: 100%; height: 100%; object-fit: cover; }
+.lab-photo figcaption {
+  position: absolute; left: 1rem; bottom: 1rem; right: 1rem;
+  font-size: .74rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.6);
 }
-.checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.1rem; }
-.checklist li {
-  display: grid;
-  grid-template-columns: 1.6rem 1fr;
-  gap: 0.6rem;
-  padding: 0.7rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--paper) 15%, var(--ink));
+.sensor {
+  position: absolute; top: 1rem; right: 1rem;
+  display: grid; gap: .35rem; padding: .8rem 1rem; border-radius: 12px;
+  background: rgba(16,35,30,.78); backdrop-filter: blur(8px); color: var(--on-forest);
+  font: 500 .74rem/1.2 var(--f-mono);
 }
-.checklist li:last-child { border-bottom: 0; }
-.checklist svg { color: var(--signal); margin-top: 0.2rem; }
-.families {
-  margin-top: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1rem;
+.sensor .row { display: flex; justify-content: space-between; gap: 1.5rem; }
+.sensor .val { color: var(--life); font-variant-numeric: tabular-nums; }
+.lab-copy { display: grid; gap: 1.4rem; min-width: 0; }
+.lab-copy .q { font: 800 clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem)/1.05 var(--f-display); letter-spacing: -.03em; text-wrap: balance; }
+.lab-copy > p { color: var(--ink-soft); font-size: var(--s-lead); }
+.steps { list-style: none; margin: .4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; counter-reset: s; }
+.steps li {
+  counter-increment: s; padding: 1.1rem 1.1rem 1.2rem; border-radius: 14px; border: 1px solid var(--line); background: var(--surface);
+  display: grid; gap: .35rem; align-content: start;
 }
-.families p { flex: 1 1 16rem; font-size: 0.95rem; }
-.inquiry-card .btn-ghost { color: var(--paper); border-color: color-mix(in srgb, var(--paper) 35%, var(--ink)); }
-.inquiry-card .btn-ghost:hover { border-color: var(--paper); }
-.copied { font-family: var(--f-mono); font-size: 0.8rem; color: var(--signal); }
+.steps li::before { content: "0" counter(s); font: 500 .72rem/1 var(--f-mono); color: var(--robotics); letter-spacing: .1em; }
+.steps b { font: 700 1.1rem/1.2 var(--f-display); }
+.steps span { color: var(--ink-soft); font-size: .93rem; line-height: 1.5; }
+@media (max-width: 460px) { .steps { grid-template-columns: 1fr; } }
+
+/* ---------- How it works ---------- */
+.how { background: var(--surface); border-block: 1px solid var(--line); }
+.path { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; counter-reset: p; }
+@media (min-width: 900px) { .path { grid-template-columns: repeat(3, 1fr); } }
+.path li {
+  counter-increment: p; position: relative; display: grid; gap: .8rem; align-content: start;
+  padding: 2rem 0 2.2rem; border-top: 1px solid var(--line);
+}
+@media (min-width: 900px) {
+  .path li { padding: 2.2rem 2.2rem 0 0; }
+  .path li + li { padding-left: 2.2rem; border-left: 1px solid var(--line); }
+}
+.path li::before {
+  content: counter(p);
+  font: 800 3.6rem/1 var(--f-display); letter-spacing: -.04em;
+  color: transparent; -webkit-text-stroke: 1.5px var(--ink-soft);
+}
+.path h3 { font-size: var(--s-h3); font-weight: 800; }
+.path p { color: var(--ink-soft); }
+.fees {
+  margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between;
+  padding: 1.5rem 1.75rem; border-radius: var(--r); background: var(--paper); border: 1px solid var(--line);
+}
+.fees p { flex: 1 1 26rem; min-width: 0; }
+.fees strong { font-family: var(--f-display); }
+
+/* ---------- Collaborators ---------- */
+.collab { padding-block: clamp(3rem, 6vw, 4.5rem); }
+.collab-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem 3rem; align-items: start; }
+@media (min-width: 900px) { .collab-row { grid-template-columns: 14rem 1fr 1fr; } }
+.collab-item { display: grid; gap: .35rem; padding-top: 1rem; border-top: 1px solid var(--line); min-width: 0; }
+.collab-item b { font: 700 1.05rem/1.25 var(--f-display); }
+.collab-item span { color: var(--ink-soft); font-size: .93rem; line-height: 1.55; }
+
+/* ---------- Inquiry ---------- */
+.inquiry { padding-block: 0 clamp(4rem, 9vw, 7rem); }
+.inq {
+  position: relative;
+  display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+  padding: clamp(1.75rem, 5vw, 4rem);
+  border-radius: calc(var(--r) + 10px);
+  background: var(--forest);
+  color: var(--on-forest);
+  overflow: hidden; isolation: isolate;
+}
+@media (min-width: 980px) { .inq { grid-template-columns: 1.1fr 1fr; gap: 4rem; } }
+.inq-flower { position: absolute; right: -8rem; top: -8rem; width: 26rem; opacity: .14; z-index: -1; animation: spin 80s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.inq h2 { font-size: var(--s-h2); font-weight: 800; }
+.inq .eyebrow { color: var(--on-forest-soft); }
+.inq-left { display: grid; gap: 1.4rem; align-content: start; min-width: 0; }
+.inq-left > p { color: var(--on-forest-soft); font-size: var(--s-lead); }
+.email {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .8rem;
+  padding: .7rem .7rem .7rem 1.2rem; border-radius: 999px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
+}
+.email code { flex: 1 1 12rem; font: 500 1rem/1.3 var(--f-mono); user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.families { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; align-items: center; color: var(--on-forest-soft); font-size: .95rem; }
+.families p { flex: 1 1 16rem; }
+.status-msg { font: 500 .8rem/1 var(--f-mono); color: var(--life); min-height: 1em; }
+.include { list-style: none; margin: 0; padding: 0; display: grid; }
+.include-title { font: 500 var(--s-label)/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--on-forest-soft); margin-bottom: .8rem; }
+.include li {
+  display: flex; gap: 1rem; align-items: center; padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.1); font-size: 1.05rem;
+}
+.include li i { width: .65rem; height: .65rem; border-radius: 50%; background: var(--c); flex: none; }
 
 /* ---------- Footer ---------- */
-.site-footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; font-size: 0.85rem; color: var(--ink-soft); }
-.footer-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
-@media (min-width: 820px) { .footer-grid { grid-template-columns: 1fr 1.4fr; } }
-.footer-grid strong { color: var(--ink); font-family: var(--f-display); font-size: 1rem; }
-.credits { display: grid; gap: 0.35rem; min-width: 0; }
-.credits p { overflow-wrap: anywhere; }
+.site-footer { background: var(--forest); color: var(--on-forest-soft); padding-block: 3.5rem 3rem; font-size: .86rem; }
+.foot { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 900px) { .foot { grid-template-columns: 1.2fr 1fr 1.4fr; } }
+.foot .logo { color: var(--on-forest); }
+.foot h4 { margin: 0 0 .8rem; font: 500 var(--s-label)/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--on-forest); }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.foot a { color: var(--on-forest); text-underline-offset: 3px; }
+.foot p { overflow-wrap: anywhere; }
+.foot-credits { display: grid; gap: .5rem; min-width: 0; }
+.foot-base { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+
+/* ---------- Reveal on scroll (content is visible without JS) ---------- */
+.js .reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
 
-<header class="site-header">
+<!-- Logo symbol: six petals, one per activity area. Reused below. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="flower">
+      <ellipse class="p-robotics" cx="0" cy="-15" rx="8" ry="14" fill="var(--robotics)"/>
+      <ellipse class="p-science"  cx="0" cy="-15" rx="8" ry="14" fill="var(--science)"  transform="rotate(60)"/>
+      <ellipse class="p-arts"     cx="0" cy="-15" rx="8" ry="14" fill="var(--arts)"     transform="rotate(120)"/>
+      <ellipse class="p-outdoor"  cx="0" cy="-15" rx="8" ry="14" fill="var(--outdoor)"  transform="rotate(180)"/>
+      <ellipse class="p-life"     cx="0" cy="-15" rx="8" ry="14" fill="var(--life)"     transform="rotate(240)"/>
+      <ellipse class="p-projects" cx="0" cy="-15" rx="8" ry="14" fill="var(--projects)" transform="rotate(300)"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="site-header" id="header">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="BC Youth Discovery Society, home">
-      <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
-        <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--ink)"/>
-        <path d="M8 27 L16 15 L21 22 L25 17 L32 27 Z" fill="var(--sea)"/>
-        <circle cx="27.5" cy="11.5" r="3.5" fill="var(--signal)"/>
-        <path d="M8 30.5 H32" stroke="var(--paper)" stroke-width="2" stroke-linecap="round"/>
+    <a class="logo" href="#top" aria-label="BC Youth Discovery Society home">
+      <svg class="logo-mark" width="42" height="42" viewBox="-32 -32 64 64" aria-hidden="true">
+        <use href="#flower"/><circle r="7" fill="var(--forest)"/><circle r="3" fill="var(--on-forest)"/>
       </svg>
-      <span class="brand-name">BC Youth Discovery Society<small>Hands-on learning for B.C. schools</small></span>
+      <span class="logo-word"><b>BC Youth Discovery</b><span>Society</span></span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#workshop">Workshops</a>
-      <a href="#partner">How it works</a>
-      <a class="btn btn-primary btn-sm" href="#inquiries">Plan a school visit</a>
+      <a href="#activities">Activities</a>
+      <a href="#workshop">Inside a class</a>
+      <a href="#how">How it works</a>
+      <a class="btn btn-sm" href="#inquiries">Plan a visit <span class="arrow" aria-hidden="true">→</span></a>
     </nav>
   </div>
 </header>
@@ -492,152 +585,282 @@ body::before {
 <main id="top">
 
   <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="label">For British Columbia schools</span>
-        <h1 id="hero-title">Learning by <span class="mark">building</span>, right in your classroom.</h1>
-        <p class="lede">We help British Columbia schools bring hands-on learning into the classroom. Our first planned program is robotics, with future workshops envisioned in science, the arts, and everyday life skills.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#inquiries">Plan a school visit</a>
-          <a class="btn btn-ghost" href="#workshop">See a sample workshop</a>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Hands-on learning for B.C. schools</span>
+          <h1 id="hero-title">
+            <span class="line"><span>Where students</span></span>
+            <span class="line"><span>discover</span></span>
+            <span class="line"><span><span class="rotator" id="rotator" aria-hidden="true">
+              <span class="on" data-c="var(--robotics)">robotics.</span>
+              <span data-c="var(--science)">science.</span>
+              <span data-c="var(--arts)">the arts.</span>
+              <span data-c="var(--outdoor)">the outdoors.</span>
+              <span data-c="var(--life)">life skills.</span>
+              <span data-c="var(--projects)">making things.</span>
+            </span><span class="sr-only">robotics, science, the arts, the outdoors and life skills.</span></span></span>
+          </h1>
+          <p class="lead">We help British Columbia schools bring hands-on classes into the classroom and beyond it. Students discover new interests, solve problems, and work together.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#inquiries">Plan a school visit <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn btn-line" href="#activities">Explore activities</a>
+          </div>
+        </div>
+
+        <div class="collage" id="collage" aria-label="Activity collage">
+          <div class="tile tile-a" data-depth="18">
+            <img src="images/students-building-robots.jpg" width="1600" height="1067" alt="Students laughing as they build and test small robots at a classroom table.">
+            <span class="tile-label">Robotics</span>
+          </div>
+          <div class="tile tile-b" data-depth="34">
+            <img src="images/painting-outdoors.jpg" width="1280" height="850" alt="Children painting at a picnic table outdoors with bowls of bright paint.">
+            <span class="tile-label">Arts</span>
+          </div>
+          <div class="tile tile-c" data-depth="26">
+            <img src="images/science-lab.jpg" width="825" height="1100" alt="Students in safety goggles running an experiment in a science lab.">
+            <span class="tile-label">Science</span>
+          </div>
+          <div class="tile tile-d" data-depth="40" aria-hidden="true">
+            <svg class="art" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
+              <path d="M0 200 L70 90 L120 150 L170 70 L260 200 Z" fill="#fff" opacity=".22"/>
+              <path d="M40 200 L95 120 L140 175 L195 100 L300 200 Z" fill="#10231e" opacity=".35"/>
+              <circle cx="235" cy="55" r="22" fill="#f0a13a"/>
+              <path d="M60 200 v-38 M60 168 l-14 10 M60 176 l14 -10" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <span class="tile-label">Outdoor learning</span>
+          </div>
+          <div class="tile tile-e" data-depth="24">
+            <img src="images/robot-car-sensor.jpg" width="1023" height="682" alt="Close-up of a small educational robot car with a sensor on the front.">
+            <span class="tile-label">Build + code</span>
+          </div>
         </div>
       </div>
-      <figure class="hero-figure">
-        <img src="images/students-building-robots.jpg" width="1600" height="1067"
-             alt="Students at a classroom table laughing as they build and test small robots, with an educator watching nearby.">
-        <div class="hero-tag" aria-hidden="true"><b>build</b> → <b>code</b> → <b>test</b> → revise</div>
-        <figcaption>Illustrative photo of students building small robots in a classroom.</figcaption>
-      </figure>
+
+      <div class="hero-foot" aria-label="Activity areas">
+        <div style="--c: var(--robotics)"><i></i>Robotics</div>
+        <div style="--c: var(--science)"><i></i>Science</div>
+        <div style="--c: var(--arts)"><i></i>Arts</div>
+        <div style="--c: var(--outdoor)"><i></i>Outdoor learning</div>
+        <div style="--c: var(--life)"><i></i>Life skills</div>
+        <div style="--c: var(--projects)"><i></i>Hands-on projects</div>
+      </div>
     </div>
   </section>
 
-  <section class="programs" aria-labelledby="programs-title">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span style="--c: var(--robotics)">Build</span><span style="--c: var(--science)">Test</span><span style="--c: var(--arts)">Create</span><span style="--c: var(--outdoor)">Explore</span><span style="--c: var(--life)">Plan</span><span style="--c: var(--projects)">Make</span><span style="--c: var(--robotics)">Code</span><span style="--c: var(--science)">Measure</span><span style="--c: var(--arts)">Share</span><span style="--c: var(--outdoor)">Observe</span><span style="--c: var(--life)">Solve</span><span style="--c: var(--projects)">Revise</span>
+      <span style="--c: var(--robotics)">Build</span><span style="--c: var(--science)">Test</span><span style="--c: var(--arts)">Create</span><span style="--c: var(--outdoor)">Explore</span><span style="--c: var(--life)">Plan</span><span style="--c: var(--projects)">Make</span><span style="--c: var(--robotics)">Code</span><span style="--c: var(--science)">Measure</span><span style="--c: var(--arts)">Share</span><span style="--c: var(--outdoor)">Observe</span><span style="--c: var(--life)">Solve</span><span style="--c: var(--projects)">Revise</span>
+    </div>
+  </div>
+
+  <section class="section activities" id="activities" aria-labelledby="act-title">
     <div class="wrap">
-      <div class="section-head">
-        <span class="label">Programs</span>
-        <h2 id="programs-title">Starting with robotics, growing from there</h2>
+      <div class="head reveal">
+        <span class="eyebrow">What we offer</span>
+        <h2 id="act-title">Six ways to learn by doing</h2>
+        <p>Robotics is our first program. We’re developing hands-on classes in science, the arts, outdoor learning and everyday life skills, each built around projects students can touch, test and improve.</p>
       </div>
-      <ul class="program-list">
-        <li class="program is-first">
-          <span class="status">First program</span>
-          <h3>Robotics</h3>
-          <p>Students build a model, program a sensor, and test their design in pairs.</p>
+
+      <div class="tour">
+        <div class="tour-stage" aria-hidden="true">
+          <div class="stage-glow" id="stage-glow"></div>
+          <svg class="stage-flower" id="stage-flower" viewBox="-32 -32 64 64">
+            <ellipse data-i="0" cx="0" cy="-15" rx="8" ry="14" fill="var(--robotics)" class="is-on"/>
+            <ellipse data-i="1" cx="0" cy="-15" rx="8" ry="14" fill="var(--science)"  transform="rotate(60)"/>
+            <ellipse data-i="2" cx="0" cy="-15" rx="8" ry="14" fill="var(--arts)"     transform="rotate(120)"/>
+            <ellipse data-i="3" cx="0" cy="-15" rx="8" ry="14" fill="var(--outdoor)"  transform="rotate(180)"/>
+            <ellipse data-i="4" cx="0" cy="-15" rx="8" ry="14" fill="var(--life)"     transform="rotate(240)"/>
+            <ellipse data-i="5" cx="0" cy="-15" rx="8" ry="14" fill="var(--projects)" transform="rotate(300)"/>
+            <circle r="7" fill="var(--forest)"/><circle r="3" fill="var(--on-forest)"/>
+          </svg>
+          <div class="stage-meta">
+            <div class="stage-count"><span id="stage-num">01</span><small>/ 06</small></div>
+            <div class="stage-name" id="stage-name">Robotics</div>
+          </div>
+        </div>
+
+        <ol class="act-list">
+          <li class="act is-active reveal" data-i="0" data-name="Robotics" style="--c: var(--robotics)">
+            <div class="act-top">
+              <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/><circle cx="12" cy="3" r="1"/></svg></span>
+              <span class="status is-first">First program</span>
+            </div>
+            <h3>Robotics</h3>
+            <p>Students build models, program sensors and test their designs in pairs, switching roles so everyone builds and codes.</p>
+            <figure class="act-photo"><img src="images/robot-car-sensor.jpg" width="1023" height="682" loading="lazy" alt="Educational robot car with a front-mounted sensor."></figure>
+            <div class="example"><b>Example project</b>A car that stops when its bumper touches a wall.</div>
+          </li>
+          <li class="act reveal" data-i="1" data-name="Science" style="--c: var(--science)">
+            <div class="act-top">
+              <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>
+              <span class="status">In development</span>
+            </div>
+            <h3>Science</h3>
+            <p>Students ask a question, plan a fair test, collect results and explain what they found.</p>
+            <figure class="act-photo"><img src="images/classroom-experiment.jpg" width="1280" height="857" loading="lazy" alt="Elementary students around a table testing how sound travels through a paper cone."></figure>
+            <div class="example"><b>Example project</b>Which materials keep an ice cube frozen the longest?</div>
+          </li>
+          <li class="act reveal" data-i="2" data-name="Arts" style="--c: var(--arts)">
+            <div class="act-top">
+              <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 1 10-10c0 2.8-2.2 4-4 4h-2a2 2 0 0 0-1.5 3.3A1.6 1.6 0 0 1 12 22z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="11.5" cy="7" r="1"/><circle cx="16" cy="9.5" r="1"/></svg></span>
+              <span class="status">In development</span>
+            </div>
+            <h3>Arts</h3>
+            <p>Students experiment with materials and techniques, create work together and share it with others.</p>
+            <figure class="act-photo"><img src="images/painting-outdoors.jpg" width="1280" height="850" loading="lazy" alt="Children painting together at an outdoor picnic table."></figure>
+            <div class="example"><b>Example project</b>A class mural where each pair designs one panel.</div>
+          </li>
+          <li class="act reveal" data-i="3" data-name="Outdoor learning" style="--c: var(--outdoor)">
+            <div class="act-top">
+              <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 5 12h4l-4 7h14l-4-7h4z"/><path d="M12 19v3"/></svg></span>
+              <span class="status">Exploring</span>
+            </div>
+            <h3>Outdoor learning</h3>
+            <p>Learning moves outside so students can observe, map and investigate the places around their school.</p>
+            <div class="example"><b>Example project</b>Map the living things in your schoolyard.</div>
+          </li>
+          <li class="act reveal" data-i="4" data-name="Life skills" style="--c: var(--life)">
+            <div class="act-top">
+              <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+              <span class="status">In development</span>
+            </div>
+            <h3>Life skills</h3>
+            <p>Practical skills students use every day, like planning, budgeting and looking after themselves and others.</p>
+            <div class="example"><b>Example project</b>Plan and budget a class event from start to finish.</div>
+          </li>
+          <li class="act reveal" data-i="5" data-name="Hands-on projects" style="--c: var(--projects)">
+            <div class="act-top">
+              <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span>
+              <span class="status">In development</span>
+            </div>
+            <h3>Hands-on projects</h3>
+            <p>Everyday life skills learned by making real things: measuring, building, fixing and finishing a project.</p>
+            <div class="example"><b>Example project</b>Design and build a planter box for the classroom.</div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section outcomes" aria-labelledby="out-title">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Why hands-on</span>
+        <h2 id="out-title">New opportunities for every student</h2>
+      </div>
+      <ul class="outcome-list">
+        <li class="outcome reveal" style="--c: var(--life)">
+          <h3>Discover new interests</h3>
+          <p>Trying something real, with their own hands, shows students what they enjoy and what they’re good at.</p>
         </li>
-        <li class="program">
-          <span class="status">Envisioned</span>
-          <h3>Science</h3>
-          <p>Hands-on investigations students can run, measure and explain.</p>
+        <li class="outcome reveal" style="--c: var(--science)">
+          <h3>Solve problems</h3>
+          <p>Projects rarely work the first time. Students test, find what went wrong and try again.</p>
         </li>
-        <li class="program">
-          <span class="status">Envisioned</span>
-          <h3>The arts</h3>
-          <p>Making and creating, with time to share and reflect.</p>
-        </li>
-        <li class="program">
-          <span class="status">Envisioned</span>
-          <h3>Everyday life skills</h3>
-          <p>Practical skills students can use outside the classroom.</p>
+        <li class="outcome reveal" style="--c: var(--arts)">
+          <h3>Work together</h3>
+          <p>Students work in pairs and teams, share roles and learn from each other’s ideas.</p>
         </li>
       </ul>
     </div>
   </section>
 
-  <section class="workshop" id="workshop" aria-labelledby="workshop-title">
-    <div class="wrap workshop-grid">
-      <div class="workshop-intro">
-        <span class="label" id="workshop-title">Inside a robotics workshop</span>
-        <p class="challenge">Can you build a car that stops when its bumper touches a wall?</p>
-        <p>In a sample activity, students work in pairs to build a model, program a sensor, and test the result. They switch roles and revise their design so each student gets a turn building and coding.</p>
-        <figure class="workshop-figure">
-          <img src="images/robot-car-sensor.jpg" width="1023" height="682" loading="lazy"
-               alt="Close-up of a small educational robot car with wheels, cables and a sensor mounted on the front.">
-          <figcaption>Illustrative photo of an educational robot car with a front sensor.</figcaption>
-        </figure>
-      </div>
-
-      <div class="sheet">
-        <div class="sheet-head"><strong>Sample activity</strong><span>Pairs · build + code</span></div>
+  <section class="section" id="workshop" aria-labelledby="lab-title">
+    <div class="wrap lab">
+      <figure class="lab-photo reveal">
+        <img src="images/robot-car-sensor.jpg" width="1023" height="682" loading="lazy" alt="Close-up of an educational robot car with wheels, cables and a front sensor.">
+        <div class="sensor" aria-hidden="true">
+          <div class="row"><span>bumper</span><span class="val" id="s-bump">released</span></div>
+          <div class="row"><span>motors</span><span class="val" id="s-motor">forward</span></div>
+        </div>
+        <figcaption>Illustrative photo of an educational robot car.</figcaption>
+      </figure>
+      <div class="lab-copy reveal">
+        <span class="eyebrow" id="lab-title">Inside a robotics class</span>
+        <p class="q">Can you build a car that stops when its bumper touches a wall?</p>
+        <p>In a sample activity, students work in pairs to build a model, program a sensor and test the result. They switch roles and revise their design so each student gets a turn building and coding.</p>
         <ol class="steps">
-          <li>
-            <h3>Build</h3>
-            <p>One partner assembles the car and attaches the bumper sensor at the front.</p>
-          </li>
-          <li>
-            <h3>Program</h3>
-            <p>The other partner writes a short program that tells the car what to do when the bumper is pressed.</p>
-          </li>
-          <li>
-            <h3>Test</h3>
-            <p>Drive it toward a wall. Does it stop in time? Students watch closely and note what happened.</p>
-          </li>
-          <li>
-            <h3>Switch and revise</h3>
-            <p>Partners trade roles, improve the design, and test again so both get a turn building and coding.</p>
-          </li>
+          <li><b>Build</b><span>One partner assembles the car and fits the bumper sensor.</span></li>
+          <li><b>Program</b><span>The other writes what happens when the bumper is pressed.</span></li>
+          <li><b>Test</b><span>Drive it at a wall. Does it stop in time?</span></li>
+          <li><b>Switch and revise</b><span>Trade roles, improve the design, test again.</span></li>
         </ol>
-        <pre class="code" aria-label="Example program logic"><span class="c"># the idea students program</span>
-<span class="k">repeat forever</span>
-  <span class="k">if</span> bumper is pressed
-    stop motors
-  <span class="k">else</span>
-    drive forward</pre>
       </div>
     </div>
   </section>
 
-  <section class="partner" id="partner" aria-labelledby="partner-title">
+  <section class="section how" id="how" aria-labelledby="how-title">
     <div class="wrap">
-      <div class="section-head">
-        <span class="label">School partnerships</span>
-        <h2 id="partner-title">How school partnerships work</h2>
+      <div class="head reveal">
+        <span class="eyebrow">School partnerships</span>
+        <h2 id="how-title">How it works</h2>
       </div>
       <ol class="path">
-        <li>
+        <li class="reveal">
           <h3>Choose a format</h3>
           <p>Ask about a single workshop or a series of classes tailored to your students’ ages and learning goals.</p>
         </li>
-        <li>
+        <li class="reveal">
           <h3>Plan the visit</h3>
-          <p>We’ll agree on group size, dates, classroom setup, and fees with your school. Your school books directly with the society.</p>
+          <p>We agree on group size, dates, classroom setup and fees with your school. Your school books directly with the society.</p>
         </li>
-        <li>
+        <li class="reveal">
           <h3>Meet the instructor</h3>
-          <p>Our education partner supplies the instructor and robotics kits. The society coordinates the visit.</p>
+          <p>Specialist instructors deliver each class with the materials it needs. The society coordinates the visit from start to finish.</p>
         </li>
       </ol>
-      <div class="fees">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <p>Program fees cover delivery costs. Any remaining funds stay with the society to support future youth programs.</p>
+      <div class="fees reveal">
+        <p><strong>Not-for-profit.</strong> Program fees cover delivery costs. Any remaining funds stay with the society to support future youth programs.</p>
+        <a class="btn btn-sm" href="#inquiries">Ask about a visit <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
 
-  <section class="inquiry" id="inquiries" aria-labelledby="inquiry-title">
+  <section class="collab" aria-labelledby="collab-title">
+    <div class="wrap collab-row">
+      <span class="eyebrow" id="collab-title">In collaboration with</span>
+      <div class="collab-item">
+        <b>Kavosh AI and Robotics Academy</b>
+        <span>Robotics instruction and kits</span>
+      </div>
+      <div class="collab-item">
+        <b>Paradise Life Academy</b>
+        <span>Inclusion consulting, including intake interviews for students with special needs such as ADHD and autism</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="inquiry" id="inquiries" aria-labelledby="inq-title">
     <div class="wrap">
-      <div class="inquiry-card">
-        <div>
-          <span class="label">School inquiries</span>
-          <h2 id="inquiry-title">Plan a school visit</h2>
+      <div class="inq reveal">
+        <svg class="inq-flower" viewBox="-32 -32 64 64" aria-hidden="true"><use href="#flower"/></svg>
+        <div class="inq-left">
+          <span class="eyebrow">School inquiries</span>
+          <h2 id="inq-title">Plan a school visit</h2>
           <p>Email us and we’ll follow up to plan a format that suits your students.</p>
           <!-- TODO: replace with the society's inquiry email once it is set up. -->
-          <div class="email-box">
+          <div class="email">
             <code id="inquiry-email">[school inquiry email]</code>
-            <button class="btn btn-primary btn-sm" type="button" id="copy-email">Copy email</button>
+            <button class="btn btn-sm" type="button" id="copy-email">Copy email</button>
           </div>
           <div class="families">
             <p>Families: share this page with your school’s program coordinator.</p>
-            <button class="btn btn-ghost btn-sm" type="button" id="copy-link">Copy page link</button>
+            <button class="btn btn-sm btn-line" type="button" id="copy-link">Copy page link</button>
           </div>
-          <span class="copied" id="copy-status" role="status" aria-live="polite"></span>
+          <span class="status-msg" id="copy-status" role="status" aria-live="polite"></span>
         </div>
         <div>
-          <p><strong>Include in your email:</strong></p>
-          <ul class="checklist">
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Your school name</span></li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Grades</span></li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Approximate group size</span></li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Preferred dates</span></li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>What you’d like students to explore</span></li>
+          <p class="include-title">Include in your email</p>
+          <ul class="include">
+            <li style="--c: var(--robotics)"><i></i>Your school name</li>
+            <li style="--c: var(--science)"><i></i>Grades</li>
+            <li style="--c: var(--arts)"><i></i>Approximate group size</li>
+            <li style="--c: var(--outdoor)"><i></i>Preferred dates</li>
+            <li style="--c: var(--life)"><i></i>Which activities interest you</li>
+            <li style="--c: var(--projects)"><i></i>What you’d like students to explore</li>
           </ul>
         </div>
       </div>
@@ -647,52 +870,155 @@ body::before {
 </main>
 
 <footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div>
-      <strong>BC Youth Discovery Society</strong>
-      <p>A British Columbia not-for-profit society.</p>
+  <div class="wrap">
+    <div class="foot">
+      <div style="display:grid; gap:1rem; align-content:start">
+        <a class="logo" href="#top" aria-label="BC Youth Discovery Society home">
+          <svg width="42" height="42" viewBox="-32 -32 64 64" aria-hidden="true"><use href="#flower"/><circle r="7" fill="var(--forest)"/><circle r="3" fill="var(--on-forest)"/></svg>
+          <span class="logo-word"><b>BC Youth Discovery</b><span>Society</span></span>
+        </a>
+        <p>A British Columbia not-for-profit bringing hands-on learning to schools.</p>
+      </div>
+      <div>
+        <h4>Activities</h4>
+        <ul>
+          <li>Robotics</li><li>Science</li><li>Arts</li><li>Outdoor learning</li><li>Life skills</li><li>Hands-on projects</li>
+        </ul>
+      </div>
+      <div class="foot-credits">
+        <h4>Photo credits</h4>
+        <p>Photos are illustrative and do not show society programs.</p>
+        <p>Students building robots: International Gemini Observatory/NOIRLab/NSF/AURA/J. Pollard, <a href="https://commons.wikimedia.org/w/index.php?curid=146174718" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>, resized and cropped.</p>
+        <p>Science lab: TimBlackman93, <a href="https://commons.wikimedia.org/w/index.php?curid=101299227" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>, resized and cropped.</p>
+        <p>Classroom experiment: Gulliver Schools, <a href="https://commons.wikimedia.org/w/index.php?curid=17227599" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener license">CC BY 2.5</a>, resized and cropped.</p>
+        <p>Painting outdoors: Virginia State Parks staff, <a href="https://commons.wikimedia.org/w/index.php?curid=29261775" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, resized and cropped.</p>
+        <p>Robot car: forumbildig, <a href="https://www.flickr.com/photos/160200532@N02/40802364221" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, cropped.</p>
+      </div>
     </div>
-    <div class="credits">
-      <p>Photos are illustrative and do not show society programs.</p>
-      <p>Students building robots: International Gemini Observatory/NOIRLab/NSF/AURA/J. Pollard, <a href="https://commons.wikimedia.org/w/index.php?curid=146174718" rel="noopener" target="_blank">source</a>, <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener license" target="_blank">CC BY 4.0</a>, resized and cropped.</p>
-      <p>Robot car: forumbildig, <a href="https://www.flickr.com/photos/160200532@N02/40802364221" rel="noopener" target="_blank">source</a>, <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener license" target="_blank">CC BY 2.0</a>, cropped.</p>
+    <div class="foot-base">
+      <span>© 2026 BC Youth Discovery Society</span>
+      <a href="#top">Back to top ↑</a>
     </div>
   </div>
 </footer>
 
 <script>
 (function () {
-  var status = document.getElementById('copy-status');
-  function say(msg) {
-    status.textContent = msg;
-    clearTimeout(say.t);
-    say.t = setTimeout(function () { status.textContent = ''; }, 3000);
-  }
-  function selectText(el) {
-    try {
-      var r = document.createRange(); r.selectNodeContents(el);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    } catch (e) {}
-  }
-  function copy(text, okMsg, fallbackEl) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { say(okMsg); }, function () {
-        if (fallbackEl) { selectText(fallbackEl); say('Selected. Press Ctrl+C or ⌘C to copy.'); }
-        else { say('Copy this link from your address bar.'); }
-      });
-    } else if (fallbackEl) {
-      selectText(fallbackEl); say('Selected. Press Ctrl+C or ⌘C to copy.');
-    } else {
-      say('Copy this link from your address bar.');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+
+  /* Header turns solid after the hero starts scrolling away */
+  var header = document.getElementById('header');
+  function onScroll() { header.classList.toggle('is-solid', window.scrollY > 40); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* Rotating activity word in the headline */
+  var rot = document.getElementById('rotator');
+  if (rot) {
+    var words = Array.prototype.slice.call(rot.children);
+    var idx = 0;
+    rot.style.setProperty('--rot', words[0].getAttribute('data-c'));
+    if (!reduce) {
+      setInterval(function () {
+        var cur = words[idx];
+        cur.classList.remove('on'); cur.classList.add('off');
+        idx = (idx + 1) % words.length;
+        var nxt = words[idx];
+        nxt.classList.remove('off');
+        void nxt.offsetWidth;
+        nxt.classList.add('on');
+        rot.style.setProperty('--rot', nxt.getAttribute('data-c'));
+        setTimeout(function () { cur.classList.remove('off'); }, 700);
+      }, 2400);
     }
   }
+
+  /* Scroll reveals: only elements below the fold start hidden */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    reveals.forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+      else io.observe(el);
+    });
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* Activity tour: the sticky stage follows the card in the middle of the screen */
+  var acts = document.querySelectorAll('.act');
+  var petals = document.querySelectorAll('#stage-flower ellipse');
+  var flower = document.getElementById('stage-flower');
+  var glow = document.getElementById('stage-glow');
+  var num = document.getElementById('stage-num');
+  var nameEl = document.getElementById('stage-name');
+  var current = 0;
+  function setActive(i) {
+    if (i === current) return;
+    current = i;
+    acts.forEach(function (a) { a.classList.toggle('is-active', +a.dataset.i === i); });
+    petals.forEach(function (p) { p.classList.toggle('is-on', +p.dataset.i === i); });
+    var c = getComputedStyle(acts[i]).getPropertyValue('--c');
+    if (glow) glow.style.background = 'radial-gradient(45% 45% at 50% 55%, ' + c + ', transparent 70%)';
+    if (flower) flower.style.rotate = (-60 * i) + 'deg';
+    if (num) num.textContent = '0' + (i + 1);
+    if (nameEl) nameEl.textContent = acts[i].dataset.name;
+  }
+  if ('IntersectionObserver' in window) {
+    var actIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setActive(+e.target.dataset.i); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    acts.forEach(function (a) { actIO.observe(a); });
+  }
+
+  /* Hero collage parallax with the pointer */
+  var collage = document.getElementById('collage');
+  if (collage && !reduce && window.matchMedia('(pointer: fine)').matches) {
+    var tiles = collage.querySelectorAll('[data-depth]');
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+    function loop() {
+      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+      tiles.forEach(function (t) {
+        var d = +t.dataset.depth;
+        t.style.transform = 'translate3d(' + (cx * d).toFixed(2) + 'px,' + (cy * d).toFixed(2) + 'px,0)';
+      });
+      raf = (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) ? requestAnimationFrame(loop) : null;
+    }
+    window.addEventListener('pointermove', function (e) {
+      tx = (e.clientX / window.innerWidth - 0.5) * -0.6;
+      ty = (e.clientY / window.innerHeight - 0.5) * -0.6;
+      if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+  }
+
+  /* Sensor readout on the sample-class photo */
+  var bump = document.getElementById('s-bump'), motor = document.getElementById('s-motor');
+  if (bump && motor && !reduce) {
+    var pressed = false;
+    setInterval(function () {
+      pressed = !pressed;
+      bump.textContent = pressed ? 'pressed' : 'released';
+      motor.textContent = pressed ? 'stopped' : 'forward';
+    }, 1800);
+  }
+
+  /* Copy buttons */
+  var statusEl = document.getElementById('copy-status');
+  function say(m) { statusEl.textContent = m; clearTimeout(say.t); say.t = setTimeout(function () { statusEl.textContent = ''; }, 3000); }
+  function selectText(el) { try { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {} }
+  function copy(text, ok, el) {
+    var fail = function () { if (el) { selectText(el); say('Selected. Press Ctrl+C or ⌘C to copy.'); } else { say('Copy the link from your address bar.'); } };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { say(ok); }, fail);
+    else fail();
+  }
   var emailEl = document.getElementById('inquiry-email');
-  document.getElementById('copy-email').addEventListener('click', function () {
-    copy(emailEl.textContent.trim(), 'Email address copied.', emailEl);
-  });
-  document.getElementById('copy-link').addEventListener('click', function () {
-    copy(location.href.split('#')[0], 'Page link copied.');
-  });
+  document.getElementById('copy-email').addEventListener('click', function () { copy(emailEl.textContent.trim(), 'Email address copied.', emailEl); });
+  document.getElementById('copy-link').addEventListener('click', function () { copy(location.href.split('#')[0], 'Page link copied.'); });
 })();
 </script>
 </body>
