@@ -1,7 +1,7 @@
 # BC Youth Discovery Society (BCYDS) — operations workspace
 
 ## Who we are
-- BC Youth Discovery Society: a B.C. not-for-profit that helps British Columbia schools bring hands-on learning into the classroom.
+- BC Youth Discovery Society: a B.C. not-for-profit helping B.C. kids thrive (tagline: "Helping B.C. kids thrive.").
 - Society name is provisional (not yet approved). Inquiry email, domain and hosting are still to come.
 - Main focus: helping B.C. kids thrive through consulting and support for kids, families and schools, including students with ADHD, autism and other needs. Robotics is a key hands-on activity, alongside STEAM (science, technology, engineering, arts, math). Outcomes: kids discover new interests, solve problems and work together.
 - Wording care: do not describe services as psychology, therapy, counselling, assessment or diagnosis unless a registered professional delivers them; use "consulting" and "support".
