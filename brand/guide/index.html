@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BCYDS Brand Guidelines</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: a brand book in chapters. Each chapter is a "page": big chapter number + title on the left
+   rail, content on the right. Navy cover and closing page; white and ice pages between. Uses only the
+   brand palette it documents. One light theme on purpose (it is the brand). */
+:root {
+  color-scheme: light;
+  --navy: #002e5d; --deep: #001f40; --blue: #1d64d8; --blue2: #4c8df6; --sky: #bfd9ff; --ice: #eef5ff;
+  --white: #ffffff; --ink: #0d1b2e; --slate: #5b6576; --line: #dde5ef; --teal: #00b79f;
+  --font: "Plus Jakarta Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+  --r: 22px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--white); color: var(--ink); font: 500 1rem/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, h4 { margin: 0; color: var(--navy); font-weight: 800; letter-spacing: -.03em; line-height: 1.08; text-wrap: balance; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 1.1rem; }
+li + li { margin-top: .35rem; }
+code { font: 600 .92em/1 ui-monospace, Menlo, Consolas, monospace; }
+.wrap { max-width: 76rem; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* Chapter page */
+.page { padding-block: clamp(3.5rem, 7vw, 6rem); border-top: 1px solid var(--line); }
+.page.ice { background: var(--ice); border-top-color: transparent; }
+.page.dark { background: var(--navy); color: var(--white); border-top-color: transparent; }
+.page.dark h2, .page.dark h3 { color: var(--white); }
+.grid { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 2rem 4rem; }
+.rail { display: grid; gap: .6rem; align-content: start; }
+.num { font-size: .8rem; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--blue); }
+.page.dark .num { color: var(--sky); }
+.rail h2 { font-size: clamp(2rem, 1.5rem + 1.8vw, 2.8rem); }
+.rail p { color: var(--slate); font-size: .95rem; }
+.body { display: grid; gap: 2rem; min-width: 0; }
+.lead { font-size: clamp(1.15rem, 1rem + .6vw, 1.45rem); line-height: 1.45; color: var(--navy); font-weight: 600; max-width: 44rem; }
+.label { font-size: .72rem; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--slate); margin-bottom: .6rem; }
+.cols { display: grid; gap: 1.25rem; }
+.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card { border-radius: var(--r); padding: 1.4rem; background: var(--ice); display: grid; gap: .5rem; align-content: start; min-width: 0; }
+.page.ice .card { background: var(--white); }
+.card h3 { font-size: 1.2rem; }
+.card p, .card li { color: var(--slate); font-size: .95rem; }
+.frame { border-radius: var(--r); border: 1px solid var(--line); background: var(--white); display: grid; place-items: center; padding: 1.5rem; min-height: 200px; position: relative; }
+.frame.navy { background: var(--navy); border-color: var(--navy); }
+.cap { font-size: .85rem; color: var(--slate); margin-top: .6rem; }
+.page.dark .cap, .page.dark .rail p { color: var(--sky); }
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .c3, .c4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) { .c2, .c3, .c4 { grid-template-columns: 1fr; } }
+
+/* Cover */
+.cover { background: var(--navy); color: var(--white); padding-block: clamp(3rem, 8vw, 6rem); position: relative; overflow: hidden; }
+.cover .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: end; }
+.cover .logo { width: clamp(150px, 22vw, 230px); }
+.cover h1 { color: var(--white); font-size: clamp(2.8rem, 1.6rem + 5vw, 5.6rem); letter-spacing: -.05em; margin-top: clamp(2rem, 6vw, 4.5rem); }
+.cover .meta { margin-top: 1.2rem; color: var(--sky); font-weight: 600; display: grid; gap: .2rem; }
+.disc { border-radius: 50%; background: var(--ice); display: grid; place-items: center; }
+.cover .disc { width: clamp(150px, 22vw, 260px); aspect-ratio: 1; }
+.cover .disc img { width: 76%; margin-top: 6%; }
+@media (max-width: 640px) { .cover .wrap { grid-template-columns: 1fr; } }
+
+/* Contents */
+.toc { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; counter-reset: t; }
+.toc li { margin: 0; padding: .8rem 0; border-bottom: 1px solid var(--line); display: flex; gap: 1rem; font-weight: 700; color: var(--navy); }
+.toc li span { color: var(--blue); width: 2rem; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) { .toc { grid-template-columns: 1fr; } }
+
+/* Colour */
+.sw { border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); background: var(--white); min-width: 0; }
+.sw .chip { height: 120px; }
+.sw .info { padding: 1rem 1.1rem 1.1rem; display: grid; gap: .15rem; font-size: .85rem; color: var(--slate); }
+.sw .info b { color: var(--navy); font-size: 1rem; }
+.sw .info code { color: var(--ink); }
+.ratio { display: flex; height: 56px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+.ratio div { display: grid; place-items: center; font-size: .78rem; font-weight: 700; }
+.pairs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.pair { border-radius: 16px; padding: 1rem; font-weight: 800; font-size: 1.1rem; display: grid; gap: .2rem; }
+.pair small { font-size: .78rem; font-weight: 600; opacity: .85; }
+@media (max-width: 900px) { .pairs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Type */
+.specimen { font-size: clamp(5rem, 3rem + 8vw, 10rem); font-weight: 800; letter-spacing: -.06em; line-height: .9; color: var(--navy); }
+.scale > div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; align-items: baseline; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+.scale small { color: var(--slate); font-size: .8rem; font-weight: 600; }
+@media (max-width: 560px) { .scale > div { grid-template-columns: 1fr; gap: .2rem; } }
+
+/* Do / don't */
+.dont { position: relative; }
+.dont .frame { min-height: 170px; overflow: hidden; }
+.mark { position: absolute; top: .7rem; left: .7rem; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .9rem; z-index: 2; }
+.mark.no { background: var(--navy); }
+.mark.yes { background: var(--blue); }
+
+/* Icons */
+.icons { display: flex; flex-wrap: wrap; gap: 1rem; }
+.ic { width: 76px; height: 76px; border-radius: 22px; display: grid; place-items: center; }
+.ic svg { width: 44px; height: 44px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Words */
+.rewrite { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+.rewrite > div { padding: 1rem 1.1rem; font-size: .95rem; }
+.rewrite .x { background: var(--white); color: var(--slate); text-decoration: line-through; text-decoration-color: rgba(91, 101, 118, .5); }
+.rewrite .v { background: var(--ice); color: var(--navy); font-weight: 700; }
+.stack { display: grid; gap: .7rem; }
+
+/* Mockups */
+.bcard { aspect-ratio: 3.5 / 2; border-radius: 14px; box-shadow: 0 20px 40px -24px rgba(0, 31, 64, .5); position: relative; overflow: hidden; }
+.sig { border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; background: var(--white); display: flex; gap: 1rem; align-items: center; font-size: .9rem; color: var(--slate); }
+.sig b { color: var(--navy); font-size: 1rem; }
+.shot { border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); }
+
+.closing { background: var(--navy); color: var(--white); padding-block: clamp(3.5rem, 7vw, 6rem); text-align: center; }
+.closing h2 { color: var(--white); font-size: clamp(2rem, 1.4rem + 2.6vw, 3.4rem); }
+.closing p { color: var(--sky); margin-top: .8rem; }
+.closing .disc { width: 140px; height: 140px; margin: 0 auto 1.5rem; }
+.closing .disc img { width: 100px; margin-top: 10px; }
+
+@media print {
+  @page { size: 1600px 1131px; margin: 0; }
+  html { font-size: 14px; }
+  .sw .chip { height: 84px; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page, .cover, .closing { break-before: page; min-height: 100vh; }
+  .cover { break-before: auto; }
+  .card, .sw, .frame, .pair, .rewrite, .dont, .bcard, .sig { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2.5L16 18h-3"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></symbol>
+</svg>
+
+<!-- COVER -->
+<header class="cover">
+  <div class="wrap">
+    <div>
+      <img class="logo" src="../../website/images/brand/logo-full-white.png" width="700" height="690" alt="BC Youth Discovery Society">
+      <h1>Brand Guidelines</h1>
+      <div class="meta"><span>Version 1.0 · November 2026</span><span>Society name provisional, pending approval</span></div>
+    </div>
+    <div class="disc"><img src="../mascot/pilot-wave.svg" width="270" height="320" alt="Pilot waving"></div>
+  </div>
+</header>
+
+<!-- CONTENTS -->
+<section class="page">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">Contents</span><h2>Inside this guide</h2><p>Use this guide whenever you make anything for the society: a post, a flyer, a slide, an email.</p></div>
+    <div class="body">
+      <ol class="toc">
+        <li><span>01</span>Our brand</li><li><span>02</span>Personality and values</li>
+        <li><span>03</span>Logo</li><li><span>04</span>Logo misuse</li>
+        <li><span>05</span>Colour</li><li><span>06</span>Typography</li>
+        <li><span>07</span>Meet Pilot</li><li><span>08</span>Icons and shapes</li>
+        <li><span>09</span>Photography and privacy</li><li><span>10</span>Voice and tone</li>
+        <li><span>11</span>Social media</li><li><span>12</span>Applications</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 01 BRAND -->
+<section class="page ice">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">01</span><h2>Our brand</h2><p>Who we are, in words everyone on the team can repeat.</p></div>
+    <div class="body">
+      <div><p class="label">Purpose</p><p class="specimen" style="font-size: clamp(2.4rem, 1.6rem + 3vw, 4.2rem); letter-spacing: -.045em; line-height: 1">Helping B.C. kids <span style="color: var(--blue)">thrive.</span></p></div>
+      <div class="cols c3">
+        <div class="card"><h3>What we do</h3><p>Consulting and support for kids, families and schools, including students with ADHD, autism and other needs. Hands-on robotics and STEAM help kids focus, create and work together.</p></div>
+        <div class="card"><h3>Who we serve</h3><ul><li>Families and caregivers</li><li>Schools, teachers and support staff</li><li>Partners, funders and the community</li></ul></div>
+        <div class="card"><h3>What kids gain</h3><ul><li>Discover new interests</li><li>Solve problems</li><li>Work together</li></ul></div>
+      </div>
+      <div class="cols c2">
+        <div class="card"><p class="label">One-line pitch</p><p style="color: var(--navy); font-weight: 700; font-size: 1.05rem">BC Youth Discovery Society helps B.C. kids thrive through consulting, support and hands-on robotics and STEAM.</p></div>
+        <div class="card"><p class="label">Boilerplate (for bios, grant forms, press)</p><p>BC Youth Discovery Society is a British Columbia not-for-profit that helps kids thrive. We work with families and schools to understand each child’s needs and find the right support, including for students with ADHD, autism and other needs. Hands-on robotics and STEAM give kids new ways to focus, create and work together. Program fees cover delivery costs; any surplus supports future youth programs.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PERSONALITY -->
+<section class="page">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">02</span><h2>Personality and values</h2><p>How the brand should feel in every piece of work.</p></div>
+    <div class="body">
+      <div class="cols c4">
+        <div class="card"><h3>Care</h3><p>Every child is seen and listened to. We start with the child, not the program.</p></div>
+        <div class="card"><h3>Belonging</h3><p>Every learner is included. Different needs are welcome here.</p></div>
+        <div class="card"><h3>Curiosity</h3><p>We learn by doing: build it, test it, try again.</p></div>
+        <div class="card"><h3>Teamwork</h3><p>Kids, families, schools and partners grow together.</p></div>
+      </div>
+      <div>
+        <p class="label">We are … but not …</p>
+        <div class="cols c4">
+          <div class="card"><h3>Warm</h3><p>but not childish</p></div>
+          <div class="card"><h3>Clear</h3><p>but not clinical</p></div>
+          <div class="card"><h3>Playful</h3><p>but not silly</p></div>
+          <div class="card"><h3>Trustworthy</h3><p>but not corporate</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 LOGO -->
+<section class="page ice">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">03</span><h2>Logo</h2><p>A paper plane taking off with a looping trail: ideas and kids taking flight.</p></div>
+    <div class="body">
+      <div class="cols c4">
+        <div><div class="frame"><img src="../../website/images/brand/logo-full.png" width="700" height="690" alt="Primary logo" style="width: 70%"></div><p class="cap"><b>Primary badge.</b> First choice, on white or ice.</p></div>
+        <div><div class="frame navy"><img src="../../website/images/brand/logo-full-white.png" width="700" height="690" alt="Reversed logo" style="width: 70%"></div><p class="cap"><b>Reversed badge.</b> On navy only.</p></div>
+        <div><div class="frame"><div style="display:flex; align-items:center; gap:6px; width: 92%"><img src="../../website/images/brand/logo-mark.png" width="600" height="316" alt="" style="width: 44%"><img src="../../website/images/brand/logo-wordmark.png" width="700" height="305" alt="Horizontal logo" style="width: 50%"></div></div><p class="cap"><b>Horizontal.</b> Website headers and narrow spaces.</p></div>
+        <div><div class="frame navy"><div style="display:flex; align-items:center; gap:6px; width: 92%"><img src="../../website/images/brand/logo-mark-white.png" width="600" height="316" alt="" style="width: 44%"><img src="../../website/images/brand/logo-wordmark-white.png" width="700" height="305" alt="Horizontal logo, reversed" style="width: 50%"></div></div><p class="cap"><b>Horizontal reversed.</b> On navy only.</p></div>
+      </div>
+      <div class="cols c2">
+        <div class="card">
+          <h3>Clear space</h3>
+          <p>Keep empty space around the logo equal to <b>x</b>, where x is one quarter of the badge’s width. Nothing (text, edges, other logos) goes inside it.</p>
+          <div style="margin-top: .6rem; display:grid; place-items:center; background: var(--white); border-radius: 16px; padding: 1rem">
+            <div style="position: relative; padding: 32px; outline: 2px dashed var(--blue2); outline-offset: -2px; border-radius: 8px"><img src="../../website/images/brand/logo-full.png" width="700" height="690" alt="" style="width: 128px"><span style="position:absolute; top:6px; left:50%; transform:translateX(-50%); font-weight:800; color: var(--blue); font-size:.8rem">x</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Minimum size</h3>
+          <p>Below these sizes the wordmark becomes hard to read. Use the horizontal logo when space is narrow.</p>
+          <ul><li><b>Badge:</b> 72 px wide on screen, 20 mm in print</li><li><b>Horizontal:</b> 140 px wide on screen, 35 mm in print</li><li><b>Favicon and small avatars:</b> use Pilot’s head, never a shrunken logo</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MISUSE -->
+<section class="page">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">04</span><h2>Logo misuse</h2><p>The logo only works if it always looks the same.</p></div>
+    <div class="body">
+      <div class="cols c3">
+        <div class="dont"><span class="mark no">✕</span><div class="frame"><img src="../../website/images/brand/logo-full.png" alt="" style="width: 42%; filter: hue-rotate(150deg) saturate(1.6)"></div><p class="cap">Don’t change the colours.</p></div>
+        <div class="dont"><span class="mark no">✕</span><div class="frame"><img src="../../website/images/brand/logo-full.png" alt="" style="width: 42%; transform: scaleX(1.5)"></div><p class="cap">Don’t stretch or squash it.</p></div>
+        <div class="dont"><span class="mark no">✕</span><div class="frame"><img src="../../website/images/brand/logo-full.png" alt="" style="width: 42%; transform: rotate(-14deg)"></div><p class="cap">Don’t rotate it.</p></div>
+        <div class="dont"><span class="mark no">✕</span><div class="frame"><img src="../../website/images/brand/logo-full.png" alt="" style="width: 42%; filter: drop-shadow(8px 10px 4px rgba(0,0,0,.55)) blur(.4px)"></div><p class="cap">Don’t add shadows, glows or effects.</p></div>
+        <div class="dont"><span class="mark no">✕</span><div class="frame" style="padding:0; background: url('../../website/images/build-creature.jpg') center/cover"><img src="../../website/images/brand/logo-full.png" alt="" style="width: 42%; opacity: .95"></div><p class="cap">Don’t place it on busy photos.</p></div>
+        <div class="dont"><span class="mark no">✕</span><div class="frame"><img src="../../website/images/brand/logo-mark.png" alt="" style="width: 46%"></div><p class="cap">Don’t use the plane on its own. Alone, it reads like a messaging-app icon.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 COLOUR -->
+<section class="page ice">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">05</span><h2>Colour</h2><p>Navy and blue only. Calm, trustworthy and consistent with the logo.</p></div>
+    <div class="body">
+      <div class="cols c4">
+        <div class="sw"><div class="chip" style="background:#002E5D"></div><div class="info"><b>Navy</b><span>Primary. Logo, headings, dark sections.</span><code>#002E5D</code><span>RGB 0 46 93 · CMYK 100 51 0 64</span></div></div>
+        <div class="sw"><div class="chip" style="background:#1D64D8"></div><div class="info"><b>Blue</b><span>Buttons, links, highlights.</span><code>#1D64D8</code><span>RGB 29 100 216 · CMYK 87 54 0 15</span></div></div>
+        <div class="sw"><div class="chip" style="background:#4C8DF6"></div><div class="info"><b>Light blue</b><span>Gradients and large shapes.</span><code>#4C8DF6</code><span>RGB 76 141 246 · CMYK 69 43 0 4</span></div></div>
+        <div class="sw"><div class="chip" style="background:#BFD9FF"></div><div class="info"><b>Sky</b><span>Text and accents on navy.</span><code>#BFD9FF</code><span>RGB 191 217 255 · CMYK 25 15 0 0</span></div></div>
+        <div class="sw"><div class="chip" style="background:#EEF5FF"></div><div class="info"><b>Ice</b><span>Soft backgrounds, cards.</span><code>#EEF5FF</code><span>RGB 238 245 255 · CMYK 7 4 0 0</span></div></div>
+        <div class="sw"><div class="chip" style="background:#FFFFFF; border-bottom: 1px solid var(--line)"></div><div class="info"><b>White</b><span>Main background.</span><code>#FFFFFF</code><span>RGB 255 255 255</span></div></div>
+        <div class="sw"><div class="chip" style="background:#0D1B2E"></div><div class="info"><b>Ink</b><span>Body text.</span><code>#0D1B2E</code><span>RGB 13 27 46</span></div></div>
+        <div class="sw"><div class="chip" style="background:#5B6576"></div><div class="info"><b>Slate</b><span>Secondary text.</span><code>#5B6576</code><span>RGB 91 101 118</span></div></div>
+      </div>
+      <div>
+        <p class="label">Balance</p>
+        <div class="ratio"><div style="flex:50; background:#fff">White 50%</div><div style="flex:20; background:var(--navy); color:#fff">Navy 20%</div><div style="flex:15; background:var(--ice)">Ice 15%</div><div style="flex:12; background:var(--blue); color:#fff">Blue 12%</div><div style="flex:3; background:var(--sky)"></div></div>
+      </div>
+      <div>
+        <p class="label">Accessible pairs</p>
+        <div class="pairs">
+          <div class="pair" style="background:var(--navy); color:#fff">Aa<small>White on navy · 13.6 : 1</small></div>
+          <div class="pair" style="background:var(--blue); color:#fff">Aa<small>White on blue · 5.4 : 1</small></div>
+          <div class="pair" style="background:var(--sky); color:var(--navy)">Aa<small>Navy on sky · 9.4 : 1</small></div>
+          <div class="pair" style="background:#fff; color:var(--blue); border: 1px solid var(--line)">Aa<small style="color: var(--slate)">Blue on white · 5.4 : 1</small></div>
+        </div>
+        <p class="cap">White on light blue is only 3.3 : 1. Use it for large headlines only, never for small text.</p>
+      </div>
+      <div class="card" style="grid-template-columns: auto minmax(0,1fr); align-items:center; gap: 1rem">
+        <span style="width:44px; height:44px; border-radius:12px; background: var(--teal)"></span>
+        <p><b style="color: var(--navy)">Logo teal #00B79F</b> appears only inside the logo artwork (the trail). Never use it for backgrounds, buttons, text or graphics.</p>
+      </div>
+      <p class="cap">CMYK values are conversions from screen colour. Ask your printer for a matched proof before large print runs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 TYPE -->
+<section class="page">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">06</span><h2>Typography</h2><p>One family, many weights. Free from Google Fonts.</p></div>
+    <div class="body">
+      <div class="cols c2" style="align-items:end">
+        <div><p class="specimen">Aa</p><p style="font-size:1.4rem; font-weight:800; color: var(--navy); margin-top: 1rem">Plus Jakarta Sans</p><p class="cap">Medium 500 · SemiBold 600 · Bold 700 · ExtraBold 800</p></div>
+        <div class="card"><h3>Where to get it</h3><p>Free on Google Fonts. Available in Canva and Google Docs. In Microsoft Word, install it first, or use Arial as a fallback.</p></div>
+      </div>
+      <div class="scale">
+        <div><small>Display · 800 · tight</small><span style="font-size: clamp(2rem, 1.4rem + 2.6vw, 3.6rem); font-weight:800; letter-spacing:-.045em; color: var(--navy); line-height:1">Helping B.C. kids thrive.</span></div>
+        <div><small>Heading · 800</small><span style="font-size: 1.9rem; font-weight:800; letter-spacing:-.03em; color: var(--navy)">Every child belongs</span></div>
+        <div><small>Subheading · 700</small><span style="font-size: 1.3rem; font-weight:700; color: var(--navy)">Consulting and support for families</span></div>
+        <div><small>Body · 500</small><span>We listen first, then help kids, families and schools find the right support.</span></div>
+        <div><small>Label · 700 · spaced caps</small><span style="font-size:.78rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color: var(--blue)">Hands-on STEAM</span></div>
+      </div>
+      <p class="cap">Spaced capital labels echo “S O C I E T Y” in the logo. Use them for small labels only, never for sentences.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 PILOT -->
+<section class="page ice">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">07</span><h2>Meet Pilot</h2><p>Our mascot and the friendly face of the society.</p></div>
+    <div class="body">
+      <p class="lead">Pilot is a curious little robot who helps kids find their way. Pilot’s curly antenna follows the trail in our logo, the goggles are for flying with big ideas, and the heart shows that care comes first.</p>
+      <div class="cols c4">
+        <div><div class="frame"><img src="../mascot/pilot-wave.svg" width="270" height="320" alt="Pilot waving" style="height: 170px; width:auto"></div><p class="cap"><b>Wave.</b> Welcomes, hellos, the website.</p></div>
+        <div><div class="frame"><img src="../mascot/pilot-cheer.svg" width="280" height="320" alt="Pilot cheering" style="height: 170px; width:auto"></div><p class="cap"><b>Cheer.</b> Celebrations, thank-yous, news.</p></div>
+        <div><div class="frame"><img src="../mascot/pilot-head.svg" width="192" height="196" alt="Pilot's head" style="height: 130px; width:auto"></div><p class="cap"><b>Head.</b> Avatars, favicons, stickers.</p></div>
+        <div><div class="frame navy"><div class="disc" style="width: 160px; height:160px"><img src="../mascot/pilot-wave.svg" alt="" style="height:130px; width:auto; margin-top:8px"></div></div><p class="cap"><b>On navy,</b> Pilot always sits on an ice circle.</p></div>
+      </div>
+      <div class="cols c2">
+        <div class="card"><h3>Pilot’s personality</h3><ul><li>Kind, curious and patient</li><li>Cheers for effort, not perfection</li><li>Speaks in short, friendly sentences: “Let’s build it together!”</li></ul></div>
+        <div class="card"><h3>Rules</h3><ul><li>Use the supplied files. Don’t redraw, recolour or distort Pilot.</li><li>Pilot never gives advice about a specific child.</li><li>Pilot never endorses products or partners’ services.</li><li>New poses go through the brand owner first.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ICONS -->
+<section class="page">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">08</span><h2>Icons and shapes</h2><p>Simple, rounded and calm, in the style of app icons.</p></div>
+    <div class="body">
+      <div class="icons">
+        <span class="ic" style="background:var(--navy)"><svg><use href="#i-chat"/></svg></span>
+        <span class="ic" style="background:linear-gradient(160deg,var(--blue2),var(--blue))"><svg><use href="#i-heart"/></svg></span>
+        <span class="ic" style="background:var(--navy)"><svg><use href="#i-robot"/></svg></span>
+        <span class="ic" style="background:linear-gradient(160deg,var(--blue2),var(--blue))"><svg><use href="#i-spark"/></svg></span>
+        <span class="ic" style="background:var(--navy)"><svg><use href="#i-users"/></svg></span>
+        <span class="ic" style="background:linear-gradient(160deg,var(--blue2),var(--blue))"><svg><use href="#i-mail"/></svg></span>
+      </div>
+      <div class="cols c3">
+        <div class="card"><h3>Icons</h3><p>Line icons, 2 px stroke, round ends, white on a navy or blue rounded square. Corner radius is about 30% of the square.</p></div>
+        <div class="card"><h3>Rounded blocks</h3><p>Cards and photos use generous rounded corners (20–28 px on screen). Flat colour, no heavy shadows.</p></div>
+        <div class="card"><h3>STEAM tiles</h3><p>Big letters on navy, blue and sky tiles. Use for anything about Science, Technology, Engineering, Arts and Math.</p></div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap">
+        <div style="width:96px; height:120px; border-radius:20px; background:var(--navy); color:#fff; padding:12px; display:flex; flex-direction:column; justify-content:space-between"><b style="font-size:2.6rem; line-height:.9">S</b><small style="font-weight:700">Science</small></div>
+        <div style="width:96px; height:120px; border-radius:20px; background:linear-gradient(160deg,var(--blue2),var(--blue)); color:#fff; padding:12px; display:flex; flex-direction:column; justify-content:space-between"><b style="font-size:2.6rem; line-height:.9">T</b><small style="font-weight:700">Technology</small></div>
+        <div style="width:96px; height:120px; border-radius:20px; background:var(--sky); color:var(--navy); padding:12px; display:flex; flex-direction:column; justify-content:space-between"><b style="font-size:2.6rem; line-height:.9">E</b><small style="font-weight:700">Engineering</small></div>
+        <div style="width:96px; height:120px; border-radius:20px; background:linear-gradient(160deg,var(--blue2),var(--blue)); color:#fff; padding:12px; display:flex; flex-direction:column; justify-content:space-between"><b style="font-size:2.6rem; line-height:.9">A</b><small style="font-weight:700">Arts</small></div>
+        <div style="width:96px; height:120px; border-radius:20px; background:var(--navy); color:#fff; padding:12px; display:flex; flex-direction:column; justify-content:space-between"><b style="font-size:2.6rem; line-height:.9">M</b><small style="font-weight:700">Math</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 PHOTOGRAPHY -->
+<section class="page ice">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">09</span><h2>Photography and privacy</h2><p>Real moments, real builds, and every child kept safe.</p></div>
+    <div class="body">
+      <div class="cols c3">
+        <div class="dont"><span class="mark yes">✓</span><div class="frame" style="padding:0; overflow:hidden; aspect-ratio: 4/3"><img src="../../website/images/build-creature.jpg" alt="Robot creature build" style="width:100%; height:100%; object-fit:cover"></div><p class="cap">Close-ups of what kids build.</p></div>
+        <div class="dont"><span class="mark yes">✓</span><div class="frame" style="padding:0; overflow:hidden; aspect-ratio: 4/3"><img src="../../website/images/build-swing.jpg" alt="Swing set build" style="width:100%; height:100%; object-fit:cover; object-position: 50% 45%"></div><p class="cap">Hands and projects in a real classroom.</p></div>
+        <div class="dont"><span class="mark yes">✓</span><div class="frame" style="padding:0; overflow:hidden; aspect-ratio: 4/3"><img src="../../website/images/cat-mask.jpg" alt="Child holding a cat mask made of robotics parts" style="width:100%; height:100%; object-fit:cover; object-position: 50% 30%"></div><p class="cap">Playful moments where faces aren’t the focus (with consent).</p></div>
+      </div>
+      <div class="cols c2">
+        <div class="card"><h3>Do</h3><ul><li>Natural light, eye level, real activities</li><li>Hands, builds and the backs of heads</li><li>Remove location data from files before sharing</li><li>Keep a consent record for every identifiable person</li></ul></div>
+        <div class="card"><h3>Never</h3><ul><li>Show an identifiable child without written parental consent for that use</li><li>Name a child, their school, class or location</li><li>Use stock photos as if they were our programs</li><li>Use partners’ photos without their approval</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 VOICE -->
+<section class="page">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">10</span><h2>Voice and tone</h2><p>We sound like a kind, clear teacher who has time for you.</p></div>
+    <div class="body">
+      <div class="cols c3">
+        <div class="card"><h3>Warm</h3><p>Talk to parents and teachers as partners. Use “we” and “you”.</p></div>
+        <div class="card"><h3>Clear</h3><p>Short sentences, plain words. One idea per sentence.</p></div>
+        <div class="card"><h3>Encouraging</h3><p>Celebrate effort and progress, not perfection.</p></div>
+      </div>
+      <div>
+        <p class="label">Say it like this</p>
+        <div class="stack">
+          <div class="rewrite"><div class="x">We fix kids’ behaviour problems.</div><div class="v">We help kids, families and schools find the right support.</div></div>
+          <div class="rewrite"><div class="x">ADHD kids and autistic kids</div><div class="v">Students with ADHD, autism and other needs (or the words a family prefers)</div></div>
+          <div class="rewrite"><div class="x">Our psychologists diagnose and treat your child.</div><div class="v">We start with a conversation to understand each child’s needs.</div></div>
+          <div class="rewrite"><div class="x">Guaranteed results in 8 weeks!</div><div class="v">Every child learns at their own pace.</div></div>
+        </div>
+      </div>
+      <div class="card"><h3>Careful words</h3><p>“Psychologist” is a protected title in B.C., and therapy, counselling, assessment and diagnosis need registered professionals. Use these words only when a registered professional delivers the service. Otherwise say “consulting” and “support”.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 SOCIAL -->
+<section class="page ice">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">11</span><h2>Social media</h2><p>Ready-made profile images, highlight covers, templates and a launch grid. Full setup steps are in <code>social/README.md</code>.</p></div>
+    <div class="body">
+      <div class="cols c2" style="align-items:start">
+        <div><p class="label">Launch grid (9 posts)</p><div class="shot"><img src="img/grid.jpg" alt="Preview of the nine launch posts in an Instagram grid"></div></div>
+        <div style="display:grid; gap:1.25rem">
+          <div><p class="label">Profile pictures</p><div style="display:flex; gap:1rem"><img src="img/avatar-pilot.jpg" alt="Pilot avatar" style="width:110px; border-radius:50%"><img src="img/avatar-logo.jpg" alt="Logo avatar" style="width:110px; border-radius:50%; border:1px solid var(--line)"></div><p class="cap">Pilot for Instagram, TikTok and YouTube. Logo for Facebook and LinkedIn.</p></div>
+          <div><p class="label">Highlight covers</p><div style="display:flex; gap:.6rem; flex-wrap:wrap"><img src="img/highlight-about.jpg" alt="About" style="width:64px; border-radius:50%; aspect-ratio:1; object-fit:cover"><img src="img/highlight-support.jpg" alt="Support" style="width:64px; border-radius:50%; aspect-ratio:1; object-fit:cover"><img src="img/highlight-robotics.jpg" alt="Robotics" style="width:64px; border-radius:50%; aspect-ratio:1; object-fit:cover"><img src="img/highlight-steam.jpg" alt="STEAM" style="width:64px; border-radius:50%; aspect-ratio:1; object-fit:cover"><img src="img/highlight-contact.jpg" alt="Contact" style="width:64px; border-radius:50%; aspect-ratio:1; object-fit:cover"></div></div>
+          <div class="card"><h3>Handles and bio</h3><p>Same handle everywhere: <b>@bcyouthdiscovery</b> (check availability). Bio: “Helping B.C. kids thrive 💙 Consulting &amp; support for kids, families and schools · Hands-on robotics + STEAM · B.C. not-for-profit”.</p></div>
+        </div>
+      </div>
+      <div><p class="label">Cover images</p><div class="cols c2"><div class="shot"><img src="img/cover-facebook.jpg" alt="Facebook cover"></div><div class="shot"><img src="img/cover-linkedin.jpg" alt="LinkedIn cover"></div></div></div>
+      <div class="cols c3">
+        <div class="card"><h3>Post templates</h3><p>Message post (navy or blue), photo post (photo + white panel), Pilot post (ice). Every post carries the wordmark bottom-left.</p></div>
+        <div class="card"><h3>Content mix</h3><p>Support and belonging 35% · Built in class 30% · Pilot and behind the scenes 15% · Partners 10% · How to start 10%.</p></div>
+        <div class="card"><h3>Safety first</h3><p>No identifiable child without written consent. No names, schools or geotags. Don’t message minors. Get partner approval before tagging.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 APPLICATIONS -->
+<section class="page">
+  <div class="wrap grid">
+    <div class="rail"><span class="num">12</span><h2>Applications</h2><p>The brand in use.</p></div>
+    <div class="body">
+      <div><p class="label">Website</p><div class="shot"><img src="img/website.jpg" alt="The society website home page"></div></div>
+      <div class="cols c3" style="align-items:start">
+        <div><p class="label">Business card, front</p><div class="bcard" style="background:var(--navy); display:grid; place-items:center"><img src="../../website/images/brand/logo-full-white.png" alt="" style="width: 34%"></div></div>
+        <div><p class="label">Business card, back</p><div class="bcard" style="background:#fff; border:1px solid var(--line); padding: 7% 8%; display:grid; align-content:space-between"><div><p style="font-weight:800; color:var(--navy); font-size:1.05rem">Your Name</p><p style="font-size:.8rem; color:var(--slate)">Role, BC Youth Discovery Society</p></div><div style="display:flex; justify-content:space-between; align-items:end; gap:8px"><p style="font-size:.75rem; color:var(--navy); font-weight:600">[society email]<br>[website]</p><img src="../mascot/pilot-head.svg" alt="" style="width: 22%"></div></div></div>
+        <div><p class="label">Email signature</p><div class="sig"><img src="../mascot/pilot-head.svg" alt="" style="width:54px; padding:4px; background:var(--ice); border-radius:50%"><div><b>Your Name</b><br>Role · BC Youth Discovery Society<br><span style="color:var(--blue); font-weight:700">Helping B.C. kids thrive.</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<footer class="closing">
+  <div class="wrap">
+    <div class="disc"><img src="../mascot/pilot-cheer.svg" alt="Pilot cheering"></div>
+    <h2>Questions about the brand?</h2>
+    <p>Contact the society’s communications lead at [society email]. Brand files are in the society’s repository under <code>brand/</code>, <code>website/images/</code> and <code>social/</code>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

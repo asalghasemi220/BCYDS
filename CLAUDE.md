@@ -6,7 +6,7 @@
 - Main focus: helping B.C. kids thrive through consulting and support for kids, families and schools, including students with ADHD, autism and other needs. Robotics is a key hands-on activity, alongside STEAM (science, technology, engineering, arts, math). Outcomes: kids discover new interests, solve problems and work together.
 - Wording care: do not describe services as psychology, therapy, counselling, assessment or diagnosis unless a registered professional delivers them; use "consulting" and "support".
 - Collaborators (mention small, not as the headline): Kavosh AI and Robotics Academy (robotics instructors and kits); Paradise Life Academy (inclusion consulting, including intake interviews for students with special needs such as ADHD and autism). The society coordinates visits; schools book directly with the society.
-- Brand: the society logo (`brand/logo-original.png`) is a navy paper plane with a looping teal trail above the wordmark. Navy `#002E5D`, teal `#00B79F`, on white. Activity colours are supporting accents only. See `website/README.md`.
+- Brand: follow `brand/guide/` (brand guidelines). Colours are navy `#002E5D` and blue `#1D64D8` (plus light blue, sky, ice); no other colours. The logo's teal trail stays inside the logo only. Never use the paper plane on its own. Mascot: Pilot (`brand/mascot/`), the robot who represents the society everywhere. Social kit: `social/`.
 - Program fees cover delivery costs; any surplus stays with the society for future youth programs.
 
 ## Claude's scope in this workspace

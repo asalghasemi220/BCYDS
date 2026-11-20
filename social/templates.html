@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en-CA"><head><meta charset="utf-8">
+<title>BCYDS social templates</title>
+<style>
+/* Social media templates. Each .asset is exported at its exact pixel size by render.js. */
+@font-face { font-family: PJS; font-weight: 500; src: url(../video-source/node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-500-normal.woff2); }
+@font-face { font-family: PJS; font-weight: 600; src: url(../video-source/node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-600-normal.woff2); }
+@font-face { font-family: PJS; font-weight: 700; src: url(../video-source/node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2); }
+@font-face { font-family: PJS; font-weight: 800; src: url(../video-source/node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-800-normal.woff2); }
+:root { --navy:#002e5d; --deep:#001f40; --blue:#1d64d8; --blue2:#4c8df6; --sky:#bfd9ff; --ice:#eef5ff; --ink:#0d1b2e; --slate:#5b6576; }
+body { margin: 0; padding: 40px; background: #888; font-family: PJS, Arial, sans-serif; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+.asset { position: relative; overflow: hidden; flex: none; color: var(--navy); }
+.post { width: 1080px; height: 1350px; }
+.sq { width: 1080px; height: 1080px; }
+.tall { width: 1080px; height: 1920px; }
+h1, h2, p { margin: 0; }
+.h { font-weight: 800; letter-spacing: -.045em; line-height: 1.02; }
+.foot { position: absolute; left: 72px; right: 72px; bottom: 64px; display: flex; align-items: center; justify-content: space-between; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
+.foot img { height: 64px; }
+.tag { font-size: 24px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; }
+.tile { width: 150px; height: 150px; border-radius: 44px; display: grid; place-items: center; }
+.tile svg { width: 86px; height: 86px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.disc { border-radius: 50%; background: var(--ice); display: grid; place-items: center; }
+.steam { display: flex; gap: 22px; }
+.steam div { width: 172px; height: 250px; border-radius: 34px; padding: 24px; box-sizing: border-box; color: #fff; display: flex; flex-direction: column; justify-content: space-between; }
+.steam b { font-size: 104px; font-weight: 800; line-height: .85; letter-spacing: -.04em; }
+.steam span { font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+.loop { position: absolute; fill: none; stroke: var(--blue2); stroke-width: 6; stroke-linecap: round; }
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2.5L16 18h-3"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+</svg>
+
+<!-- ===== Profile pictures ===== -->
+<div class="asset sq" id="avatar-pilot" style="background: var(--navy); display:grid; place-items:center">
+  <div class="disc" style="width: 860px; height: 860px"><img src="../brand/mascot/pilot-head.svg" style="width: 600px; margin-top: 20px"></div>
+</div>
+<div class="asset sq" id="avatar-logo" style="background:#fff; display:grid; place-items:center">
+  <img src="../website/images/brand/logo-full.png" style="width: 700px">
+</div>
+
+<!-- ===== Highlight covers ===== -->
+<div class="asset tall" id="highlight-about" style="background: var(--navy); display:grid; place-items:center"><div class="disc" style="width:560px;height:560px"><div class="tile" style="width:280px;height:280px;border-radius:84px;background:var(--blue)"><svg style="width:160px;height:160px"><use href="#i-heart"/></svg></div></div></div>
+<div class="asset tall" id="highlight-support" style="background: var(--navy); display:grid; place-items:center"><div class="disc" style="width:560px;height:560px"><div class="tile" style="width:280px;height:280px;border-radius:84px;background:var(--navy)"><svg style="width:160px;height:160px"><use href="#i-chat"/></svg></div></div></div>
+<div class="asset tall" id="highlight-robotics" style="background: var(--navy); display:grid; place-items:center"><div class="disc" style="width:560px;height:560px"><div class="tile" style="width:280px;height:280px;border-radius:84px;background:var(--blue)"><svg style="width:160px;height:160px"><use href="#i-robot"/></svg></div></div></div>
+<div class="asset tall" id="highlight-steam" style="background: var(--navy); display:grid; place-items:center"><div class="disc" style="width:560px;height:560px"><div class="tile" style="width:280px;height:280px;border-radius:84px;background:var(--navy)"><svg style="width:160px;height:160px"><use href="#i-spark"/></svg></div></div></div>
+<div class="asset tall" id="highlight-contact" style="background: var(--navy); display:grid; place-items:center"><div class="disc" style="width:560px;height:560px"><div class="tile" style="width:280px;height:280px;border-radius:84px;background:var(--blue)"><svg style="width:160px;height:160px"><use href="#i-mail"/></svg></div></div></div>
+
+<!-- ===== Launch posts (1080 x 1350) ===== -->
+<div class="asset post" id="post-01-hello" style="background:#fff">
+  <img src="../website/images/brand/logo-full.png" style="position:absolute; left:50%; top:150px; width:560px; margin-left:-280px">
+  <p class="h" style="position:absolute; left:72px; right:72px; top:790px; text-align:center; font-size:104px">Helping B.C. kids <span style="color:var(--blue)">thrive.</span></p>
+  <p style="position:absolute; left:120px; right:120px; top:1050px; text-align:center; font-size:36px; font-weight:600; color:var(--slate); line-height:1.35">Consulting and support for kids, families and schools.</p>
+  <div class="foot" style="justify-content:center; color:var(--slate)"><span>B.C. not-for-profit</span></div>
+</div>
+
+<div class="asset post" id="post-02-meet-pilot" style="background: var(--ice)">
+  <p class="tag" style="position:absolute; left:72px; top:96px; color:var(--blue)">Meet Pilot</p>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:150px; font-size:96px">Say hi to our robot sidekick.</p>
+  <img src="../brand/mascot/pilot-cheer.svg" style="position:absolute; left:50%; top:440px; height:640px; margin-left:-280px">
+  <p style="position:absolute; left:72px; right:72px; top:1110px; font-size:34px; font-weight:600; color:var(--slate); line-height:1.35; text-align:center">Curious, kind, and always cheering for effort.</p>
+  <div class="foot"><img src="../website/images/brand/logo-wordmark.png"></div>
+</div>
+
+<div class="asset post" id="post-03-consulting" style="background: var(--navy); color:#fff">
+  <svg class="loop" viewBox="0 0 1080 300" style="left:0; top:120px; width:1080px; height:300px; opacity:.5"><path d="M -20 250 C 200 240, 380 230, 520 180 C 610 150, 650 80, 610 50 C 570 22, 520 40, 524 90 C 528 150, 600 190, 700 180 C 840 165, 960 110, 1100 40"/></svg>
+  <div class="tile" style="position:absolute; left:72px; top:470px; background:var(--blue)"><svg><use href="#i-chat"/></svg></div>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:680px; font-size:110px; color:#fff">Consulting &amp; support</p>
+  <p style="position:absolute; left:72px; right:120px; top:930px; font-size:44px; font-weight:700; color:var(--sky); line-height:1.25">for kids, families and schools. We listen first.</p>
+  <div class="foot"><img src="../website/images/brand/logo-wordmark-white.png"></div>
+</div>
+
+<div class="asset post" id="post-04-belong" style="background: linear-gradient(160deg, var(--blue2), var(--blue)); color:#fff">
+  <div class="tile" style="position:absolute; left:72px; top:150px; background:rgba(255,255,255,.2)"><svg><use href="#i-heart"/></svg></div>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:420px; font-size:150px; color:#fff">Every child belongs.</p>
+  <p style="position:absolute; left:72px; right:120px; top:880px; font-size:44px; font-weight:700; line-height:1.25">Support for students with ADHD, autism and other needs.</p>
+  <div class="foot"><img src="../website/images/brand/logo-wordmark-white.png"></div>
+</div>
+
+<div class="asset post" id="post-05-built-in-class" style="background:#fff">
+  <img src="../website/images/build-creature.jpg" style="position:absolute; left:0; top:0; width:1080px; height:930px; object-fit:cover; object-position:50% 50%">
+  <p class="tag" style="position:absolute; left:72px; top:990px; color:var(--blue)">Built in class</p>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:1040px; font-size:62px">Robotics: a hands-on way to focus, create and work together.</p>
+  <div class="foot" style="bottom:48px; justify-content:flex-end"></div>
+</div>
+
+<div class="asset post" id="post-06-steam" style="background: var(--ice)">
+  <p class="tag" style="position:absolute; left:72px; top:96px; color:var(--blue)">Hands-on STEAM</p>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:150px; font-size:100px">Five subjects. One big build.</p>
+  <div class="steam" style="position:absolute; left:72px; top:520px">
+    <div style="background:var(--navy)"><b>S</b><span>Science</span></div>
+    <div style="background:linear-gradient(160deg,var(--blue2),var(--blue))"><b>T</b><span>Tech</span></div>
+    <div style="background:var(--sky); color:var(--navy)"><b>E</b><span>Engineer</span></div>
+    <div style="background:linear-gradient(160deg,var(--blue2),var(--blue))"><b>A</b><span>Arts</span></div>
+    <div style="background:var(--navy)"><b>M</b><span>Math</span></div>
+  </div>
+  <p style="position:absolute; left:72px; right:72px; top:850px; font-size:38px; font-weight:600; color:var(--slate); line-height:1.4">Ask and test. Code and create. Design and build. Imagine and share. Measure and solve.</p>
+  <div class="foot"><img src="../website/images/brand/logo-wordmark.png"></div>
+</div>
+
+<div class="asset post" id="post-07-big-ideas">
+  <img src="../website/images/build-swing.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 40%">
+  <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,31,64,0) 45%, rgba(0,31,64,.88) 100%)"></div>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:960px; font-size:110px; color:#fff">Small builds.<br>Big ideas.</p>
+  
+</div>
+
+<div class="asset post" id="post-08-partners" style="background:#fff">
+  <p class="tag" style="position:absolute; left:72px; top:96px; color:var(--blue)">Our partners</p>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:150px; font-size:100px">Better together.</p>
+  <div style="position:absolute; left:72px; right:72px; top:470px; display:grid; gap:28px">
+    <div style="background:var(--ice); border-radius:40px; padding:56px 60px"><p class="h" style="font-size:56px">Kavosh AI and Robotics Academy</p><p style="font-size:34px; font-weight:600; color:var(--slate); margin-top:16px">Robotics instruction and kits</p></div>
+    <div style="background:var(--ice); border-radius:40px; padding:56px 60px"><p class="h" style="font-size:56px">Paradise Life Academy</p><p style="font-size:34px; font-weight:600; color:var(--slate); margin-top:16px">Consulting and intake interviews for students with special needs</p></div>
+  </div>
+  <div class="foot"><img src="../website/images/brand/logo-wordmark.png"></div>
+</div>
+
+<div class="asset post" id="post-09-get-started" style="background: var(--navy); color:#fff">
+  <p class="tag" style="position:absolute; left:72px; top:96px; color:var(--sky)">Getting started</p>
+  <p class="h" style="position:absolute; left:72px; right:72px; top:150px; font-size:100px; color:#fff">Three simple steps.</p>
+  <div style="position:absolute; left:72px; right:72px; top:450px; display:grid; gap:26px">
+    <div style="display:flex; gap:34px; align-items:center"><span class="tile" style="width:110px;height:110px;border-radius:32px;background:var(--blue);font-size:52px;font-weight:800">1</span><p style="font-size:46px; font-weight:700">Reach out and tell us about your child, class or school.</p></div>
+    <div style="display:flex; gap:34px; align-items:center"><span class="tile" style="width:110px;height:110px;border-radius:32px;background:var(--blue);font-size:52px;font-weight:800">2</span><p style="font-size:46px; font-weight:700">We listen to understand each child’s needs.</p></div>
+    <div style="display:flex; gap:34px; align-items:center"><span class="tile" style="width:110px;height:110px;border-radius:32px;background:var(--blue);font-size:52px;font-weight:800">3</span><p style="font-size:46px; font-weight:700">Grow together with support and hands-on sessions.</p></div>
+  </div>
+  <div class="disc" style="position:absolute; right:72px; bottom:150px; width:220px; height:220px"><img src="../brand/mascot/pilot-wave.svg" style="height:180px; margin-top:14px"></div>
+  <div class="foot"><img src="../website/images/brand/logo-wordmark-white.png"><span style="color:var(--sky)">Link in bio</span></div>
+</div>
+
+<!-- ===== Story ===== -->
+<div class="asset tall" id="story-hello" style="background: var(--navy); color:#fff">
+  <p class="tag" style="position:absolute; left:80px; top:260px; color:var(--sky)">New here?</p>
+  <p class="h" style="position:absolute; left:80px; right:80px; top:320px; font-size:130px; color:#fff">Hi, I’m Pilot!</p>
+  <div class="disc" style="position:absolute; left:50%; top:700px; width:640px; height:640px; margin-left:-320px"><img src="../brand/mascot/pilot-wave.svg" style="height:520px; margin-top:30px"></div>
+  <p style="position:absolute; left:80px; right:80px; top:1440px; font-size:48px; font-weight:700; line-height:1.3; text-align:center">Follow along for hands-on robotics, STEAM and tips for families.</p>
+  <img src="../website/images/brand/logo-wordmark-white.png" style="position:absolute; left:50%; bottom:150px; height:90px; transform:translateX(-50%)">
+</div>
+
+<!-- ===== Covers ===== -->
+<div class="asset" id="cover-facebook" style="width:1640px; height:624px; background: var(--navy); color:#fff">
+  <p class="h" style="position:absolute; left:250px; top:200px; font-size:92px; color:#fff; width:820px">Helping B.C. kids <span style="color:var(--sky)">thrive.</span></p>
+  <p style="position:absolute; left:250px; top:420px; font-size:34px; font-weight:700; color:var(--sky)">Consulting · Support · Robotics · STEAM</p>
+  <div class="disc" style="position:absolute; left:1110px; top:112px; width:400px; height:400px"><img src="../brand/mascot/pilot-wave.svg" style="height:330px; margin-top:20px"></div>
+</div>
+<div class="asset" id="cover-linkedin" style="width:1584px; height:396px; background: var(--navy); color:#fff">
+  <p class="h" style="position:absolute; left:460px; top:120px; font-size:60px; color:#fff; white-space:nowrap">Helping B.C. kids <span style="color:var(--sky)">thrive.</span></p>
+  <p style="position:absolute; left:460px; top:212px; font-size:28px; font-weight:700; color:var(--sky)">Consulting · Support · Robotics · STEAM</p>
+  <div class="disc" style="position:absolute; left:1300px; top:68px; width:260px; height:260px"><img src="../brand/mascot/pilot-wave.svg" style="height:214px; margin-top:14px"></div>
+</div>
+</body></html>
