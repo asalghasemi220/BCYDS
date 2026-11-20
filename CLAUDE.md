@@ -3,7 +3,8 @@
 ## Who we are
 - BC Youth Discovery Society: a B.C. not-for-profit that helps British Columbia schools bring hands-on learning into the classroom.
 - Society name is provisional (not yet approved). Inquiry email, domain and hosting are still to come.
-- Activity areas: robotics (first program), science, arts, outdoor learning, life skills, hands-on projects (everyday life skills through making). Outcomes: students discover new interests, solve problems and work together.
+- Main focus: helping B.C. kids thrive through consulting and support for kids, families and schools, including students with ADHD, autism and other needs. Robotics is a key hands-on activity, alongside STEAM (science, technology, engineering, arts, math). Outcomes: kids discover new interests, solve problems and work together.
+- Wording care: do not describe services as psychology, therapy, counselling, assessment or diagnosis unless a registered professional delivers them; use "consulting" and "support".
 - Collaborators (mention small, not as the headline): Kavosh AI and Robotics Academy (robotics instructors and kits); Paradise Life Academy (inclusion consulting, including intake interviews for students with special needs such as ADHD and autism). The society coordinates visits; schools book directly with the society.
 - Brand: the society logo (`brand/logo-original.png`) is a navy paper plane with a looping teal trail above the wordmark. Navy `#002E5D`, teal `#00B79F`, on white. Activity colours are supporting accents only. See `website/README.md`.
 - Program fees cover delivery costs; any surplus stays with the society for future youth programs.

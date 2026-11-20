@@ -4,140 +4,113 @@
 @font-face { font-family: PJS; font-weight: 500; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-500-normal.woff2); }
 @font-face { font-family: PJS; font-weight: 700; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2); }
 @font-face { font-family: PJS; font-weight: 800; src: url(node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-800-normal.woff2); }
-:root { --navy:#002e5d; --teal:#00b79f; --blue:#0a84ff; --rose:#ff375f; --green:#2db84d; --amber:#ffb020; --violet:#6e4be0; }
-html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #000; font-family: PJS, sans-serif; }
+:root { --navy:#002e5d; --teal:#00b79f; --blue:#0a84ff; --rose:#ff375f; --amber:#ffb020; --violet:#6e4be0; }
+html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #fff; font-family: PJS, sans-serif; }
 .scene { position: absolute; inset: 0; overflow: hidden; opacity: 0; }
 .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; }
-.shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,20,45,0) 40%, rgba(0,20,45,.78) 100%); }
-.cap { position: absolute; left: 80px; right: 80px; bottom: 70px; color: #fff; font-weight: 800; font-size: 58px; line-height: 1.06; letter-spacing: -.035em; }
-.cap small { display: block; font-size: 20px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); margin-bottom: 18px; }
-.chip { position: absolute; left: 80px; bottom: 70px; display: flex; align-items: center; gap: 18px; color: #fff; font-weight: 800; font-size: 54px; letter-spacing: -.03em; }
-.app { width: 84px; height: 84px; border-radius: 24px; display: grid; place-items: center; box-shadow: 0 14px 30px -12px rgba(0,0,0,.45); }
-.app svg { width: 50px; height: 50px; }
-.grid6 { position: absolute; left: 0; right: 0; top: 250px; display: flex; justify-content: center; gap: 34px; }
-.grid6 .item { display: grid; justify-items: center; gap: 16px; font-weight: 700; font-size: 21px; color: var(--navy); width: 150px; text-align: center; line-height: 1.15; }
-.grid6 .app { width: 118px; height: 118px; border-radius: 32px; }
-.grid6 .app svg { width: 64px; height: 64px; }
-h2 { margin: 0; position: absolute; left: 0; right: 0; text-align: center; color: var(--navy); font-weight: 800; letter-spacing: -.04em; }
-.line { display: block; }
+.shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,20,45,0) 45%, rgba(0,20,45,.8) 100%); }
+.cap { position: absolute; left: 80px; right: 80px; bottom: 72px; color: #fff; font-weight: 800; font-size: 64px; line-height: 1.05; letter-spacing: -.04em; }
+.cap small { display: block; font-size: 19px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.85); margin-bottom: 18px; }
+.app { width: 92px; height: 92px; border-radius: 26px; display: grid; place-items: center; box-shadow: 0 14px 30px -12px rgba(0,0,0,.35); }
+.app svg { width: 54px; height: 54px; fill: none; stroke: #fff; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+.split { display: grid; grid-template-columns: 1fr 520px; }
+.split .panel { position: relative; padding: 0 70px; display: flex; flex-direction: column; justify-content: center; gap: 30px; color: #fff; }
+.split .panel h3 { margin: 0; font-size: 60px; line-height: 1.04; letter-spacing: -.04em; font-weight: 800; }
+.split .panel p { margin: 0; font-size: 28px; line-height: 1.3; font-weight: 600; opacity: .9; }
+.split .right { position: relative; overflow: hidden; }
+.center { position: absolute; left: 0; right: 0; text-align: center; margin: 0; font-weight: 800; letter-spacing: -.045em; }
+.steam { position: absolute; left: 0; right: 0; top: 270px; display: flex; justify-content: center; gap: 22px; }
+.steam .b { width: 196px; height: 250px; border-radius: 30px; padding: 26px 24px; box-sizing: border-box; color: #fff; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 20px 40px -24px rgba(0,0,0,.45); }
+.steam .b big { font-size: 96px; font-weight: 800; line-height: .9; letter-spacing: -.04em; }
+.steam .b span { font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+.steam .b small { display: block; white-space: nowrap; font-size: 16px; font-weight: 600; opacity: .9; margin-top: 4px; }
 </style></head>
 <body>
 
-<!-- S1: logo flight -->
-<div class="scene" id="s1" style="background: var(--navy)">
-  <svg width="1280" height="720" viewBox="0 0 1280 720" style="position:absolute; inset:0">
-    <path id="p1" d="M 120 330 C 260 330, 400 320, 500 290 C 570 270, 610 220, 590 190 C 570 162, 525 170, 524 205 C 523 245, 575 272, 650 268 C 780 262, 900 230, 1010 170" fill="none" stroke="#00b79f" stroke-width="9" stroke-linecap="round"/>
-    <g id="plane1"><image href="../website/images/brand/plane-white.png" x="-70" y="-49" width="140" height="98" transform="rotate(33)"/></g>
-  </svg>
-  <img id="word1" src="../website/images/brand/logo-wordmark-white.png" style="position:absolute; left:50%; top:400px; width:520px; margin-left:-260px">
+<!-- S1 logo -->
+<div class="scene" id="s1" style="background:#fff">
+  <img id="logo1" src="../website/images/brand/logo-full.png" style="position:absolute; left:50%; top:110px; width:470px; margin-left:-235px">
 </div>
 
-<!-- S2: robots -->
-<div class="scene" id="s2">
-  <img class="photo" id="ph2" src="../website/images/students-building-robots.jpg" style="object-position: 60% 50%">
-  <div class="shade"></div>
-  <div class="cap" id="c2"><small>BC Youth Discovery Society</small>Hands-on classes<br>for B.C. schools.</div>
+<!-- S2 kids -->
+<div class="scene split" id="s2">
+  <div class="panel" style="background: var(--navy)">
+    <div class="cap" id="c2" style="position:static; font-size:72px"><small>BC Youth Discovery Society</small>We help B.C. kids thrive.</div>
+  </div>
+  <div class="right"><img class="photo" id="ph2" src="../website/images/cat-mask.jpg" style="object-position: 50% 30%"></div>
 </div>
 
-<!-- S3a-d: activity cuts -->
-<div class="scene" id="s3a"><img class="photo" src="../website/images/science-lab.jpg" style="object-position: 50% 35%"><div class="shade"></div>
-  <div class="chip"><span class="app" style="background: linear-gradient(160deg,#3fe0c6,var(--teal))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>Science</div></div>
-<div class="scene" id="s3b"><img class="photo" src="../website/images/painting-outdoors.jpg" style="object-position: 30% 70%"><div class="shade"></div>
-  <div class="chip"><span class="app" style="background: linear-gradient(160deg,#ff7a93,var(--rose))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 1 10-10c0 2.8-2.2 4-4 4h-2a2 2 0 0 0-1.5 3.3A1.6 1.6 0 0 1 12 22z"/><circle cx="7.5" cy="10.5" r=".6" fill="#fff"/><circle cx="11.5" cy="7" r=".6" fill="#fff"/><circle cx="16" cy="9.5" r=".6" fill="#fff"/></svg></span>Arts</div></div>
-<div class="scene" id="s3c"><img class="photo" src="../website/images/outdoor-forest.jpg" style="object-position: 50% 45%"><div class="shade"></div>
-  <div class="chip"><span class="app" style="background: linear-gradient(160deg,#6be08a,var(--green))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c0-9 6-15 15-15 0 9-6 15-15 15z"/><path d="M5 20l8-8"/></svg></span>Outdoor learning</div></div>
-<div class="scene" id="s3d"><img class="photo" src="../website/images/robot-car-sensor.jpg" style="object-position: 40% 55%"><div class="shade"></div>
-  <div class="chip"><span class="app" style="background: linear-gradient(160deg,#5aaeff,var(--blue))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></svg></span>Robotics</div></div>
+<!-- S3 consulting -->
+<div class="scene" id="s3" style="background: var(--navy)">
+  <div id="i3" style="position:absolute; left:50%; top:150px; margin-left:-46px"><span class="app" style="background: linear-gradient(160deg,#3fe0c6,var(--teal))"><svg viewBox="0 0 24 24"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2.5L16 18h-3"/></svg></span></div>
+  <h2 class="center" id="t3a" style="top: 300px; font-size: 72px; color:#fff">Consulting and support</h2>
+  <h2 class="center" id="t3b" style="top: 400px; font-size: 40px; color:#7cf0dc; font-weight:700; letter-spacing:-.02em">for kids, families and schools.</h2>
+</div>
 
-<!-- S3e: six activities -->
-<div class="scene" id="s3e" style="background: #f5f5f7">
-  <h2 id="h3e" style="top: 120px; font-size: 64px">Six ways to learn by doing</h2>
-  <div class="grid6" id="g6">
-    <div class="item"><span class="app" style="background: linear-gradient(160deg,#5aaeff,var(--blue))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></svg></span>Robotics</div>
-    <div class="item"><span class="app" style="background: linear-gradient(160deg,#3fe0c6,var(--teal))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>Science</div>
-    <div class="item"><span class="app" style="background: linear-gradient(160deg,#ff7a93,var(--rose))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 1 10-10c0 2.8-2.2 4-4 4h-2a2 2 0 0 0-1.5 3.3A1.6 1.6 0 0 1 12 22z"/></svg></span>Arts</div>
-    <div class="item"><span class="app" style="background: linear-gradient(160deg,#6be08a,var(--green))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20c0-9 6-15 15-15 0 9-6 15-15 15z"/><path d="M5 20l8-8"/></svg></span>Outdoor learning</div>
-    <div class="item"><span class="app" style="background: linear-gradient(160deg,#ffcf5c,var(--amber))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 3v2.5h6V3M8.5 12l2 2 4-4M8.5 17.5h7"/></svg></span>Life skills</div>
-    <div class="item"><span class="app" style="background: linear-gradient(160deg,#9d82ff,var(--violet))"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span>Hands-on projects</div>
+<!-- S4 inclusion -->
+<div class="scene split" id="s4">
+  <div class="panel" style="background: linear-gradient(160deg,#ff5f7e,var(--rose))">
+    <span class="app" style="background: rgba(255,255,255,.22); box-shadow:none"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></svg></span>
+    <h3 id="t4a">Every child belongs.</h3>
+    <p id="t4b">Including students with ADHD, autism and other needs.</p>
+  </div>
+  <div class="right"><img class="photo" id="ph4" src="../website/images/build-swing.jpg" style="object-position: 50% 45%"></div>
+</div>
+
+<!-- S5 robotics -->
+<div class="scene split" id="s5">
+  <div class="panel" style="background: linear-gradient(160deg,#4aa3ff,var(--blue))">
+    <span class="app" style="background: rgba(255,255,255,.22); box-shadow:none"><svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></svg></span>
+    <h3 id="t5a" style="font-size:52px">Robotics gives kids a hands-on way to focus, create and work together.</h3>
+  </div>
+  <div class="right"><img class="photo" id="ph5" src="../website/images/build-creature.jpg" style="object-position: 50% 52%"></div>
+</div>
+
+<!-- S6 STEAM -->
+<div class="scene" id="s6" style="background:#f5f5f7">
+  <h2 class="center" id="t6" style="top: 120px; font-size: 70px; color: var(--navy)">Hands-on STEAM</h2>
+  <div class="steam" id="steam">
+    <div class="b" style="background: linear-gradient(160deg,#3fe0c6,var(--teal))"><big>S</big><div><span>Science</span><small>Ask &amp; test</small></div></div>
+    <div class="b" style="background: linear-gradient(160deg,#5aaeff,var(--blue))"><big>T</big><div><span>Technology</span><small>Code &amp; create</small></div></div>
+    <div class="b" style="background: linear-gradient(160deg,#9d82ff,var(--violet))"><big>E</big><div><span>Engineering</span><small>Design &amp; build</small></div></div>
+    <div class="b" style="background: linear-gradient(160deg,#ff7a93,var(--rose))"><big>A</big><div><span>Arts</span><small>Imagine &amp; share</small></div></div>
+    <div class="b" style="background: linear-gradient(160deg,#ffcf5c,var(--amber)); color: var(--navy)"><big>M</big><div><span>Math</span><small>Measure &amp; solve</small></div></div>
   </div>
 </div>
 
-<!-- S4: outcomes -->
-<div class="scene" id="s4">
-  <img class="photo" id="ph4" src="../website/images/classroom-experiment.jpg" style="object-position: 50% 40%">
-  <div class="shade" style="background: linear-gradient(180deg, rgba(0,20,45,.1) 20%, rgba(0,20,45,.82) 100%)"></div>
-  <div class="cap" style="font-size: 62px">
-    <span class="line" id="o1">Discover new interests.</span>
-    <span class="line" id="o2" style="color: #ffcf5c">Solve problems.</span>
-    <span class="line" id="o3" style="color: #7cf0dc">Work together.</span>
-  </div>
+<!-- S7 partners -->
+<div class="scene" id="s7">
+  <img class="photo" id="ph7" src="../website/images/robotics-team.jpg" style="object-position: 55% 40%">
+  <div class="shade" style="background: linear-gradient(180deg, rgba(0,20,45,0) 35%, rgba(0,20,45,.85) 100%)"></div>
+  <div class="cap" id="c7" style="font-size: 50px"><small>With our partners</small>Kavosh AI and Robotics Academy<br>Paradise Life Academy</div>
 </div>
 
-<!-- S5: how -->
-<div class="scene" id="s5" style="background: var(--navy)">
-  <h2 id="h5a" style="top: 230px; font-size: 70px; color: #fff">Schools book directly with us.</h2>
-  <h2 id="h5b" style="top: 350px; font-size: 44px; color: #7cf0dc; font-weight: 700; letter-spacing: -.02em">We plan and coordinate every visit.</h2>
-</div>
-
-<!-- S6: end card -->
-<div class="scene" id="s6" style="background: #fff">
-  <img id="logo6" src="../website/images/brand/logo-full.png" style="position:absolute; left:50%; top:110px; width:360px; margin-left:-180px">
-  <div id="cta6" style="position:absolute; left:50%; top:500px; transform: translateX(-50%); background: var(--teal); color: var(--navy); font-weight: 800; font-size: 34px; letter-spacing: -.02em; padding: 22px 44px; border-radius: 999px; white-space: nowrap">Book a school visit</div>
+<!-- S8 end -->
+<div class="scene" id="s8" style="background:#fff">
+  <img id="logo8" src="../website/images/brand/logo-full.png" style="position:absolute; left:50%; top:96px; width:380px; margin-left:-190px">
+  <div id="cta8" style="position:absolute; left:50%; top:520px; transform: translateX(-50%); background: var(--teal); color: var(--navy); font-weight: 800; font-size: 34px; letter-spacing: -.02em; padding: 22px 46px; border-radius: 999px; white-space: nowrap">Get in touch</div>
 </div>
 
 <script>
 const $ = id => document.getElementById(id);
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const ease = x => 1 - Math.pow(1 - clamp(x), 3);
-const inout = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
-function alpha(t, s, e, fi = .5, fo = .5) { return Math.min(clamp((t - s) / fi), clamp((e - t) / fo)); }
-const P = $('p1'), L = P.getTotalLength();
-P.style.strokeDasharray = L;
-const scenes = {
-  s1: [0, 4.2], s2: [3.8, 9.0], s3a: [8.6, 10.6], s3b: [10.3, 12.3], s3c: [12.0, 14.0], s3d: [13.7, 15.7],
-  s3e: [15.3, 19.0], s4: [18.6, 24.0], s5: [23.6, 27.4], s6: [27.0, 99]
-};
-function kb(el, p, from = 1.04, to = 1.16, dx = -1.5) { el.style.transform = `scale(${from + (to - from) * p}) translateX(${dx * p}%)`; }
+const alpha = (t, s, e, f = .45) => Math.min(clamp((t - s) / f), clamp((e - t) / f));
+const S = { s1: [0, 3.6], s2: [3.2, 8.4], s3: [8.0, 12.6], s4: [12.2, 16.8], s5: [16.4, 21.4], s6: [21.0, 25.0], s7: [24.6, 28.6], s8: [28.2, 99] };
+const rise = (el, q, d = 30) => { el.style.opacity = q; el.style.transform = (el.dataset.base || '') + ` translateY(${(1 - q) * d}px)`; };
+const kb = (el, p, a = 1.04, b = 1.14) => { el.style.transform = `scale(${a + (b - a) * p})`; };
 window.renderAt = function (t) {
-  for (const [id, [s, e]] of Object.entries(scenes)) {
-    const fi = id === 's1' ? 0.001 : (id.startsWith('s3') && id !== 's3e' ? .3 : .45);
-    $(id).style.opacity = alpha(t, s, e, fi, id.startsWith('s3') && id !== 's3e' ? .3 : .45);
-  }
-  // S1 flight
-  const p = inout(t / 2.4);
-  P.style.strokeDashoffset = L * (1 - p);
-  const a = P.getPointAtLength(L * p), b = P.getPointAtLength(Math.min(L, L * p + 1)), c = P.getPointAtLength(Math.max(0, L * p - 1));
-  const ang = Math.atan2(b.y - c.y, b.x - c.x) * 180 / Math.PI;
-  $('plane1').setAttribute('transform', `translate(${a.x},${a.y}) rotate(${ang})`);
-  $('word1').style.opacity = ease((t - 1.6) / .9);
-  $('word1').style.transform = `translateY(${(1 - ease((t - 1.6) / .9)) * 24}px)`;
-  // S2
-  kb($('ph2'), clamp((t - 3.8) / 5.2));
-  const c2 = ease((t - 4.4) / .9); $('c2').style.opacity = c2; $('c2').style.transform = `translateY(${(1 - c2) * 40}px)`;
-  // S3 cuts: slow push-in + chip rise
-  ['s3a', 's3b', 's3c', 's3d'].forEach(id => {
-    const [s, e] = scenes[id], lp = clamp((t - s) / (e - s));
-    kb($(id).querySelector('.photo'), lp, 1.03, 1.12, 1);
-    const ch = $(id).querySelector('.chip'), q = ease((t - s - .15) / .6);
-    ch.style.opacity = q; ch.style.transform = `translateY(${(1 - q) * 30}px)`;
-  });
-  // S3e grid pop
-  const h = ease((t - 15.4) / .7); $('h3e').style.opacity = h; $('h3e').style.transform = `translateY(${(1 - h) * 24}px)`;
-  [...$('g6').children].forEach((it, i) => {
-    const q = ease((t - 15.8 - i * .14) / .55);
-    it.style.opacity = q; it.style.transform = `translateY(${(1 - q) * 40}px) scale(${.85 + .15 * q})`;
-  });
-  // S4
-  kb($('ph4'), clamp((t - 18.6) / 5.4), 1.04, 1.14, 1.2);
-  ['o1', 'o2', 'o3'].forEach((id, i) => { const q = ease((t - 19.3 - i * 1.1) / .7); $(id).style.opacity = q; $(id).style.transform = `translateY(${(1 - q) * 30}px)`; });
-  // S5
-  const a5 = ease((t - 23.9) / .8), b5 = ease((t - 24.9) / .8);
-  $('h5a').style.opacity = a5; $('h5a').style.transform = `translateY(${(1 - a5) * 30}px)`;
-  $('h5b').style.opacity = b5; $('h5b').style.transform = `translateY(${(1 - b5) * 30}px)`;
-  // S6
-  const l6 = ease((t - 27.3) / .9), c6 = ease((t - 28.2) / .8);
-  $('logo6').style.opacity = l6; $('logo6').style.transform = `scale(${.94 + .06 * l6})`;
-  $('cta6').style.opacity = c6; $('cta6').style.transform = `translateX(-50%) translateY(${(1 - c6) * 20}px)`;
+  for (const [id, [s, e]] of Object.entries(S)) $(id).style.opacity = id === 's1' ? Math.min(1, clamp((e - t) / .45)) : alpha(t, s, e);
+  const l1 = ease((t - .2) / 1.1); $('logo1').style.opacity = l1; $('logo1').style.transform = `scale(${.92 + .08 * l1})`;
+  kb($('ph2'), clamp((t - 3.2) / 5.2)); rise($('c2'), ease((t - 3.9) / .9), 40);
+  rise($('i3'), ease((t - 8.3) / .7)); rise($('t3a'), ease((t - 8.6) / .8)); rise($('t3b'), ease((t - 9.3) / .8));
+  kb($('ph4'), clamp((t - 12.2) / 4.6)); rise($('t4a'), ease((t - 12.6) / .8)); rise($('t4b'), ease((t - 13.4) / .8));
+  kb($('ph5'), clamp((t - 16.4) / 5)); rise($('t5a'), ease((t - 16.8) / .8));
+  rise($('t6'), ease((t - 21.2) / .7));
+  [...$('steam').children].forEach((b, i) => { const q = ease((t - 21.6 - i * .16) / .6); b.style.opacity = q; b.style.transform = `translateY(${(1 - q) * 50}px) scale(${.9 + .1 * q})`; });
+  kb($('ph7'), clamp((t - 24.6) / 4), 1.03, 1.1); rise($('c7'), ease((t - 25.1) / .9), 40);
+  const l8 = ease((t - 28.5) / .9); $('logo8').style.opacity = l8; $('logo8').style.transform = `scale(${.94 + .06 * l8})`;
+  $('cta8').dataset.base = 'translateX(-50%)'; rise($('cta8'), ease((t - 29.4) / .8), 20);
 };
 renderAt(0);
 </script>

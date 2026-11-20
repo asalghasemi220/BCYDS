@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BC Youth Discovery Society</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Hands-on classes for B.C. schools in robotics, science, arts, outdoor learning and life skills.">
+<meta name="description" content="Consulting and support for B.C. kids, families and schools, with hands-on robotics and STEAM.">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" type="image/png" href="images/brand/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
 <style>
-/* Layout: clean product-page rhythm. Centred hero with the logo's plane flight and a dock of colourful
-   app-style activity icons, then the film, a bento grid of activity blocks, one colourful promise line,
-   three simple steps, partner logos and a contact block. Brand navy + teal on white and Apple-light grey;
-   each activity owns one bright colour. One light theme on purpose, matching the logo. */
+/* Layout: clean product-page rhythm. Centred hero with the film as its picture, a bento of what we do
+   (consulting first), STEAM as five colour blocks plus real class builds, one colourful promise line,
+   three steps, partners and a contact block. Logo navy + teal on white and light grey; bright accents
+   for each block. One light theme on purpose, matching the logo. */
 :root {
   color-scheme: light;
   --white: #ffffff;
@@ -24,19 +24,14 @@
   --ink-2: #5b6576;
   --line: #e4e7ec;
   --navy: #002e5d;
-  --teal: #00b79f;
-  --teal-ink: #00806f;
-
+  --teal: #00b79f;   --teal-2: #3fe0c6;
   --blue: #0a84ff;   --blue-2: #5aaeff;
   --rose: #ff375f;   --rose-2: #ff7a93;
-  --green: #2db84d;  --green-2: #6be08a;
   --amber: #ffb020;  --amber-2: #ffcf5c;
   --violet: #6e4be0; --violet-2: #9d82ff;
-  --teal-2: #3fe0c6;
 
   --font: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --r-lg: 28px;
-  --r-md: 20px;
   --wrap: 72rem;
   --ease: cubic-bezier(.2, .7, .1, 1);
   --header-h: 64px;
@@ -52,25 +47,16 @@ h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -.035em; line-height: 
 p { margin: 0; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 8px; }
 .wrap { max-width: var(--wrap); margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-.section { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
-.title { font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.6rem); text-align: center; margin-bottom: clamp(2.2rem, 4vw, 3.4rem); }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.section { padding-block: clamp(4.5rem, 9vw, 7rem); }
+.title { font-size: clamp(2.2rem, 1.4rem + 3.2vw, 3.6rem); text-align: center; }
+.lede { text-align: center; color: var(--ink-2); font-size: 1.15rem; max-width: 34rem; margin: 1rem auto 0; }
+.head { margin-bottom: clamp(2.2rem, 4vw, 3.2rem); }
 
-/* App-style icons: rounded squares with a soft top-light gradient */
-.app {
-  --a: var(--blue); --a2: var(--blue-2);
-  width: 52px; height: 52px; border-radius: 15px; flex: none;
-  display: grid; place-items: center;
-  background: linear-gradient(160deg, var(--a2), var(--a));
-  box-shadow: 0 8px 20px -10px var(--a), inset 0 1px 0 rgba(255, 255, 255, .35);
-}
+/* App-style icons */
+.app { width: 52px; height: 52px; border-radius: 15px; flex: none; display: grid; place-items: center; }
 .app svg { width: 58%; height: 58%; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.c-blue   { --a: var(--blue);   --a2: var(--blue-2); }
-.c-teal   { --a: var(--teal);   --a2: var(--teal-2); }
-.c-rose   { --a: var(--rose);   --a2: var(--rose-2); }
-.c-green  { --a: var(--green);  --a2: var(--green-2); }
-.c-amber  { --a: var(--amber);  --a2: var(--amber-2); }
-.c-violet { --a: var(--violet); --a2: var(--violet-2); }
+.app.glass { background: rgba(255, 255, 255, .2); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3); }
+.app.teal { background: linear-gradient(160deg, var(--teal-2), var(--teal)); }
 
 /* Buttons */
 .btn {
@@ -87,7 +73,7 @@ p { margin: 0; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--white); }
 .header {
   position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50;
-  background: rgba(255, 255, 255, .8); backdrop-filter: saturate(1.8) blur(18px);
+  background: rgba(255, 255, 255, .82); backdrop-filter: saturate(1.8) blur(18px);
   border-bottom: 1px solid transparent; transition: border-color .3s var(--ease);
 }
 .header.scrolled { border-bottom-color: var(--line); }
@@ -101,93 +87,111 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
 
 /* ---------- Hero ---------- */
-.hero { padding-block: calc(var(--header-h) + 2rem) 0; text-align: center; overflow: hidden; }
-.flight { display: block; width: min(100%, 60rem); height: auto; margin: 0 auto -1rem; overflow: visible; }
-.trail { fill: none; stroke: var(--teal); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; animation: draw 2.4s cubic-bezier(.45, 0, .25, 1) both; }
-@keyframes draw { from { stroke-dashoffset: 1; } }
-.dock { display: flex; justify-content: center; flex-wrap: wrap; gap: .9rem; margin-bottom: 2rem; }
-.dock .app { width: 58px; height: 58px; border-radius: 17px; animation: float 4s ease-in-out infinite alternate; }
-.dock .app:nth-child(2) { animation-delay: -.7s; } .dock .app:nth-child(3) { animation-delay: -1.4s; }
-.dock .app:nth-child(4) { animation-delay: -2.1s; } .dock .app:nth-child(5) { animation-delay: -2.8s; } .dock .app:nth-child(6) { animation-delay: -3.5s; }
-@keyframes float { to { transform: translateY(-7px); } }
-@media (max-width: 480px) { .dock { gap: .55rem; flex-wrap: nowrap; } .dock .app { width: 46px; height: 46px; border-radius: 14px; } }
-.hero h1 { font-size: clamp(2.8rem, 1.5rem + 6vw, 5.6rem); letter-spacing: -.05em; }
-.hero h1 span { background: linear-gradient(90deg, var(--blue), var(--teal) 30%, var(--green) 50%, var(--amber) 70%, var(--rose)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hero .sub { max-width: 36rem; margin: 1.3rem auto 0; color: var(--ink-2); font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); }
-.hero .actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 2rem; }
+.hero { padding-block: calc(var(--header-h) + clamp(3rem, 7vw, 5rem)) 0; text-align: center; }
+.pill { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .85rem; border-radius: 999px; background: var(--grey); font-size: .85rem; font-weight: 700; color: var(--ink-2); }
+.pill i { width: .5rem; height: .5rem; border-radius: 50%; background: var(--teal); }
+.hero h1 { font-size: clamp(2.9rem, 1.5rem + 6vw, 5.8rem); letter-spacing: -.055em; margin-top: 1.4rem; animation: up 1s var(--ease) both; }
+.hero h1 span { background: linear-gradient(90deg, var(--blue), var(--teal) 35%, var(--amber) 65%, var(--rose)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .sub { max-width: 34rem; margin: 1.3rem auto 0; color: var(--ink-2); font-size: clamp(1.1rem, 1rem + .5vw, 1.3rem); animation: up 1s .12s var(--ease) both; }
+.hero .actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 2rem; animation: up 1s .24s var(--ease) both; }
+@keyframes up { from { opacity: 0; transform: translateY(18px); } }
 
-/* ---------- Film ---------- */
-.film { padding-block: clamp(3rem, 6vw, 4.5rem) 0; }
-.player { position: relative; border-radius: var(--r-lg); overflow: hidden; background: var(--navy); aspect-ratio: 16 / 9; box-shadow: 0 40px 80px -50px rgba(0, 46, 93, .6); }
+.player { position: relative; margin-top: clamp(2.5rem, 5vw, 3.5rem); border-radius: var(--r-lg); overflow: hidden; background: var(--navy); aspect-ratio: 16 / 9; box-shadow: 0 40px 80px -50px rgba(0, 46, 93, .6); }
 .player video { width: 100%; height: 100%; object-fit: cover; }
 .play {
   position: absolute; right: 1rem; bottom: 1rem; width: 48px; height: 48px; border-radius: 50%; border: 0; cursor: pointer;
-  display: grid; place-items: center; background: rgba(255, 255, 255, .78); backdrop-filter: blur(12px); color: var(--ink);
+  display: grid; place-items: center; background: rgba(255, 255, 255, .8); backdrop-filter: blur(12px); color: var(--ink);
   transition: transform .2s var(--ease);
 }
 .play:hover { transform: scale(1.06); }
 .play svg { width: 18px; height: 18px; fill: currentColor; }
-.film-cap { text-align: center; color: var(--ink-2); font-size: .9rem; margin-top: .9rem; }
 
-/* ---------- Programs bento ---------- */
-.bento { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(270px, auto); gap: 16px; }
+/* ---------- What we do (bento) ---------- */
+.bento {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas: "consult consult photo" "include robot photo";
+}
 .tile {
-  position: relative; overflow: hidden; border-radius: var(--r-lg); padding: 1.6rem;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+  position: relative; overflow: hidden; border-radius: var(--r-lg); padding: 1.75rem; min-height: 280px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; color: #fff;
   transition: transform .45s var(--ease), box-shadow .45s var(--ease);
 }
 .tile:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -36px rgba(13, 27, 46, .55); }
-.tile h3 { font-size: clamp(1.6rem, 1.3rem + .9vw, 2.1rem); color: inherit; }
-.tile p { margin-top: .4rem; font-size: 1rem; opacity: .88; max-width: 22rem; }
-.tile .top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; position: relative; }
-.tile .body { position: relative; }
-.badge { font-size: .72rem; font-weight: 700; letter-spacing: .02em; padding: .42rem .7rem; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); }
-.badge.soft { background: rgba(255, 255, 255, .28); color: inherit; }
-.tile.photo { color: #fff; }
-.tile.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
-.tile.photo:hover img { transform: scale(1.05); }
-.tile.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 20, 45, .05) 30%, rgba(0, 20, 45, .72)); }
-.tile.photo .top, .tile.photo .body { z-index: 1; }
-.span-2 { grid-column: span 2; }
-.t-science { background: linear-gradient(160deg, var(--teal-2), var(--teal)); color: var(--navy); }
-.t-life { background: linear-gradient(160deg, var(--amber-2), var(--amber)); color: var(--navy); }
-.t-projects { background: linear-gradient(160deg, var(--violet-2), var(--violet)); color: #fff; }
-.t-care { background: var(--navy); color: #fff; }
-.t-care h3 { font-size: clamp(1.9rem, 1.4rem + 1.4vw, 2.7rem); }
-.tile .app.on-colour { background: rgba(255, 255, 255, .22); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35); }
-.t-science .app.on-colour svg, .t-life .app.on-colour svg { stroke: var(--navy); }
+.tile h3 { color: inherit; font-size: clamp(1.7rem, 1.35rem + 1vw, 2.3rem); }
+.tile p { margin-top: .5rem; opacity: .9; max-width: 26rem; }
+.t-consult { grid-area: consult; background: var(--navy); }
+.t-consult h3 { font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem); }
+.t-include { grid-area: include; background: linear-gradient(160deg, var(--rose-2), var(--rose)); }
+.t-robot { grid-area: robot; background: linear-gradient(160deg, var(--blue-2), var(--blue)); }
+.t-photo { grid-area: photo; padding: 0; min-height: 420px; }
+.t-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transition: transform 1.2s var(--ease); }
+.t-photo:hover img { transform: scale(1.04); }
+.chip { position: absolute; left: 1rem; bottom: 1rem; padding: .45rem .8rem; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); font-size: .8rem; font-weight: 700; }
 @media (max-width: 900px) {
-  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .t-projects { grid-column: span 2; }
+  .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "consult consult" "include robot" "photo photo"; }
+  .t-photo { min-height: 460px; }
 }
 @media (max-width: 560px) {
-  .bento { grid-template-columns: 1fr; grid-auto-rows: minmax(220px, auto); }
-  .span-2, .t-projects { grid-column: auto; }
+  .bento { grid-template-columns: 1fr; grid-template-areas: "consult" "include" "robot" "photo"; }
+  .tile { min-height: 220px; }
+  .t-photo { min-height: 440px; }
+}
+
+/* ---------- STEAM ---------- */
+.steam { background: var(--grey); }
+.letters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; list-style: none; margin: 0; padding: 0; }
+.letters li {
+  border-radius: 24px; padding: 1.25rem 1.2rem 1.35rem; min-height: 210px; color: #fff;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
+  transition: transform .35s var(--ease);
+}
+.letters li:hover { transform: translateY(-4px) rotate(-1deg); }
+.letters b { font-size: clamp(3.4rem, 2.6rem + 2.4vw, 4.8rem); font-weight: 800; line-height: .85; letter-spacing: -.04em; }
+.letters span { display: block; font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; }
+.letters small { display: block; font-size: .9rem; font-weight: 600; opacity: .9; margin-top: .15rem; }
+.l-s { background: linear-gradient(160deg, var(--teal-2), var(--teal)); color: var(--navy) !important; }
+.l-t { background: linear-gradient(160deg, var(--blue-2), var(--blue)); }
+.l-e { background: linear-gradient(160deg, var(--violet-2), var(--violet)); }
+.l-a { background: linear-gradient(160deg, var(--rose-2), var(--rose)); }
+.l-m { background: linear-gradient(160deg, var(--amber-2), var(--amber)); color: var(--navy) !important; }
+.builds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.builds figure { margin: 0; position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 3; background: var(--line); }
+.builds img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.builds figure:hover img { transform: scale(1.04); }
+@media (max-width: 900px) { .letters { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .letters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .letters li:last-child { grid-column: span 2; }
+  .letters li { min-height: 170px; }
+  .builds { grid-template-columns: 1fr; }
 }
 
 /* ---------- Promise ---------- */
-.promise { background: var(--grey); text-align: center; }
-.promise p { font: 800 clamp(2rem, 1.2rem + 3.6vw, 4rem)/1.12 var(--font); letter-spacing: -.045em; max-width: 58rem; margin-inline: auto; text-wrap: balance; }
-.promise .hl { white-space: nowrap; }
+.promise p { text-align: center; font: 800 clamp(2rem, 1.2rem + 3.6vw, 4rem)/1.12 var(--font); letter-spacing: -.045em; max-width: 58rem; margin-inline: auto; text-wrap: balance; }
+.hl { white-space: nowrap; }
 .hl-1 { color: var(--blue); } .hl-2 { color: #e08600; } .hl-3 { color: #e0244a; }
 
 /* ---------- Steps ---------- */
 .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .steps li { background: var(--grey); border-radius: var(--r-lg); padding: 1.8rem; display: grid; gap: .5rem; align-content: start; }
-.steps .num { width: 44px; height: 44px; border-radius: 13px; font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: .9rem; }
+.steps .num { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: .9rem; }
 .steps h3 { font-size: 1.5rem; }
 .steps p { color: var(--ink-2); }
 .note { text-align: center; color: var(--ink-2); font-size: .95rem; margin-top: 1.6rem; }
 @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
 
 /* ---------- Partners ---------- */
-.partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 52rem; margin-inline: auto; }
-.partner { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.6rem; display: grid; gap: 1rem; justify-items: center; text-align: center; }
-.plogo { height: 96px; width: 100%; display: grid; place-items: center; }
-.plogo img { max-height: 96px; width: auto; }
-.plogo .pname { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; color: var(--ink); line-height: 1.2; }
-.partner p { color: var(--ink-2); font-size: .95rem; }
-@media (max-width: 640px) { .partners { grid-template-columns: 1fr; } }
+.partners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.partner { border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.6rem; display: grid; gap: .8rem; justify-items: center; text-align: center; align-content: center; }
+.plogo { min-height: 80px; display: grid; place-items: center; }
+.plogo img { max-height: 80px; width: auto; }
+.plogo .pname { font-size: 1.3rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+.partner p { color: var(--ink-2); font-size: .95rem; max-width: 22rem; }
+.team { margin: 16px 0 0; position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 21 / 9; }
+.team img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 35%; }
+.team figcaption { position: absolute; left: 1rem; bottom: 1rem; padding: .45rem .8rem; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); font-size: .8rem; font-weight: 700; }
+@media (max-width: 640px) { .partners { grid-template-columns: 1fr; } .team { aspect-ratio: 4 / 3; } }
 
 /* ---------- Contact ---------- */
 .contact { padding-block: 0 clamp(4rem, 8vw, 6rem); }
@@ -203,7 +207,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     radial-gradient(20rem 14rem at 70% 0%, color-mix(in srgb, var(--teal) 55%, transparent), transparent 70%);
 }
 .cta h2 { color: #fff; font-size: clamp(2.2rem, 1.4rem + 3.4vw, 3.8rem); }
-.cta > p { color: rgba(255, 255, 255, .78); margin: 1rem auto 0; max-width: 32rem; }
+.cta > p { color: rgba(255, 255, 255, .8); margin: 1rem auto 0; max-width: 32rem; }
 .email { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .6rem; margin-top: 2rem; padding: .5rem .5rem .5rem 1.2rem; border-radius: 999px; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .18); max-width: 100%; }
 .email code { font: 700 1.02rem/1.3 var(--font); color: #fff; user-select: all; overflow-wrap: anywhere; }
 .status { display: block; min-height: 1.4em; margin-top: .8rem; font-size: .88rem; color: var(--teal); }
@@ -212,32 +216,19 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; font-size: .85rem; color: var(--ink-2); }
 .footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
 .footer .logo .mark { height: 26px; } .footer .logo .word { height: 32px; }
-details { width: 100%; }
-summary { cursor: pointer; width: fit-content; font-weight: 600; color: var(--ink-2); }
-details p { margin-top: .5rem; overflow-wrap: anywhere; }
-details a { color: var(--ink-2); }
 
-/* ---------- Reveal (content is visible without JS) ---------- */
-.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
-.js .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .js .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- Icon set (one stroke style, used everywhere) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></symbol>
-  <symbol id="i-science" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></symbol>
-  <symbol id="i-arts" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 10-10c0 2.8-2.2 4-4 4h-2a2 2 0 0 0-1.5 3.3A1.6 1.6 0 0 1 12 22z"/><path d="M7.5 10.5h.01M11.5 7h.01M16 9.5h.01"/></symbol>
-  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 20c0-9 6-15 15-15 0 9-6 15-15 15z"/><path d="M5 20l8-8"/></symbol>
-  <symbol id="i-life" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 3v2.5h6V3M8.5 12l2 2 4-4M8.5 17.5h7"/></symbol>
-  <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M19 9h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v2.5L16 18h-3"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.3a4.2 4.2 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/></symbol>
 </svg>
 
 <header class="header" id="header">
@@ -247,10 +238,10 @@ details a { color: var(--ink-2); }
       <img class="word" src="images/brand/logo-wordmark.png" width="700" height="305" alt="BC Youth Discovery Society">
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#programs">Programs</a>
-      <a href="#film">Video</a>
+      <a href="#what">What we do</a>
+      <a href="#steam">STEAM</a>
       <a href="#partners">Partners</a>
-      <a class="btn btn-sm" href="#contact">Book a visit</a>
+      <a class="btn btn-sm" href="#contact">Get in touch</a>
     </nav>
   </div>
 </header>
@@ -259,39 +250,16 @@ details a { color: var(--ink-2); }
 
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
-      <svg class="flight" id="flight" viewBox="0 0 960 120" aria-hidden="true">
-        <path id="flight-path" class="trail" pathLength="1" d="M 20 100 C 140 98, 250 92, 330 78 C 390 66, 420 40, 404 22 C 390 6, 356 12, 356 36 C 356 62, 392 80, 450 80 C 580 80, 720 64, 900 22"/>
-        <g>
-          <animateMotion dur="2.4s" begin="0s" fill="freeze" rotate="auto" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines="0.45 0 0.25 1">
-            <mpath href="#flight-path"/>
-          </animateMotion>
-          <image href="images/brand/plane.png" x="-36" y="-25" width="72" height="50" transform="rotate(33)"/>
-        </g>
-      </svg>
-
-      <div class="dock" aria-hidden="true">
-        <span class="app c-blue"><svg><use href="#i-robot"/></svg></span>
-        <span class="app c-teal"><svg><use href="#i-science"/></svg></span>
-        <span class="app c-rose"><svg><use href="#i-arts"/></svg></span>
-        <span class="app c-green"><svg><use href="#i-leaf"/></svg></span>
-        <span class="app c-amber"><svg><use href="#i-life"/></svg></span>
-        <span class="app c-violet"><svg><use href="#i-tools"/></svg></span>
-      </div>
-
-      <h1 id="hero-title">Hands-on learning<br><span>kids love.</span></h1>
-      <p class="sub">Classes for B.C. schools in robotics, science, arts, outdoor learning and life skills.</p>
+      <span class="pill"><i></i>B.C. not-for-profit</span>
+      <h1 id="hero-title">Helping B.C. kids <span>thrive.</span></h1>
+      <p class="sub">Consulting and support for kids, families and schools, with hands-on robotics and STEAM.</p>
       <div class="actions">
-        <a class="btn" href="#contact">Book a school visit</a>
+        <a class="btn" href="#contact">Get in touch</a>
         <a class="link" href="#film"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M10 8.5v7l5.5-3.5z" fill="#fff"/></svg>Watch the video</a>
       </div>
-    </div>
-  </section>
-
-  <section class="film" id="film" aria-label="Video: what the society does">
-    <div class="wrap">
-      <div class="player reveal">
-        <video id="video" poster="video/poster.jpg" muted loop playsinline preload="metadata" width="1280" height="720"
-          aria-label="31-second video: hands-on classes for B.C. schools in robotics, science, arts, outdoor learning and life skills. Students discover new interests, solve problems and work together. Schools book directly with the society.">
+      <div class="player" id="film">
+        <video id="video" poster="video/poster.jpg" muted loop playsinline preload="auto" width="1280" height="720"
+          aria-label="32-second video: We help B.C. kids thrive. Consulting and support for kids, families and schools. Every child belongs, including students with ADHD, autism and other needs. Robotics gives kids a hands-on way to focus, create and work together. Hands-on STEAM. With our partners Kavosh AI and Robotics Academy and Paradise Life Academy.">
           <source src="video/bcyds-intro.mp4" type="video/mp4">
           <source src="video/bcyds-intro.webm" type="video/webm">
         </video>
@@ -300,62 +268,66 @@ details a { color: var(--ink-2); }
           <svg id="ico-pause" viewBox="0 0 24 24" hidden><rect x="6" y="4.5" width="4" height="15" rx="1.2"/><rect x="14" y="4.5" width="4" height="15" rx="1.2"/></svg>
         </button>
       </div>
-      <p class="film-cap">What we do, in 30 seconds.</p>
     </div>
   </section>
 
-  <section class="section" id="programs" aria-labelledby="programs-title">
+  <section class="section" id="what" aria-labelledby="what-title">
     <div class="wrap">
-      <h2 class="title reveal" id="programs-title">Six ways to learn by doing.</h2>
+      <div class="head"><h2 class="title" id="what-title">What we do.</h2></div>
       <div class="bento">
-        <article class="tile photo span-2 reveal">
-          <img src="images/students-building-robots.jpg" width="1600" height="1067" alt="Students laughing as they build and test small robots." loading="lazy" style="object-position: 60% 45%">
-          <div class="top"><span class="app c-blue"><svg><use href="#i-robot"/></svg></span><span class="badge">First program</span></div>
-          <div class="body"><h3>Robotics</h3><p>Build, code and test real machines in pairs.</p></div>
+        <article class="tile t-consult">
+          <span class="app teal"><svg><use href="#i-chat"/></svg></span>
+          <div><h3>Consulting &amp; support</h3><p>We listen first, then help kids, families and schools find the right support.</p></div>
         </article>
-        <article class="tile t-science reveal">
-          <div class="top"><span class="app on-colour"><svg><use href="#i-science"/></svg></span><span class="badge soft">Coming soon</span></div>
-          <div class="body"><h3>Science</h3><p>Ask a question. Test it. Explain it.</p></div>
+        <article class="tile t-include">
+          <span class="app glass"><svg><use href="#i-heart"/></svg></span>
+          <div><h3>Every child belongs</h3><p>Support for students with ADHD, autism and other needs.</p></div>
         </article>
-        <article class="tile photo reveal">
-          <img src="images/painting-outdoors.jpg" width="1280" height="850" alt="Children painting together outdoors." loading="lazy" style="object-position: 30% 70%">
-          <div class="top"><span class="app c-rose"><svg><use href="#i-arts"/></svg></span><span class="badge">Coming soon</span></div>
-          <div class="body"><h3>Arts</h3><p>Create together and share it.</p></div>
+        <article class="tile t-robot">
+          <span class="app glass"><svg><use href="#i-robot"/></svg></span>
+          <div><h3>Robotics</h3><p>A hands-on way to focus, create and work together.</p></div>
         </article>
-        <article class="tile photo reveal">
-          <img src="images/outdoor-forest.jpg" width="800" height="1200" alt="A child building with logs among autumn leaves." loading="lazy" style="object-position: 50% 50%">
-          <div class="top"><span class="app c-green"><svg><use href="#i-leaf"/></svg></span><span class="badge">Coming soon</span></div>
-          <div class="body"><h3>Outdoor learning</h3><p>Explore the world outside the classroom.</p></div>
-        </article>
-        <article class="tile t-life reveal">
-          <div class="top"><span class="app on-colour"><svg><use href="#i-life"/></svg></span><span class="badge soft">Coming soon</span></div>
-          <div class="body"><h3>Life skills</h3><p>Plan, budget and look after each other.</p></div>
-        </article>
-        <article class="tile t-projects reveal">
-          <div class="top"><span class="app on-colour"><svg><use href="#i-tools"/></svg></span><span class="badge soft">Coming soon</span></div>
-          <div class="body"><h3>Hands-on projects</h3><p>Measure, build and finish something real.</p></div>
-        </article>
-        <article class="tile t-care span-2 reveal">
-          <div class="top"><span class="app c-rose"><svg><use href="#i-heart"/></svg></span></div>
-          <div class="body"><h3>Every child belongs.</h3><p>Every student gets a turn, with inclusion support for students with ADHD, autism and other needs.</p></div>
-        </article>
+        <figure class="tile t-photo">
+          <img src="images/cat-mask.jpg" width="1050" height="1400" alt="A young student holds up a cat face she built from robotics parts.">
+          <figcaption class="chip">Made in class</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section class="section promise" aria-label="What students gain">
+  <section class="section steam" id="steam" aria-labelledby="steam-title">
     <div class="wrap">
-      <p class="reveal">Students <span class="hl hl-1">discover new interests</span>, <span class="hl hl-2">solve problems</span> and <span class="hl hl-3">work together</span>.</p>
+      <div class="head">
+        <h2 class="title" id="steam-title">Hands-on STEAM.</h2>
+        <p class="lede">Playful sessions that mix five subjects, so kids learn by building.</p>
+      </div>
+      <ul class="letters">
+        <li class="l-s"><b>S</b><div><span>Science</span><small>Ask and test</small></div></li>
+        <li class="l-t"><b>T</b><div><span>Technology</span><small>Code and create</small></div></li>
+        <li class="l-e"><b>E</b><div><span>Engineering</span><small>Design and build</small></div></li>
+        <li class="l-a"><b>A</b><div><span>Arts</span><small>Imagine and share</small></div></li>
+        <li class="l-m"><b>M</b><div><span>Math</span><small>Measure and solve</small></div></li>
+      </ul>
+      <div class="builds">
+        <figure><img src="images/build-swing.jpg" width="1050" height="1400" alt="A swing set built from robotics parts, with two minifigures." style="object-position: 50% 45%"></figure>
+        <figure><img src="images/build-creature.jpg" width="844" height="1500" alt="A colourful robot creature with big eyes and an umbrella, built from robotics parts." style="object-position: 50% 50%"></figure>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="how" aria-labelledby="how-title">
+  <section class="section promise" aria-label="What kids gain">
     <div class="wrap">
-      <h2 class="title reveal" id="how-title">Booking is simple.</h2>
+      <p>Kids <span class="hl hl-1">discover new interests</span>, <span class="hl hl-2">solve problems</span> and <span class="hl hl-3">work together</span>.</p>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-title" style="padding-top: 0">
+    <div class="wrap">
+      <div class="head"><h2 class="title" id="how-title">Getting started is simple.</h2></div>
       <ol class="steps">
-        <li class="reveal"><span class="app num c-blue">1</span><h3>Choose</h3><p>A single workshop or a series of classes.</p></li>
-        <li class="reveal"><span class="app num c-teal">2</span><h3>Plan</h3><p>We agree on dates, group size, setup and fees.</p></li>
-        <li class="reveal"><span class="app num c-rose">3</span><h3>Learn</h3><p>Instructors bring the materials. We coordinate the visit.</p></li>
+        <li><span class="num" style="background: linear-gradient(160deg, var(--blue-2), var(--blue))">1</span><h3>Reach out</h3><p>Tell us about your child, class or school.</p></li>
+        <li><span class="num" style="background: linear-gradient(160deg, var(--teal-2), var(--teal))">2</span><h3>We listen</h3><p>A short conversation to understand each child’s needs.</p></li>
+        <li><span class="num" style="background: linear-gradient(160deg, var(--rose-2), var(--rose))">3</span><h3>Grow together</h3><p>Support and hands-on sessions that fit.</p></li>
       </ol>
       <p class="note">We’re a not-for-profit. Fees cover delivery costs, and any surplus funds future youth programs.</p>
     </div>
@@ -363,30 +335,34 @@ details a { color: var(--ink-2); }
 
   <section class="section" id="partners" aria-labelledby="partners-title" style="padding-top: 0">
     <div class="wrap">
-      <h2 class="title reveal" id="partners-title">Our partners</h2>
+      <div class="head"><h2 class="title" id="partners-title">Our partners.</h2></div>
       <div class="partners">
-        <div class="partner reveal">
+        <div class="partner">
           <!-- Swap the text for the logo: <img src="images/partners/kavosh.png" alt="Kavosh AI and Robotics Academy"> -->
           <div class="plogo"><span class="pname">Kavosh AI and<br>Robotics Academy</span></div>
           <p>Robotics instruction and kits</p>
         </div>
-        <div class="partner reveal">
+        <div class="partner">
           <!-- Swap the text for the logo: <img src="images/partners/paradise.png" alt="Paradise Life Academy"> -->
           <div class="plogo"><span class="pname">Paradise Life<br>Academy</span></div>
-          <p>Inclusion consulting for students with special needs</p>
+          <p>Consulting and intake interviews for students with special needs</p>
         </div>
       </div>
+      <figure class="team">
+        <img src="images/robotics-team.jpg" width="1600" height="1066" alt="Members of the Kavosh robotics team smiling at an Enjoy AI robotics event.">
+        <figcaption>The Kavosh team at an Enjoy AI robotics event</figcaption>
+      </figure>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
-      <div class="cta reveal">
-        <h2 id="contact-title">Book a school visit.</h2>
-        <p>Tell us your school, grades, group size, preferred dates and what you’d like students to explore.</p>
-        <!-- TODO: replace with the society's inquiry email once it is set up. -->
+      <div class="cta">
+        <h2 id="contact-title">Get in touch.</h2>
+        <p>Tell us about your child, class or school, and how we can help.</p>
+        <!-- TODO: replace with the society's email once it is set up. -->
         <div class="email">
-          <code id="inquiry-email">[school inquiry email]</code>
+          <code id="inquiry-email">[society email]</code>
           <button class="btn btn-sm" type="button" id="copy-email">Copy</button>
         </div>
         <span class="status" id="copy-status" role="status" aria-live="polite"></span>
@@ -403,32 +379,18 @@ details a { color: var(--ink-2); }
       <img class="word" src="images/brand/logo-wordmark.png" width="700" height="305" alt="BC Youth Discovery Society">
     </a>
     <span>© 2026 BC Youth Discovery Society · A B.C. not-for-profit</span>
-    <details>
-      <summary>Photo credits</summary>
-      <p>Photos (on the page and in the video) are illustrative and do not show society programs. All resized and cropped.
-      Students building robots: International Gemini Observatory/NOIRLab/NSF/AURA/J. Pollard, <a href="https://commons.wikimedia.org/w/index.php?curid=146174718" target="_blank" rel="noopener">CC BY 4.0</a>.
-      Science lab: TimBlackman93, <a href="https://commons.wikimedia.org/w/index.php?curid=101299227" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
-      Classroom experiment: Gulliver Schools, <a href="https://commons.wikimedia.org/w/index.php?curid=17227599" target="_blank" rel="noopener">CC BY 2.5</a>.
-      Painting outdoors: Virginia State Parks staff, <a href="https://commons.wikimedia.org/w/index.php?curid=29261775" target="_blank" rel="noopener">CC BY 2.0</a>.
-      Forest school: Sharpe2021, <a href="https://commons.wikimedia.org/w/index.php?curid=108682240" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
-      Robot car: forumbildig, <a href="https://www.flickr.com/photos/160200532@N02/40802364221" target="_blank" rel="noopener">CC BY 2.0</a>.</p>
-    </details>
   </div>
 </footer>
 
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.documentElement.classList.add('js');
-
-  var flight = document.getElementById('flight');
-  if (flight && reduce && flight.pauseAnimations) { try { flight.pauseAnimations(); flight.setCurrentTime(2.4); } catch (e) {} }
 
   var header = document.getElementById('header');
   function onScroll() { header.classList.toggle('scrolled', window.scrollY > 8); }
   onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* Video: plays muted while on screen, unless the visitor prefers reduced motion */
+  /* Video: starts muted on load (unless reduced motion), pauses when scrolled away */
   var video = document.getElementById('video'), btn = document.getElementById('play');
   var icoPlay = document.getElementById('ico-play'), icoPause = document.getElementById('ico-pause');
   var userPaused = reduce;
@@ -442,22 +404,15 @@ details a { color: var(--ink-2); }
     if (video.paused) { userPaused = false; video.play().catch(function () {}); }
     else { userPaused = true; video.pause(); }
   });
+  if (!userPaused) video.play().catch(function () {});
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (e.isIntersecting && !userPaused) video.play().catch(function () {});
         else if (!e.isIntersecting && !video.paused) video.pause();
       });
-    }, { threshold: 0.35 }).observe(video);
+    }, { threshold: 0.3 }).observe(video);
   }
-
-  var reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !reduce) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.1 });
-    reveals.forEach(function (el) { if (el.getBoundingClientRect().top < innerHeight * 0.94) el.classList.add('in'); else io.observe(el); });
-  } else { reveals.forEach(function (el) { el.classList.add('in'); }); }
 
   var statusEl = document.getElementById('copy-status'), emailEl = document.getElementById('inquiry-email');
   function say(m) { statusEl.textContent = m; clearTimeout(say.t); say.t = setTimeout(function () { statusEl.textContent = ''; }, 3000); }

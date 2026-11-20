@@ -8,11 +8,11 @@ const fs = require('fs');
   await p.evaluate(() => document.fonts.ready);
   await p.waitForTimeout(300);
   if (mode === 'test') {
-    const ts = [1.4, 3.0, 6.8, 9.6, 14.6, 17.8, 22.8, 26.4, 30.5];
+    const ts = [1.6, 6.5, 10.5, 15.0, 19.5, 23.6, 27.2, 30.8, 0.4];
     for (const t of ts) { await p.evaluate(t => renderAt(t), t); await p.screenshot({ path: `test-${t}.jpg`, type: 'jpeg', quality: 80 }); }
   } else {
     fs.mkdirSync('frames', { recursive: true });
-    const fps = 30, dur = 31;
+    const fps = 30, dur = 32;
     for (let f = 0; f < fps * dur; f++) {
       await p.evaluate(t => renderAt(t), f / fps);
       await p.screenshot({ path: `frames/${String(f).padStart(5, '0')}.jpg`, type: 'jpeg', quality: 92 });

@@ -1,15 +1,15 @@
 # Intro video source
 
-`scene.html` is a scripted 31-second animation built from the site's photos and logo files. `render.js` captures it frame by frame with Playwright.
+`scene.html` is a scripted 32-second animation built from the site's photos and logo files. `render.js` captures it frame by frame with Playwright.
 
 To re-render (for example after the society name or photos change):
 
 ```
 cd video-source
 npm install
-node render.js full          # writes frames/00000.jpg ... frames/00929.jpg
+node render.js full          # writes frames/00000.jpg ... frames/00959.jpg
 ffmpeg -y -framerate 30 -i frames/%05d.jpg -c:v libx264 -preset slow -crf 23 -pix_fmt yuv420p -movflags +faststart -an ../website/video/bcyds-intro.mp4
-ffmpeg -y -i frames/00204.jpg -q:v 3 ../website/video/poster.jpg
+ffmpeg -y -i frames/00195.jpg -q:v 3 ../website/video/poster.jpg
 rm -rf frames
 ```
 
