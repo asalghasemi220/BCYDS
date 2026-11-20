@@ -6,76 +6,62 @@
 <title>BC Youth Discovery Society</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Hands-on classes for British Columbia schools in robotics, science, the arts, outdoor learning and everyday life skills.">
-<meta name="theme-color" content="#10231e">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-32 -32 64 64'%3E%3Cg%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%232f5bea'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%2312a19b' transform='rotate(60)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%23e04e65' transform='rotate(120)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%233c8a4c' transform='rotate(180)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%23f0a13a' transform='rotate(240)'/%3E%3Cellipse cx='0' cy='-15' rx='8' ry='14' fill='%237b5bd1' transform='rotate(300)'/%3E%3Ccircle r='7' fill='%2310231e'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="theme-color" content="#002e5d">
+<link rel="icon" type="image/png" href="images/brand/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:ital,wght@0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600&display=swap">
 <style>
-/* Layout: the logo's six petals are the system. Each activity owns one petal colour; the page is a deep
-   evergreen frame (BC coast) around bright, paper-light content. Cinematic hero collage -> verb marquee ->
-   scroll-driven activity tour whose colour follows the active petal -> outcomes -> sample lab sheet ->
-   booking path -> collaborators (small) -> inquiry. */
+/* Layout: built from the logo. White paper and logo navy carry the page; logo teal is the single bright
+   brand note, drawn as the looping flight trail of the paper plane. Hero: headline + framed photo collage
+   under a plane that flies in and draws its trail. Then a navy verb band, a sticky cinematic activity tour
+   (each activity keeps one supporting colour), navy outcomes, a sample class, the booking path, small
+   collaborator credits and a navy inquiry card. Deliberately one light brand theme, like the logo. */
 :root {
-  --forest: #10231e;
-  --forest-2: #183229;
-  --paper: #f6f7f3;
-  --surface: #ffffff;
-  --ink: #12211c;
-  --ink-soft: #4d5f58;
-  --line: #dde3dc;
-  --on-forest: #eef3ee;
-  --on-forest-soft: #a9bcb3;
+  color-scheme: light;
+  --white: #ffffff;
+  --mist: #f1f5f9;
+  --navy: #002e5d;
+  --navy-2: #0b3c71;
+  --navy-deep: #00213f;
+  --teal: #00b79f;
+  --teal-ink: #00806f;
+  --teal-tint: #e2f5f1;
+  --ink: #0d2340;
+  --ink-soft: #4e5f76;
+  --line: #d9e1ea;
+  --on-navy: #f2f6fb;
+  --on-navy-soft: #a8bad0;
 
-  --robotics: #2f5bea;
-  --science: #12a19b;
-  --arts: #e04e65;
-  --outdoor: #3c8a4c;
-  --life: #f0a13a;
-  --projects: #7b5bd1;
+  /* one supporting colour per activity; -ink variants are for text on white */
+  --robotics: #2d6be4;  --robotics-ink: #2457c5;
+  --science:  #00b79f;  --science-ink:  #00806f;
+  --arts:     #e85d75;  --arts-ink:     #c93a57;
+  --outdoor:  #3f9a5a;  --outdoor-ink:  #2c7a44;
+  --life:     #f2a93b;  --life-ink:     #a86200;
+  --projects: #7a63d8;  --projects-ink: #5e45c4;
 
-  --accent: var(--robotics);
-
-  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-display: "Plus Jakarta Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --f-body: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --f-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
 
-  --s-label: 0.74rem;
-  --s-small: 0.9rem;
   --s-body: 1.0625rem;
-  --s-lead: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
-  --s-h3: clamp(1.3rem, 1.1rem + 0.8vw, 1.65rem);
-  --s-h2: clamp(2rem, 1.3rem + 3vw, 3.6rem);
-  --s-h1: clamp(2.7rem, 1.4rem + 5.6vw, 6.2rem);
+  --s-lead: clamp(1.1rem, 1rem + .45vw, 1.28rem);
+  --s-h3: clamp(1.45rem, 1.15rem + 1.1vw, 2.1rem);
+  --s-h2: clamp(2.1rem, 1.35rem + 3vw, 3.7rem);
+  --s-h1: clamp(2.6rem, 1.4rem + 4.2vw, 4.6rem);
 
-  --r: 18px;
+  --r: 22px;
   --wrap: 78rem;
   --ease: cubic-bezier(.2, .7, .1, 1);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0d1916;
-    --surface: #13231f;
-    --ink: #e9efea;
-    --ink-soft: #a3b4ac;
-    --line: #253831;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0d1916;
-  --surface: #13231f;
-  --ink: #e9efea;
-  --ink-soft: #a3b4ac;
-  --line: #253831;
-  color-scheme: dark;
+  --header-h: 76px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); }
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--white);
   color: var(--ink);
   font: 400 var(--s-body)/1.62 var(--f-body);
   -webkit-font-smoothing: antialiased;
@@ -83,8 +69,8 @@ body {
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
-:focus-visible { outline: 3px solid var(--life); outline-offset: 3px; border-radius: 6px; }
-h1, h2, h3 { font-family: var(--f-display); margin: 0; line-height: 1.02; letter-spacing: -0.025em; text-wrap: balance; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; color: var(--navy); line-height: 1.04; letter-spacing: -0.03em; text-wrap: balance; }
 p { margin: 0; }
 .wrap {
   max-width: var(--wrap);
@@ -95,487 +81,430 @@ p { margin: 0; }
 @media (min-width: 720px) {
   .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); }
 }
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font: 500 var(--s-label)/1 var(--f-mono);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-.eyebrow::before { content: ""; width: 1.6rem; height: 2px; background: currentColor; opacity: 0.6; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Eyebrow labels echo the wide-spaced "S O C I E T Y" in the logo */
+.eyebrow {
+  font: 700 .74rem/1 var(--f-display);
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--teal-ink);
+}
+.hand { font-family: var(--f-hand); font-weight: 600; color: var(--teal-ink); line-height: 1; }
 
 /* ---------- Buttons ---------- */
 .btn {
-  --b-bg: var(--life);
-  --b-fg: #1c1302;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.95rem 1.35rem;
-  border: 0;
-  border-radius: 999px;
-  background: var(--b-bg);
-  color: var(--b-fg);
-  font: 700 1rem/1 var(--f-body);
-  text-decoration: none;
-  cursor: pointer;
-  overflow: hidden;
-  isolation: isolate;
-  transition: transform .35s var(--ease);
-  white-space: nowrap;
+  --b-bg: var(--teal);
+  --b-fg: var(--navy);
+  display: inline-flex; align-items: center; gap: .65rem;
+  padding: .95rem 1.4rem;
+  border: 0; border-radius: 999px;
+  background: var(--b-bg); color: var(--b-fg);
+  font: 700 1rem/1 var(--f-display); letter-spacing: -.01em;
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  box-shadow: 0 10px 24px -14px color-mix(in srgb, var(--b-bg) 90%, transparent);
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), background-color .35s var(--ease);
 }
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: #fff;
-  opacity: 0;
-  transition: opacity .35s var(--ease);
-}
-.btn:hover { transform: translateY(-2px); }
-.btn:hover::after { opacity: .18; }
-.btn .arrow { transition: transform .35s var(--ease); }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -14px color-mix(in srgb, var(--b-bg) 90%, transparent); }
+.btn .arrow { display: inline-block; transition: transform .35s var(--ease); }
 .btn:hover .arrow { transform: translateX(4px); }
-.btn-line { --b-bg: transparent; --b-fg: currentColor; box-shadow: inset 0 0 0 1.5px currentColor; }
-.btn-sm { padding: 0.7rem 1rem; font-size: 0.92rem; }
+.btn-navy { --b-bg: var(--navy); --b-fg: var(--white); }
+.btn-outline { --b-bg: transparent; --b-fg: var(--navy); box-shadow: inset 0 0 0 1.5px var(--navy); }
+.btn-outline:hover { box-shadow: inset 0 0 0 1.5px var(--navy); background: var(--mist); }
+.btn-outline-light { --b-bg: transparent; --b-fg: var(--on-navy); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--on-navy) 40%, transparent); }
+.btn-outline-light:hover { box-shadow: inset 0 0 0 1.5px var(--on-navy); }
+.btn-sm { padding: .72rem 1.05rem; font-size: .92rem; }
 
 /* ---------- Header ---------- */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0 0 auto;
-  height: env(safe-area-inset-top, 0px);
-  z-index: 60;
-  background: var(--forest);
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--white);
 }
 .site-header {
-  position: fixed;
-  top: env(safe-area-inset-top, 0px);
-  left: 0;
-  right: 0;
-  z-index: 50;
-  color: var(--on-forest);
-  transition: background-color .4s var(--ease), box-shadow .4s var(--ease);
+  position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 50;
+  background: color-mix(in srgb, var(--white) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.3);
+  transition: box-shadow .4s var(--ease);
 }
-.site-header.is-solid {
-  background: color-mix(in srgb, var(--forest) 90%, transparent);
-  backdrop-filter: blur(14px) saturate(1.2);
-  box-shadow: 0 1px 0 rgba(255,255,255,.06);
+.site-header.is-scrolled { box-shadow: 0 1px 0 var(--line), 0 12px 30px -24px rgba(0, 46, 93, .5); }
+.site-header .wrap { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.logo { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; min-width: 0; }
+.logo .mark { height: 44px; width: auto; transition: transform .8s var(--ease); }
+.logo:hover .mark { transform: translate(3px, -3px) rotate(-3deg); }
+.logo .word { height: 50px; width: auto; }
+.nav { display: flex; align-items: center; gap: 1.9rem; }
+.nav a:not(.btn) {
+  position: relative; text-decoration: none; color: var(--navy); font: 600 .95rem/1 var(--f-display);
 }
-.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; }
-.logo { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; min-width: 0; }
-.logo svg { flex: none; }
-.logo-mark { transition: transform 1.2s var(--ease); }
-.logo:hover .logo-mark { transform: rotate(60deg); }
-.logo-word { display: grid; line-height: 1; }
-.logo-word b { font: 800 1.12rem/1 var(--f-display); letter-spacing: -0.02em; }
-.logo-word span { margin-top: .32rem; font: 500 .62rem/1 var(--f-mono); letter-spacing: .32em; text-transform: uppercase; opacity: .7; }
-.nav { display: flex; align-items: center; gap: 1.75rem; }
-.nav a:not(.btn) { position: relative; text-decoration: none; font-weight: 500; font-size: .95rem; opacity: .85; }
 .nav a:not(.btn)::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: currentColor;
+  content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 2px; border-radius: 2px; background: var(--teal);
   transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
 }
-.nav a:not(.btn):hover { opacity: 1; }
 .nav a:not(.btn):hover::after { transform: scaleX(1); }
-@media (max-width: 900px) { .nav a:not(.btn) { display: none; } }
-@media (max-width: 420px) { .logo-word b { font-size: 1rem; } .nav .btn { padding: .65rem .85rem; } }
+@media (max-width: 940px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 460px) {
+  .logo .mark { height: 34px; } .logo .word { height: 40px; }
+  .nav .btn { padding: .65rem .85rem; font-size: .86rem; }
+}
 
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  background: var(--forest);
-  color: var(--on-forest);
-  padding-block: calc(env(safe-area-inset-top, 0px) + 7.5rem) 5rem;
-  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
+  padding-block: calc(var(--header-h) + 1.5rem) 0;
   overflow: hidden;
   isolation: isolate;
+  background:
+    radial-gradient(60rem 30rem at 85% 10%, var(--teal-tint), transparent 60%),
+    radial-gradient(40rem 26rem at 0% 90%, var(--mist), transparent 70%),
+    var(--white);
 }
 .hero::before {
-  /* soft petal-coloured light pooling behind the collage */
-  content: "";
-  position: absolute;
-  inset: -20% -10% auto 35%;
-  height: 120%;
-  z-index: -1;
-  background:
-    radial-gradient(40% 35% at 70% 30%, color-mix(in srgb, var(--robotics) 38%, transparent), transparent 70%),
-    radial-gradient(35% 30% at 40% 70%, color-mix(in srgb, var(--science) 30%, transparent), transparent 70%),
-    radial-gradient(30% 30% at 85% 75%, color-mix(in srgb, var(--arts) 26%, transparent), transparent 70%);
-  filter: blur(20px);
-  animation: drift 18s ease-in-out infinite alternate;
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background-image: radial-gradient(color-mix(in srgb, var(--navy) 14%, transparent) 1.1px, transparent 1.3px);
+  background-size: 26px 26px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
 }
-@keyframes drift { to { transform: translate3d(-6%, 4%, 0) scale(1.08); } }
-.grain {
-  position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+.flight { display: block; width: 100%; height: auto; overflow: visible; margin-bottom: clamp(.5rem, 2vw, 1.5rem); }
+.flight-trail {
+  fill: none; stroke: var(--teal); stroke-width: 5.5; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 0;
+  animation: draw 2.6s cubic-bezier(.45, 0, .25, 1) both;
 }
-.hero-grid { display: grid; grid-template-columns: 1fr; gap: 3.5rem; align-items: center; }
-@media (min-width: 980px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 3rem; } }
-.hero-copy { display: grid; gap: 1.6rem; min-width: 0; }
-.hero .eyebrow { color: var(--on-forest-soft); }
-.hero h1 { font-size: var(--s-h1); font-weight: 800; }
-.hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
-.hero h1 .line > span { display: inline-block; animation: rise 1.1s var(--ease) both; }
-.hero h1 .line:nth-child(2) > span { animation-delay: .12s; }
-.hero h1 .line:nth-child(3) > span { animation-delay: .24s; }
-@keyframes rise { from { transform: translateY(105%); } }
-.rotator {
-  display: inline-grid;
-  vertical-align: bottom;
-  color: var(--rot, var(--life));
-  transition: color .6s var(--ease);
-}
-.rotator > span { grid-area: 1 / 1; transition: transform .7s var(--ease), opacity .5s var(--ease); white-space: nowrap; }
-.rotator > span:not(.on) { opacity: 0; transform: translateY(60%); }
-.rotator > span.off { opacity: 0; transform: translateY(-60%); }
-.hero .lead { font-size: var(--s-lead); color: var(--on-forest-soft); max-width: 36rem; animation: fadeup 1s .45s var(--ease) both; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; animation: fadeup 1s .6s var(--ease) both; }
-@keyframes fadeup { from { opacity: 0; transform: translateY(18px); } }
+@keyframes draw { from { stroke-dashoffset: 1; } }
+.plane-bob { animation: bob 3.2s 2.6s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+@keyframes bob { to { transform: translate(4px, -6px) rotate(-3deg); } }
 
-/* collage */
-.collage {
-  position: relative;
-  aspect-ratio: 1 / 1.02;
-  max-width: 100%;
-  min-width: 0;
-}
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
+@media (min-width: 1000px) { .hero-grid { grid-template-columns: 1.08fr 1fr; gap: 3.5rem; } }
+.hero-copy { display: grid; gap: 1.5rem; min-width: 0; }
+.hero h1 { font-size: var(--s-h1); font-weight: 800; }
+.hero h1 .line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+.hero h1 .line > span { display: inline-block; animation: rise 1.1s var(--ease) both; }
+.hero h1 .line:nth-child(2) > span { animation-delay: .1s; }
+.hero h1 .line:nth-child(3) > span { animation-delay: .2s; }
+@keyframes rise { from { transform: translateY(108%); } }
+.rotator { display: inline-grid; vertical-align: bottom; color: var(--rot, var(--robotics-ink)); transition: color .6s var(--ease); }
+.rotator > span { grid-area: 1 / 1; white-space: nowrap; transition: transform .7s var(--ease), opacity .5s var(--ease); }
+.rotator > span:not(.on) { opacity: 0; transform: translateY(55%); }
+.rotator > span.off { opacity: 0; transform: translateY(-55%); }
+.hero .lead { font-size: var(--s-lead); color: var(--ink-soft); max-width: 35rem; animation: fadeup 1s .4s var(--ease) both; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; animation: fadeup 1s .55s var(--ease) both; }
+@keyframes fadeup { from { opacity: 0; transform: translateY(16px); } }
+
+/* collage: rounded-square frames borrowed from the logo badge */
+.collage { position: relative; aspect-ratio: 1 / 1.06; width: 100%; max-width: 40rem; justify-self: center; min-width: 0; }
 .tile {
-  position: absolute;
-  border-radius: var(--r);
-  overflow: hidden;
-  box-shadow: 0 40px 80px -40px rgba(0,0,0,.7);
+  position: absolute; border-radius: var(--r); overflow: hidden; background: var(--mist);
+  box-shadow: 0 30px 60px -36px rgba(0, 33, 63, .55);
   animation: tile-in 1.2s var(--ease) both;
   will-change: transform;
 }
 .tile img { width: 100%; height: 100%; object-fit: cover; }
-.tile-a { left: 0; top: 6%; width: 64%; height: 62%; animation-delay: .15s; }
-.tile-b img { object-position: 30% 70%; }
-.tile-c img { object-position: 60% 40%; }
-.tile-a img { object-position: 60% 50%; animation: kenburns 22s ease-in-out infinite alternate; }
-.tile-b { right: 0; top: 0; width: 32%; height: 30%; background: var(--arts); animation-delay: .3s; }
-.tile-c { right: 0; top: 34%; width: 32%; height: 34%; background: var(--science); animation-delay: .4s; }
-.tile-d { left: 8%; bottom: 0; width: 40%; height: 28%; background: var(--outdoor); animation-delay: .5s; }
-.tile-e { right: 0; bottom: 0; width: 48%; height: 28%; animation-delay: .6s; }
-.tile-e img { object-position: 35% 60%; }
-@keyframes tile-in { from { opacity: 0; transform: translateY(40px) scale(.96); } }
+.tile-a { left: 0; top: 0; width: 60%; height: 54%; overflow: visible; background: none; box-shadow: none; animation-delay: .1s; }
+.tile-a .frame {
+  position: absolute; inset: 0; border-radius: var(--r); overflow: hidden;
+  box-shadow: 0 30px 60px -36px rgba(0, 33, 63, .55);
+}
+.tile-a::after {
+  content: ""; position: absolute; inset: -9px; border: 2px solid var(--navy); border-radius: calc(var(--r) + 8px); pointer-events: none;
+}
+.tile-a img { object-position: 62% 50%; animation: kenburns 24s ease-in-out infinite alternate; }
+.tile-b { right: 0; top: 6%; width: 35%; height: 33%; animation-delay: .22s; }
+.tile-b img { object-position: 28% 72%; }
+.tile-c { right: 0; top: 44%; width: 35%; height: 56%; animation-delay: .34s; }
+.tile-c img { object-position: 55% 40%; }
+.tile-d { left: 0; top: 60%; width: 28%; height: 40%; animation-delay: .46s; }
+.tile-d img { object-position: 40% 60%; }
+.tile-e {
+  left: 32%; top: 60%; width: 28%; height: 40%; animation-delay: .58s;
+  background: var(--navy); display: grid; align-content: end; padding: 1rem;
+}
+.tile-e img.plane { position: absolute; width: 62%; height: auto; right: 10%; top: 14%; object-fit: contain; animation: bob 3.4s ease-in-out infinite alternate; }
+.tile-e svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.tile-e .hand { position: relative; color: var(--on-navy); font-size: clamp(1.25rem, 1rem + 1vw, 1.7rem); }
+@keyframes tile-in { from { opacity: 0; transform: translateY(36px) scale(.96); } }
 @keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.14) translate(-2%, -1%); } }
-.tile .tile-label {
-  position: absolute; left: .9rem; bottom: .8rem;
-  font: 500 .66rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase;
-  color: #fff; padding: .45rem .6rem; border-radius: 999px; background: rgba(0,0,0,.28); backdrop-filter: blur(6px);
+.chip {
+  position: absolute; left: .75rem; bottom: .75rem;
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .42rem .7rem .42rem .55rem; border-radius: 999px;
+  background: rgba(255, 255, 255, .92); color: var(--navy);
+  font: 700 .72rem/1 var(--f-display); letter-spacing: .02em;
+  box-shadow: 0 6px 16px -10px rgba(0, 33, 63, .6);
 }
-.tile svg.art { position: absolute; inset: 0; width: 100%; height: 100%; }
-.collage-caption {
-  position: absolute; left: 0; top: calc(68% + .6rem); width: 64%;
-  font-size: .72rem; color: var(--on-forest-soft); opacity: .8; display: none;
-}
+.chip i, .legend i, .include i { width: .62rem; height: .62rem; border-radius: 50%; background: var(--c); flex: none; }
 
-.hero-foot {
-  margin-top: 4rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem 3rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid rgba(255,255,255,.1);
-  color: var(--on-forest-soft);
-  font-size: .95rem;
+.legend {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  padding-block: 1.6rem 2.2rem; border-top: 1px solid var(--line);
 }
-.hero-foot div { display: flex; align-items: center; gap: .7rem; }
-.hero-foot i { width: .6rem; height: .6rem; border-radius: 50%; background: var(--c); flex: none; }
+.legend a {
+  display: inline-flex; align-items: center; gap: .55rem; padding: .55rem .9rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--white); text-decoration: none; color: var(--navy);
+  font: 600 .9rem/1 var(--f-display); transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.legend a:hover { border-color: var(--c); transform: translateY(-2px); }
 
 /* ---------- Marquee ---------- */
-.marquee {
-  background: var(--forest-2);
-  color: var(--on-forest);
-  overflow: hidden;
-  border-block: 1px solid rgba(255,255,255,.06);
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-  gap: 2.5rem;
-  padding-block: 1.15rem;
-  animation: marquee 38s linear infinite;
-}
+.marquee { background: var(--navy); color: var(--on-navy); overflow: hidden; }
+.marquee-track { display: flex; width: max-content; padding-block: 1.25rem; animation: marquee 40s linear infinite; }
 .marquee span {
-  display: inline-flex; align-items: center; gap: 2.5rem;
-  font: 600 clamp(1.3rem, 1rem + 1.2vw, 2rem)/1 var(--f-display);
-  letter-spacing: -.02em; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 2.4rem; padding-right: 2.4rem;
+  font: 800 clamp(1.3rem, 1rem + 1.3vw, 2.1rem)/1 var(--f-display); letter-spacing: -.03em; white-space: nowrap;
 }
-.marquee span::after { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--c, var(--life)); }
+.marquee span::after { content: ""; width: .5rem; height: .5rem; border-radius: 50%; background: var(--teal); }
+.marquee span:nth-child(3n+2) { color: var(--teal); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ---------- Section scaffolding ---------- */
-.section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
+.section { padding-block: clamp(4.5rem, 10vw, 8rem); }
 .head { display: grid; gap: 1.1rem; max-width: 46rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .head h2 { font-size: var(--s-h2); font-weight: 800; }
 .head p { font-size: var(--s-lead); color: var(--ink-soft); }
+.scribble { position: relative; white-space: nowrap; }
+.scribble svg { position: absolute; left: -4%; right: -4%; bottom: -.32em; width: 108%; height: .5em; overflow: visible; }
+.scribble path { fill: none; stroke: var(--teal); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.js .reveal .scribble path { stroke-dashoffset: 1; transition: stroke-dashoffset 1.2s .35s var(--ease); }
+.js .reveal.in .scribble path { stroke-dashoffset: 0; }
 
-/* ---------- Activities (scroll tour) ---------- */
-.activities { position: relative; }
-.tour { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-@media (min-width: 980px) {
-  .tour { grid-template-columns: 0.9fr 1.1fr; gap: 4rem; align-items: start; }
-}
-.tour-stage {
-  display: none;
-}
-@media (min-width: 980px) {
-  .tour-stage {
-    display: block;
-    position: sticky;
-    top: calc(env(safe-area-inset-top, 0px) + 6.5rem);
-    height: min(70vh, 38rem);
-    border-radius: calc(var(--r) + 6px);
-    background: var(--forest);
-    overflow: hidden;
-    isolation: isolate;
+/* ---------- Activity tour ---------- */
+.activities { background: var(--white); }
+.tour { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 1000px) { .tour { grid-template-columns: 1.05fr .95fr; gap: 4.5rem; align-items: start; } }
+.stage { display: none; }
+@media (min-width: 1000px) {
+  .stage {
+    display: block; position: sticky; top: calc(var(--header-h) + 1.5rem);
+    height: min(calc(100vh - var(--header-h) - 3rem), 42rem);
+    border-radius: calc(var(--r) + 6px); overflow: hidden; isolation: isolate; background: var(--navy);
   }
 }
-.stage-glow {
-  position: absolute; inset: -30%; z-index: -1;
-  background: radial-gradient(45% 45% at 50% 55%, var(--accent), transparent 70%);
-  opacity: .55; transition: background .8s var(--ease);
+.media {
+  position: absolute; inset: 0; opacity: 0; transform: scale(1.08);
+  transition: opacity 1s var(--ease), transform 1.6s var(--ease);
 }
-.stage-flower {
-  position: absolute; left: 50%; top: 46%; width: 62%; translate: -50% -50%;
-  transition: rotate 1.1s var(--ease);
+.media.is-on { opacity: 1; transform: scale(1); }
+.media img { width: 100%; height: 100%; object-fit: cover; }
+.media.panel { display: grid; place-items: center; background: radial-gradient(70% 60% at 50% 40%, color-mix(in srgb, var(--c) 55%, var(--navy)), var(--navy)); }
+.media.panel svg.big { width: 38%; height: auto; color: var(--white); opacity: .95; }
+.media.panel .hand { position: absolute; top: 14%; left: 10%; right: 10%; text-align: center; color: var(--on-navy); font-size: clamp(1.6rem, 1.2rem + 1vw, 2.2rem); transform: rotate(-3deg); }
+.stage::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 45%; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(0, 25, 50, .82));
 }
-.stage-flower ellipse { transition: opacity .6s var(--ease), transform .8s var(--ease); transform-box: fill-box; transform-origin: center; }
-.stage-flower ellipse:not(.is-on) { opacity: .22; }
-.stage-flower ellipse.is-on { transform: scale(1.08); }
-.stage-meta {
-  position: absolute; left: 1.75rem; right: 1.75rem; bottom: 1.6rem;
-  display: flex; justify-content: space-between; align-items: end; gap: 1rem;
-  color: var(--on-forest);
-}
-.stage-count { font: 800 clamp(3rem, 2rem + 3vw, 5rem)/.9 var(--f-display); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
-.stage-count small { font-size: .3em; letter-spacing: 0; opacity: .6; margin-left: .3em; }
-.stage-name { font: 500 .8rem/1.3 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; text-align: right; opacity: .85; }
+.stage-meta { position: absolute; left: 1.6rem; right: 1.6rem; bottom: 1.5rem; z-index: 2; display: grid; gap: 1rem; color: var(--white); }
+.stage-row { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
+.stage-count { font: 800 clamp(2.6rem, 2rem + 2vw, 4.2rem)/.9 var(--f-display); letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.stage-count small { font-size: .32em; letter-spacing: 0; opacity: .65; margin-left: .35em; }
+.stage-name { font: 700 .78rem/1.2 var(--f-display); letter-spacing: .28em; text-transform: uppercase; text-align: right; }
+.stage-bar { display: grid; grid-template-columns: repeat(6, 1fr); gap: .4rem; }
+.stage-bar i { height: 4px; border-radius: 4px; background: rgba(255, 255, 255, .25); transition: background-color .5s var(--ease); }
+.stage-bar i.is-on { background: var(--c); }
 
-.act-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.acts { list-style: none; margin: 0; padding: 0; display: grid; }
 .act {
-  --c: var(--robotics);
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.1rem;
-  padding: clamp(1.4rem, 3vw, 2.1rem);
-  border-radius: var(--r);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  transition: border-color .5s var(--ease), transform .5s var(--ease), box-shadow .5s var(--ease);
+  --c: var(--robotics); --ci: var(--robotics-ink);
+  display: grid; gap: 1rem; align-content: center;
+  padding-block: 2.2rem; border-top: 1px solid var(--line);
 }
-@media (min-width: 980px) { .act { min-height: 22rem; align-content: center; } }
-.act::before {
-  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--c);
-  transform: scaleY(.25); transform-origin: top; transition: transform .7s var(--ease);
+.act:last-child { border-bottom: 1px solid var(--line); }
+@media (min-width: 1000px) {
+  .act { min-height: 62vh; padding-block: 3rem; transition: opacity .6s var(--ease); }
+  .js .act:not(.is-active) { opacity: .38; }
+  .act-photo { display: none; }
 }
-.act.is-active { border-color: color-mix(in srgb, var(--c) 45%, var(--line)); box-shadow: 0 30px 60px -40px color-mix(in srgb, var(--c) 70%, transparent); }
-.act.is-active::before { transform: scaleY(1); }
-.act-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.act-top { display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; }
 .act-icon {
-  width: 3.4rem; height: 3.4rem; border-radius: 14px; display: grid; place-items: center;
-  background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--c);
+  width: 3.2rem; height: 3.2rem; border-radius: 16px; display: grid; place-items: center; flex: none;
+  background: color-mix(in srgb, var(--c) 14%, var(--white)); color: var(--ci);
 }
 .status {
-  font: 500 .66rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase;
-  padding: .5rem .7rem; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft);
+  font: 700 .66rem/1 var(--f-display); letter-spacing: .2em; text-transform: uppercase;
+  padding: .5rem .72rem; border-radius: 999px; background: var(--mist); color: var(--ink-soft);
 }
-.status.is-first { border-color: transparent; background: var(--c); color: #fff; }
-.act h3 { font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem); font-weight: 800; }
-.act p { color: var(--ink-soft); max-width: 34rem; }
-.act .example {
-  display: flex; gap: .8rem; align-items: baseline; flex-wrap: wrap;
-  padding-top: 1rem; border-top: 1px dashed var(--line);
-  font-size: .97rem;
-}
-.act .example b { font: 500 .68rem/1 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--c); }
-.act-photo { margin: 0; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; }
-.act-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
-.act:hover .act-photo img { transform: scale(1.05); }
+.status.is-first { background: var(--navy); color: var(--white); }
+.act h3 { font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.8rem); font-weight: 800; }
+.act h3::after { content: ""; display: block; width: 2.6rem; height: 4px; border-radius: 4px; background: var(--c); margin-top: .85rem; }
+.act p { color: var(--ink-soft); font-size: 1.08rem; max-width: 32rem; }
+.example { display: grid; gap: .25rem; padding: 1rem 1.15rem; border-radius: 14px; background: color-mix(in srgb, var(--c) 8%, var(--white)); max-width: 32rem; }
+.example b { font: 700 .66rem/1 var(--f-display); letter-spacing: .2em; text-transform: uppercase; color: var(--ci); }
+.example span { color: var(--navy); font-weight: 500; }
+.act-photo { margin: 0; border-radius: 16px; overflow: hidden; aspect-ratio: 16 / 10; background: var(--mist); }
+.act-photo img { width: 100%; height: 100%; object-fit: cover; }
+.act-photo.panel { display: grid; place-items: center; background: radial-gradient(80% 70% at 50% 40%, color-mix(in srgb, var(--c) 55%, var(--navy)), var(--navy)); color: var(--white); }
+.act-photo.panel svg { width: 26%; height: auto; }
+@media (min-width: 1000px) { .act-photo.panel { display: none; } }
 
 /* ---------- Outcomes ---------- */
-.outcomes { background: var(--forest); color: var(--on-forest); position: relative; overflow: hidden; isolation: isolate; }
-.outcomes .eyebrow { color: var(--on-forest-soft); }
-.outcomes .head p { color: var(--on-forest-soft); }
+.outcomes { background: var(--navy); color: var(--on-navy); position: relative; overflow: hidden; isolation: isolate; }
+.outcomes::before {
+  content: ""; position: absolute; right: -12rem; top: -10rem; width: 40rem; height: 40rem; z-index: -1; border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--teal) 30%, transparent), transparent);
+  animation: drift 16s ease-in-out infinite alternate;
+}
+@keyframes drift { to { transform: translate(-8rem, 6rem) scale(1.1); } }
+.outcomes h2 { color: var(--white); }
+.outcomes .eyebrow { color: var(--teal); }
 .outcome-list { list-style: none; margin: 0; padding: 0; display: grid; }
 .outcome {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: .6rem 3rem;
-  padding-block: clamp(1.6rem, 3.5vw, 2.6rem);
-  border-top: 1px solid rgba(255,255,255,.12);
-  align-items: baseline;
+  display: grid; grid-template-columns: 1fr; gap: .7rem 3rem; align-items: baseline;
+  padding-block: clamp(1.6rem, 3.5vw, 2.6rem); border-top: 1px solid rgba(255, 255, 255, .14);
 }
-.outcome:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
-@media (min-width: 900px) { .outcome { grid-template-columns: 1.15fr 1fr; } }
+.outcome:last-child { border-bottom: 1px solid rgba(255, 255, 255, .14); }
+@media (min-width: 900px) { .outcome { grid-template-columns: 1.2fr 1fr; } }
 .outcome h3 {
-  font-size: clamp(2.1rem, 1.2rem + 4vw, 4.6rem); font-weight: 800; letter-spacing: -.035em;
-  background: linear-gradient(90deg, var(--on-forest) 0 50%, var(--c) 50% 100%);
-  background-size: 200% 100%; background-position: 0 0;
+  font-size: clamp(2.1rem, 1.2rem + 4vw, 4.6rem); font-weight: 800; letter-spacing: -.04em;
+  background: linear-gradient(90deg, var(--c) 0 50%, var(--white) 50% 100%);
+  background-size: 200% 100%; background-position: 100% 0;
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  transition: background-position 1s var(--ease);
+  transition: background-position 1.1s var(--ease);
 }
-.outcome:hover h3, .outcome.in-view h3 { background-position: -100% 0; }
-.outcome p { color: var(--on-forest-soft); font-size: var(--s-lead); max-width: 30rem; }
+.outcome:hover h3, .js .outcome.in h3 { background-position: 0 0; }
+.outcome p { color: var(--on-navy-soft); font-size: var(--s-lead); max-width: 30rem; }
 
-/* ---------- Sample workshop ---------- */
-.lab { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
-@media (min-width: 980px) { .lab { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; } }
-.lab-photo { margin: 0; position: relative; border-radius: calc(var(--r) + 6px); overflow: hidden; aspect-ratio: 4 / 3.4; }
+/* ---------- Sample class ---------- */
+.lab { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+@media (min-width: 1000px) { .lab { grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; } }
+.lab-photo { margin: 0; position: relative; min-width: 0; }
+.lab-photo .frame { border-radius: calc(var(--r) + 4px); overflow: hidden; aspect-ratio: 4 / 3.3; }
 .lab-photo img { width: 100%; height: 100%; object-fit: cover; }
-.lab-photo figcaption {
-  position: absolute; left: 1rem; bottom: 1rem; right: 1rem;
-  font-size: .74rem; color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,.6);
+.lab-photo .frame { outline: 2px solid var(--navy); outline-offset: 10px; }
+.lab-photo figcaption { margin-top: 1.1rem; font-size: .78rem; color: var(--ink-soft); }
+.hud {
+  position: absolute; top: 1rem; right: 1rem; display: grid; gap: .45rem; min-width: 11rem;
+  padding: .85rem 1rem; border-radius: 14px; background: rgba(0, 33, 63, .82); backdrop-filter: blur(8px);
+  color: var(--on-navy); font: 600 .78rem/1.2 var(--f-display);
 }
-.sensor {
-  position: absolute; top: 1rem; right: 1rem;
-  display: grid; gap: .35rem; padding: .8rem 1rem; border-radius: 12px;
-  background: rgba(16,35,30,.78); backdrop-filter: blur(8px); color: var(--on-forest);
-  font: 500 .74rem/1.2 var(--f-mono);
-}
-.sensor .row { display: flex; justify-content: space-between; gap: 1.5rem; }
-.sensor .val { color: var(--life); font-variant-numeric: tabular-nums; }
+.hud .row { display: flex; justify-content: space-between; gap: 1.25rem; }
+.hud .val { color: var(--teal); font-variant-numeric: tabular-nums; }
+.hud .dot { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; background: var(--teal); margin-right: .4rem; box-shadow: 0 0 0 0 var(--teal); animation: ping 1.8s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 8px transparent; } }
 .lab-copy { display: grid; gap: 1.4rem; min-width: 0; }
-.lab-copy .q { font: 800 clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem)/1.05 var(--f-display); letter-spacing: -.03em; text-wrap: balance; }
+.lab-copy .q { font: 800 clamp(2rem, 1.3rem + 2.6vw, 3.3rem)/1.04 var(--f-display); letter-spacing: -.035em; color: var(--navy); text-wrap: balance; }
 .lab-copy > p { color: var(--ink-soft); font-size: var(--s-lead); }
-.steps { list-style: none; margin: .4rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; counter-reset: s; }
+.note { display: flex; align-items: center; gap: .5rem; font-size: 1.7rem; transform: rotate(-2deg); transform-origin: left; }
+.note svg { flex: none; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; counter-reset: s; }
 .steps li {
-  counter-increment: s; padding: 1.1rem 1.1rem 1.2rem; border-radius: 14px; border: 1px solid var(--line); background: var(--surface);
-  display: grid; gap: .35rem; align-content: start;
+  counter-increment: s; display: grid; gap: .4rem; align-content: start;
+  padding: 1.15rem 1.15rem 1.25rem; border-radius: 16px; background: var(--mist);
 }
-.steps li::before { content: "0" counter(s); font: 500 .72rem/1 var(--f-mono); color: var(--robotics); letter-spacing: .1em; }
-.steps b { font: 700 1.1rem/1.2 var(--f-display); }
-.steps span { color: var(--ink-soft); font-size: .93rem; line-height: 1.5; }
-@media (max-width: 460px) { .steps { grid-template-columns: 1fr; } }
+.steps li::before {
+  content: counter(s); width: 1.9rem; height: 1.9rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--navy); color: var(--white); font: 700 .82rem/1 var(--f-display);
+}
+.steps b { font: 800 1.1rem/1.2 var(--f-display); color: var(--navy); }
+.steps span { color: var(--ink-soft); font-size: .94rem; line-height: 1.5; }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
 
 /* ---------- How it works ---------- */
-.how { background: var(--surface); border-block: 1px solid var(--line); }
-.path { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; counter-reset: p; }
-@media (min-width: 900px) { .path { grid-template-columns: repeat(3, 1fr); } }
-.path li {
-  counter-increment: p; position: relative; display: grid; gap: .8rem; align-content: start;
-  padding: 2rem 0 2.2rem; border-top: 1px solid var(--line);
-}
+.how { background: var(--mist); }
+.path { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1rem; position: relative; }
+@media (min-width: 900px) { .path { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+.path-wrap { position: relative; }
+.path-line { display: none; }
 @media (min-width: 900px) {
-  .path li { padding: 2.2rem 2.2rem 0 0; }
-  .path li + li { padding-left: 2.2rem; border-left: 1px solid var(--line); }
+  .path-line {
+    display: block; position: absolute; left: 2.2rem; right: 2.6rem; top: 2.15rem; height: 2px; z-index: 0;
+    background-image: linear-gradient(90deg, var(--teal) 55%, transparent 0); background-size: 14px 2px;
+    transform-origin: left; transition: transform 1.6s var(--ease);
+  }
+  .js .path-wrap:not(.in) .path-line { transform: scaleX(0); }
+  .path-line img { position: absolute; right: -2.4rem; top: -1.2rem; width: 3rem; height: auto; transform: rotate(8deg); }
 }
-.path li::before {
-  content: counter(p);
-  font: 800 3.6rem/1 var(--f-display); letter-spacing: -.04em;
-  color: transparent; -webkit-text-stroke: 1.5px var(--ink-soft);
+.path li {
+  position: relative; z-index: 1; display: grid; gap: .8rem; align-content: start;
+  padding: 1.6rem 1.6rem 1.9rem; border-radius: var(--r); background: var(--white);
+  box-shadow: 0 1px 0 var(--line);
+}
+.path .num {
+  width: 3.2rem; height: 3.2rem; border-radius: 50%; display: grid; place-items: center; margin: -0.35rem 0 .3rem -0.35rem;
+  background: var(--navy); color: var(--white); font: 800 1.15rem/1 var(--f-display);
+  box-shadow: 0 0 0 6px var(--mist);
 }
 .path h3 { font-size: var(--s-h3); font-weight: 800; }
 .path p { color: var(--ink-soft); }
 .fees {
-  margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between;
-  padding: 1.5rem 1.75rem; border-radius: var(--r); background: var(--paper); border: 1px solid var(--line);
+  margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem;
+  padding: 1.5rem 1.75rem; border-radius: var(--r); background: var(--white); border: 1px solid var(--line);
 }
-.fees p { flex: 1 1 26rem; min-width: 0; }
-.fees strong { font-family: var(--f-display); }
+.fees p { flex: 1 1 26rem; min-width: 0; color: var(--ink-soft); }
+.fees strong { color: var(--navy); font-family: var(--f-display); }
 
-/* ---------- Collaborators ---------- */
-.collab { padding-block: clamp(3rem, 6vw, 4.5rem); }
-.collab-row { display: grid; grid-template-columns: 1fr; gap: 1.25rem 3rem; align-items: start; }
-@media (min-width: 900px) { .collab-row { grid-template-columns: 14rem 1fr 1fr; } }
-.collab-item { display: grid; gap: .35rem; padding-top: 1rem; border-top: 1px solid var(--line); min-width: 0; }
-.collab-item b { font: 700 1.05rem/1.25 var(--f-display); }
-.collab-item span { color: var(--ink-soft); font-size: .93rem; line-height: 1.55; }
+/* ---------- Collaborators (kept small on purpose) ---------- */
+.collab { padding-block: clamp(2.75rem, 5vw, 4rem); }
+.collab-row { display: grid; grid-template-columns: 1fr; gap: 1.2rem 3rem; align-items: start; }
+@media (min-width: 900px) { .collab-row { grid-template-columns: 15rem 1fr 1fr; } }
+.collab-item { display: grid; gap: .3rem; padding-top: 1rem; border-top: 1px solid var(--line); min-width: 0; }
+.collab-item b { font: 700 1rem/1.3 var(--f-display); color: var(--navy); }
+.collab-item span { color: var(--ink-soft); font-size: .92rem; line-height: 1.55; }
 
 /* ---------- Inquiry ---------- */
 .inquiry { padding-block: 0 clamp(4rem, 9vw, 7rem); }
 .inq {
-  position: relative;
-  display: grid; grid-template-columns: 1fr; gap: 2.5rem;
-  padding: clamp(1.75rem, 5vw, 4rem);
-  border-radius: calc(var(--r) + 10px);
-  background: var(--forest);
-  color: var(--on-forest);
-  overflow: hidden; isolation: isolate;
+  position: relative; display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+  padding: clamp(1.75rem, 5vw, 4rem); border-radius: calc(var(--r) + 10px);
+  background: var(--navy); color: var(--on-navy); overflow: hidden; isolation: isolate;
 }
-@media (min-width: 980px) { .inq { grid-template-columns: 1.1fr 1fr; gap: 4rem; } }
-.inq-flower { position: absolute; right: -8rem; top: -8rem; width: 26rem; opacity: .14; z-index: -1; animation: spin 80s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.inq h2 { font-size: var(--s-h2); font-weight: 800; }
-.inq .eyebrow { color: var(--on-forest-soft); }
+@media (min-width: 1000px) { .inq { grid-template-columns: 1.1fr 1fr; gap: 4.5rem; } }
+.inq-flight { position: absolute; right: -2%; top: 4%; width: min(60%, 34rem); height: auto; z-index: -1; opacity: .9; overflow: visible; }
+.inq-flight path { fill: none; stroke: var(--teal); stroke-width: 4; stroke-linecap: round; opacity: .55; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.js .inq:not(.in) .inq-flight path { stroke-dashoffset: 1; }
+.js .inq .inq-flight path { transition: stroke-dashoffset 2s .3s var(--ease); }
+.inq h2 { color: var(--white); font-size: var(--s-h2); font-weight: 800; }
+.inq .eyebrow { color: var(--teal); }
 .inq-left { display: grid; gap: 1.4rem; align-content: start; min-width: 0; }
-.inq-left > p { color: var(--on-forest-soft); font-size: var(--s-lead); }
+.inq-left > p { color: var(--on-navy-soft); font-size: var(--s-lead); }
 .email {
   display: flex; flex-wrap: wrap; align-items: center; gap: .8rem;
-  padding: .7rem .7rem .7rem 1.2rem; border-radius: 999px;
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
+  padding: .65rem .65rem .65rem 1.25rem; border-radius: 999px;
+  background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16);
 }
-.email code { flex: 1 1 12rem; font: 500 1rem/1.3 var(--f-mono); user-select: all; overflow-wrap: anywhere; min-width: 0; }
-.families { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; align-items: center; color: var(--on-forest-soft); font-size: .95rem; }
+.email code { flex: 1 1 12rem; font: 600 1rem/1.3 var(--f-display); color: var(--white); user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.families { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; color: var(--on-navy-soft); font-size: .95rem; }
 .families p { flex: 1 1 16rem; }
-.status-msg { font: 500 .8rem/1 var(--f-mono); color: var(--life); min-height: 1em; }
+.status-msg { font: 600 .82rem/1 var(--f-display); color: var(--teal); min-height: 1em; }
+.include-title { font: 700 .72rem/1 var(--f-display); letter-spacing: .3em; text-transform: uppercase; color: var(--teal); margin-bottom: .6rem; }
 .include { list-style: none; margin: 0; padding: 0; display: grid; }
-.include-title { font: 500 var(--s-label)/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--on-forest-soft); margin-bottom: .8rem; }
-.include li {
-  display: flex; gap: 1rem; align-items: center; padding: 1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,.1); font-size: 1.05rem;
-}
-.include li i { width: .65rem; height: .65rem; border-radius: 50%; background: var(--c); flex: none; }
+.include li { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, .12); font-size: 1.05rem; color: var(--white); }
 
 /* ---------- Footer ---------- */
-.site-footer { background: var(--forest); color: var(--on-forest-soft); padding-block: 3.5rem 3rem; font-size: .86rem; }
-.foot { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-@media (min-width: 900px) { .foot { grid-template-columns: 1.2fr 1fr 1.4fr; } }
-.foot .logo { color: var(--on-forest); }
-.foot h4 { margin: 0 0 .8rem; font: 500 var(--s-label)/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--on-forest); }
-.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
-.foot a { color: var(--on-forest); text-underline-offset: 3px; }
+.site-footer { background: var(--navy-deep); color: var(--on-navy-soft); padding-block: 4rem 3rem; font-size: .88rem; }
+.foot { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 900px) { .foot { grid-template-columns: 1fr .8fr 1.5fr; } }
+.foot-logo { width: 11rem; height: auto; }
+.foot h4 { margin: 0 0 .9rem; font: 700 .72rem/1 var(--f-display); letter-spacing: .3em; text-transform: uppercase; color: var(--teal); }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; color: var(--on-navy); }
+.foot a { color: var(--on-navy); text-underline-offset: 3px; }
 .foot p { overflow-wrap: anywhere; }
 .foot-credits { display: grid; gap: .5rem; min-width: 0; }
-.foot-base { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.foot-base { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, .1); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 
-/* ---------- Reveal on scroll (content is visible without JS) ---------- */
-.js .reveal { opacity: 0; transform: translateY(36px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+/* ---------- Reveal on scroll (everything is visible without JS) ---------- */
+.js .reveal { opacity: 0; transform: translateY(34px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
 .js .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .js .reveal .scribble path, .js .inq:not(.in) .inq-flight path { stroke-dashoffset: 0; }
+  .js .path-wrap:not(.in) .path-line { transform: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- Logo symbol: six petals, one per activity area. Reused below. -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="flower">
-      <ellipse class="p-robotics" cx="0" cy="-15" rx="8" ry="14" fill="var(--robotics)"/>
-      <ellipse class="p-science"  cx="0" cy="-15" rx="8" ry="14" fill="var(--science)"  transform="rotate(60)"/>
-      <ellipse class="p-arts"     cx="0" cy="-15" rx="8" ry="14" fill="var(--arts)"     transform="rotate(120)"/>
-      <ellipse class="p-outdoor"  cx="0" cy="-15" rx="8" ry="14" fill="var(--outdoor)"  transform="rotate(180)"/>
-      <ellipse class="p-life"     cx="0" cy="-15" rx="8" ry="14" fill="var(--life)"     transform="rotate(240)"/>
-      <ellipse class="p-projects" cx="0" cy="-15" rx="8" ry="14" fill="var(--projects)" transform="rotate(300)"/>
-    </g>
-  </defs>
-</svg>
-
 <header class="site-header" id="header">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="BC Youth Discovery Society home">
-      <svg class="logo-mark" width="42" height="42" viewBox="-32 -32 64 64" aria-hidden="true">
-        <use href="#flower"/><circle r="7" fill="var(--forest)"/><circle r="3" fill="var(--on-forest)"/>
-      </svg>
-      <span class="logo-word"><b>BC Youth Discovery</b><span>Society</span></span>
+      <img class="mark" src="images/brand/logo-mark.png" width="600" height="316" alt="">
+      <img class="word" src="images/brand/logo-wordmark.png" width="700" height="305" alt="BC Youth Discovery Society">
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#activities">Activities</a>
-      <a href="#workshop">Inside a class</a>
+      <a href="#class">Inside a class</a>
       <a href="#how">How it works</a>
       <a class="btn btn-sm" href="#inquiries">Plan a visit <span class="arrow" aria-hidden="true">→</span></a>
     </nav>
@@ -585,8 +514,22 @@ body::before {
 <main id="top">
 
   <section class="hero" aria-labelledby="hero-title">
-    <div class="grain" aria-hidden="true"></div>
     <div class="wrap">
+      <!-- The logo's paper plane flies in and draws its teal trail -->
+      <svg class="flight" id="flight" viewBox="0 0 1200 150" aria-hidden="true">
+        <path id="flight-path" class="flight-trail" pathLength="1"
+          d="M 14 128 C 120 126, 250 122, 352 104 C 420 92, 462 62, 446 36 C 432 14, 392 18, 388 46 C 384 78, 424 104, 490 106 C 640 110, 830 100, 960 74 C 1030 60, 1080 44, 1118 26"/>
+        <g>
+          <animateMotion id="fly" dur="2.6s" begin="0s" fill="freeze" rotate="auto"
+            calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines="0.45 0 0.25 1">
+            <mpath href="#flight-path"/>
+          </animateMotion>
+          <g class="plane-bob">
+            <image href="images/brand/plane.png" x="-46" y="-32" width="92" height="64" transform="rotate(33)"/>
+          </g>
+        </g>
+      </svg>
+
       <div class="hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Hands-on learning for B.C. schools</span>
@@ -594,65 +537,61 @@ body::before {
             <span class="line"><span>Where students</span></span>
             <span class="line"><span>discover</span></span>
             <span class="line"><span><span class="rotator" id="rotator" aria-hidden="true">
-              <span class="on" data-c="var(--robotics)">robotics.</span>
-              <span data-c="var(--science)">science.</span>
-              <span data-c="var(--arts)">the arts.</span>
-              <span data-c="var(--outdoor)">the outdoors.</span>
-              <span data-c="var(--life)">life skills.</span>
-              <span data-c="var(--projects)">making things.</span>
+              <span class="on" data-c="var(--robotics-ink)">robotics.</span>
+              <span data-c="var(--science-ink)">science.</span>
+              <span data-c="var(--arts-ink)">the arts.</span>
+              <span data-c="var(--outdoor-ink)">the outdoors.</span>
+              <span data-c="var(--life-ink)">life skills.</span>
+              <span data-c="var(--projects-ink)">making things.</span>
             </span><span class="sr-only">robotics, science, the arts, the outdoors and life skills.</span></span></span>
           </h1>
-          <p class="lead">We help British Columbia schools bring hands-on classes into the classroom and beyond it. Students discover new interests, solve problems, and work together.</p>
+          <p class="lead">We help British Columbia schools bring hands-on classes into the classroom and beyond it, so students discover new interests, solve problems and work together.</p>
           <div class="hero-actions">
             <a class="btn" href="#inquiries">Plan a school visit <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn-line" href="#activities">Explore activities</a>
+            <a class="btn btn-outline" href="#activities">Explore activities</a>
           </div>
         </div>
 
-        <div class="collage" id="collage" aria-label="Activity collage">
-          <div class="tile tile-a" data-depth="18">
-            <img src="images/students-building-robots.jpg" width="1600" height="1067" alt="Students laughing as they build and test small robots at a classroom table.">
-            <span class="tile-label">Robotics</span>
+        <div class="collage" id="collage">
+          <div class="tile tile-a" data-depth="16">
+            <div class="frame"><img src="images/students-building-robots.jpg" width="1600" height="1067" alt="Students laughing as they build and test small robots at a classroom table."></div>
+            <span class="chip" style="--c: var(--robotics)"><i></i>Robotics</span>
           </div>
-          <div class="tile tile-b" data-depth="34">
-            <img src="images/painting-outdoors.jpg" width="1280" height="850" alt="Children painting at a picnic table outdoors with bowls of bright paint.">
-            <span class="tile-label">Arts</span>
+          <div class="tile tile-b" data-depth="30">
+            <img src="images/painting-outdoors.jpg" width="1280" height="850" alt="Children painting at an outdoor picnic table with bowls of bright paint.">
+            <span class="chip" style="--c: var(--arts)"><i></i>Arts</span>
           </div>
-          <div class="tile tile-c" data-depth="26">
+          <div class="tile tile-c" data-depth="22">
             <img src="images/science-lab.jpg" width="825" height="1100" alt="Students in safety goggles running an experiment in a science lab.">
-            <span class="tile-label">Science</span>
+            <span class="chip" style="--c: var(--science)"><i></i>Science</span>
           </div>
-          <div class="tile tile-d" data-depth="40" aria-hidden="true">
-            <svg class="art" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice">
-              <path d="M0 200 L70 90 L120 150 L170 70 L260 200 Z" fill="#fff" opacity=".22"/>
-              <path d="M40 200 L95 120 L140 175 L195 100 L300 200 Z" fill="#10231e" opacity=".35"/>
-              <circle cx="235" cy="55" r="22" fill="#f0a13a"/>
-              <path d="M60 200 v-38 M60 168 l-14 10 M60 176 l14 -10" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-            </svg>
-            <span class="tile-label">Outdoor learning</span>
+          <div class="tile tile-d" data-depth="36">
+            <img src="images/outdoor-forest.jpg" width="800" height="1200" alt="A child in a yellow raincoat building with logs among autumn leaves outdoors.">
+            <span class="chip" style="--c: var(--outdoor)"><i></i>Outdoors</span>
           </div>
-          <div class="tile tile-e" data-depth="24">
-            <img src="images/robot-car-sensor.jpg" width="1023" height="682" alt="Close-up of a small educational robot car with a sensor on the front.">
-            <span class="tile-label">Build + code</span>
+          <div class="tile tile-e" data-depth="26" aria-hidden="true">
+            <svg viewBox="0 0 200 280" preserveAspectRatio="none"><path d="M -10 230 C 40 220, 70 200, 80 170 C 90 140, 60 130, 55 150 C 50 172, 90 180, 120 150 C 140 128, 150 110, 160 96" fill="none" stroke="#00b79f" stroke-width="4" stroke-linecap="round"/></svg>
+            <img class="plane" src="images/brand/plane-white.png" width="360" height="250" alt="">
+            <span class="hand">learn by doing</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-foot" aria-label="Activity areas">
-        <div style="--c: var(--robotics)"><i></i>Robotics</div>
-        <div style="--c: var(--science)"><i></i>Science</div>
-        <div style="--c: var(--arts)"><i></i>Arts</div>
-        <div style="--c: var(--outdoor)"><i></i>Outdoor learning</div>
-        <div style="--c: var(--life)"><i></i>Life skills</div>
-        <div style="--c: var(--projects)"><i></i>Hands-on projects</div>
-      </div>
+      <nav class="legend" aria-label="Activity areas">
+        <a href="#act-robotics" style="--c: var(--robotics)"><i></i>Robotics</a>
+        <a href="#act-science" style="--c: var(--science)"><i></i>Science</a>
+        <a href="#act-arts" style="--c: var(--arts)"><i></i>Arts</a>
+        <a href="#act-outdoor" style="--c: var(--outdoor)"><i></i>Outdoor learning</a>
+        <a href="#act-life" style="--c: var(--life)"><i></i>Life skills</a>
+        <a href="#act-projects" style="--c: var(--projects)"><i></i>Hands-on projects</a>
+      </nav>
     </div>
   </section>
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span style="--c: var(--robotics)">Build</span><span style="--c: var(--science)">Test</span><span style="--c: var(--arts)">Create</span><span style="--c: var(--outdoor)">Explore</span><span style="--c: var(--life)">Plan</span><span style="--c: var(--projects)">Make</span><span style="--c: var(--robotics)">Code</span><span style="--c: var(--science)">Measure</span><span style="--c: var(--arts)">Share</span><span style="--c: var(--outdoor)">Observe</span><span style="--c: var(--life)">Solve</span><span style="--c: var(--projects)">Revise</span>
-      <span style="--c: var(--robotics)">Build</span><span style="--c: var(--science)">Test</span><span style="--c: var(--arts)">Create</span><span style="--c: var(--outdoor)">Explore</span><span style="--c: var(--life)">Plan</span><span style="--c: var(--projects)">Make</span><span style="--c: var(--robotics)">Code</span><span style="--c: var(--science)">Measure</span><span style="--c: var(--arts)">Share</span><span style="--c: var(--outdoor)">Observe</span><span style="--c: var(--life)">Solve</span><span style="--c: var(--projects)">Revise</span>
+      <span>Build</span><span>Test</span><span>Create</span><span>Explore</span><span>Plan</span><span>Make</span><span>Code</span><span>Measure</span><span>Share</span><span>Observe</span><span>Solve</span><span>Revise</span>
+      <span>Build</span><span>Test</span><span>Create</span><span>Explore</span><span>Plan</span><span>Make</span><span>Code</span><span>Measure</span><span>Share</span><span>Observe</span><span>Solve</span><span>Revise</span>
     </div>
   </div>
 
@@ -660,40 +599,47 @@ body::before {
     <div class="wrap">
       <div class="head reveal">
         <span class="eyebrow">What we offer</span>
-        <h2 id="act-title">Six ways to learn by doing</h2>
+        <h2 id="act-title">Six ways to learn by <span class="scribble">doing<svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 14 C 25 8, 45 6, 62 9 C 72 11, 76 4, 70 2 C 64 0, 62 10, 72 13 C 82 16, 92 12, 98 8"/></svg></span></h2>
         <p>Robotics is our first program. We’re developing hands-on classes in science, the arts, outdoor learning and everyday life skills, each built around projects students can touch, test and improve.</p>
       </div>
 
       <div class="tour">
-        <div class="tour-stage" aria-hidden="true">
-          <div class="stage-glow" id="stage-glow"></div>
-          <svg class="stage-flower" id="stage-flower" viewBox="-32 -32 64 64">
-            <ellipse data-i="0" cx="0" cy="-15" rx="8" ry="14" fill="var(--robotics)" class="is-on"/>
-            <ellipse data-i="1" cx="0" cy="-15" rx="8" ry="14" fill="var(--science)"  transform="rotate(60)"/>
-            <ellipse data-i="2" cx="0" cy="-15" rx="8" ry="14" fill="var(--arts)"     transform="rotate(120)"/>
-            <ellipse data-i="3" cx="0" cy="-15" rx="8" ry="14" fill="var(--outdoor)"  transform="rotate(180)"/>
-            <ellipse data-i="4" cx="0" cy="-15" rx="8" ry="14" fill="var(--life)"     transform="rotate(240)"/>
-            <ellipse data-i="5" cx="0" cy="-15" rx="8" ry="14" fill="var(--projects)" transform="rotate(300)"/>
-            <circle r="7" fill="var(--forest)"/><circle r="3" fill="var(--on-forest)"/>
-          </svg>
+        <div class="stage" aria-hidden="true">
+          <div class="media is-on" data-i="0"><img src="images/students-building-robots.jpg" width="1600" height="1067" alt="" style="object-position: 62% 50%"></div>
+          <div class="media" data-i="1"><img src="images/classroom-experiment.jpg" width="1280" height="857" alt="" loading="lazy"></div>
+          <div class="media" data-i="2"><img src="images/painting-outdoors.jpg" width="1280" height="850" alt="" loading="lazy" style="object-position: 30% 60%"></div>
+          <div class="media" data-i="3"><img src="images/outdoor-forest.jpg" width="800" height="1200" alt="" loading="lazy" style="object-position: 50% 55%"></div>
+          <div class="media panel" data-i="4" style="--c: var(--life)">
+            <span class="hand">plan it · budget it · run it</span>
+            <svg class="big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4M7.5 13.5l2 2 4-4"/></svg>
+          </div>
+          <div class="media panel" data-i="5" style="--c: var(--projects)">
+            <span class="hand">measure twice, cut once</span>
+            <svg class="big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 21 3"/><path d="M6 18l1.5 1.5M9 15l2 2M12 12l1.5 1.5M15 9l2 2M18 6l1.5 1.5"/><path d="M3 21l3-1 15-15-2-2L4 18z"/></svg>
+          </div>
           <div class="stage-meta">
-            <div class="stage-count"><span id="stage-num">01</span><small>/ 06</small></div>
-            <div class="stage-name" id="stage-name">Robotics</div>
+            <div class="stage-row">
+              <div class="stage-count"><span id="stage-num">01</span><small>/ 06</small></div>
+              <div class="stage-name" id="stage-name">Robotics</div>
+            </div>
+            <div class="stage-bar" id="stage-bar">
+              <i class="is-on" style="--c: var(--robotics)"></i><i style="--c: var(--science)"></i><i style="--c: var(--arts)"></i><i style="--c: var(--outdoor)"></i><i style="--c: var(--life)"></i><i style="--c: var(--projects)"></i>
+            </div>
           </div>
         </div>
 
-        <ol class="act-list">
-          <li class="act is-active reveal" data-i="0" data-name="Robotics" style="--c: var(--robotics)">
+        <ol class="acts">
+          <li class="act is-active" id="act-robotics" data-i="0" data-name="Robotics" style="--c: var(--robotics); --ci: var(--robotics-ink)">
             <div class="act-top">
               <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M2 13v2M22 13v2"/><circle cx="12" cy="3" r="1"/></svg></span>
               <span class="status is-first">First program</span>
             </div>
             <h3>Robotics</h3>
             <p>Students build models, program sensors and test their designs in pairs, switching roles so everyone builds and codes.</p>
-            <figure class="act-photo"><img src="images/robot-car-sensor.jpg" width="1023" height="682" loading="lazy" alt="Educational robot car with a front-mounted sensor."></figure>
-            <div class="example"><b>Example project</b>A car that stops when its bumper touches a wall.</div>
+            <figure class="act-photo"><img src="images/students-building-robots.jpg" width="1600" height="1067" loading="lazy" alt="Students building and testing small robots at a classroom table."></figure>
+            <div class="example"><b>Example project</b><span>A car that stops when its bumper touches a wall.</span></div>
           </li>
-          <li class="act reveal" data-i="1" data-name="Science" style="--c: var(--science)">
+          <li class="act" id="act-science" data-i="1" data-name="Science" style="--c: var(--science); --ci: var(--science-ink)">
             <div class="act-top">
               <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></span>
               <span class="status">In development</span>
@@ -701,9 +647,9 @@ body::before {
             <h3>Science</h3>
             <p>Students ask a question, plan a fair test, collect results and explain what they found.</p>
             <figure class="act-photo"><img src="images/classroom-experiment.jpg" width="1280" height="857" loading="lazy" alt="Elementary students around a table testing how sound travels through a paper cone."></figure>
-            <div class="example"><b>Example project</b>Which materials keep an ice cube frozen the longest?</div>
+            <div class="example"><b>Example project</b><span>Which materials keep an ice cube frozen the longest?</span></div>
           </li>
-          <li class="act reveal" data-i="2" data-name="Arts" style="--c: var(--arts)">
+          <li class="act" id="act-arts" data-i="2" data-name="Arts" style="--c: var(--arts); --ci: var(--arts-ink)">
             <div class="act-top">
               <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a10 10 0 1 1 10-10c0 2.8-2.2 4-4 4h-2a2 2 0 0 0-1.5 3.3A1.6 1.6 0 0 1 12 22z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="11.5" cy="7" r="1"/><circle cx="16" cy="9.5" r="1"/></svg></span>
               <span class="status">In development</span>
@@ -711,34 +657,37 @@ body::before {
             <h3>Arts</h3>
             <p>Students experiment with materials and techniques, create work together and share it with others.</p>
             <figure class="act-photo"><img src="images/painting-outdoors.jpg" width="1280" height="850" loading="lazy" alt="Children painting together at an outdoor picnic table."></figure>
-            <div class="example"><b>Example project</b>A class mural where each pair designs one panel.</div>
+            <div class="example"><b>Example project</b><span>A class mural where each pair designs one panel.</span></div>
           </li>
-          <li class="act reveal" data-i="3" data-name="Outdoor learning" style="--c: var(--outdoor)">
+          <li class="act" id="act-outdoor" data-i="3" data-name="Outdoor learning" style="--c: var(--outdoor); --ci: var(--outdoor-ink)">
             <div class="act-top">
               <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 5 12h4l-4 7h14l-4-7h4z"/><path d="M12 19v3"/></svg></span>
               <span class="status">Exploring</span>
             </div>
             <h3>Outdoor learning</h3>
             <p>Learning moves outside so students can observe, map and investigate the places around their school.</p>
-            <div class="example"><b>Example project</b>Map the living things in your schoolyard.</div>
+            <figure class="act-photo"><img src="images/outdoor-forest.jpg" width="800" height="1200" loading="lazy" alt="A child building with logs among autumn leaves." style="object-position: 50% 55%"></figure>
+            <div class="example"><b>Example project</b><span>Map the living things in your schoolyard.</span></div>
           </li>
-          <li class="act reveal" data-i="4" data-name="Life skills" style="--c: var(--life)">
+          <li class="act" id="act-life" data-i="4" data-name="Life skills" style="--c: var(--life); --ci: var(--life-ink)">
             <div class="act-top">
               <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
               <span class="status">In development</span>
             </div>
             <h3>Life skills</h3>
             <p>Practical skills students use every day, like planning, budgeting and looking after themselves and others.</p>
-            <div class="example"><b>Example project</b>Plan and budget a class event from start to finish.</div>
+            <figure class="act-photo panel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4M7.5 13.5l2 2 4-4"/></svg></figure>
+            <div class="example"><b>Example project</b><span>Plan and budget a class event from start to finish.</span></div>
           </li>
-          <li class="act reveal" data-i="5" data-name="Hands-on projects" style="--c: var(--projects)">
+          <li class="act" id="act-projects" data-i="5" data-name="Hands-on projects" style="--c: var(--projects); --ci: var(--projects-ink)">
             <div class="act-top">
               <span class="act-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span>
               <span class="status">In development</span>
             </div>
             <h3>Hands-on projects</h3>
             <p>Everyday life skills learned by making real things: measuring, building, fixing and finishing a project.</p>
-            <div class="example"><b>Example project</b>Design and build a planter box for the classroom.</div>
+            <figure class="act-photo panel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 21 3"/><path d="M6 18l1.5 1.5M9 15l2 2M12 12l1.5 1.5M15 9l2 2M18 6l1.5 1.5"/><path d="M3 21l3-1 15-15-2-2L4 18z"/></svg></figure>
+            <div class="example"><b>Example project</b><span>Design and build a planter box for the classroom.</span></div>
           </li>
         </ol>
       </div>
@@ -752,11 +701,11 @@ body::before {
         <h2 id="out-title">New opportunities for every student</h2>
       </div>
       <ul class="outcome-list">
-        <li class="outcome reveal" style="--c: var(--life)">
+        <li class="outcome reveal" style="--c: var(--teal)">
           <h3>Discover new interests</h3>
           <p>Trying something real, with their own hands, shows students what they enjoy and what they’re good at.</p>
         </li>
-        <li class="outcome reveal" style="--c: var(--science)">
+        <li class="outcome reveal" style="--c: var(--life)">
           <h3>Solve problems</h3>
           <p>Projects rarely work the first time. Students test, find what went wrong and try again.</p>
         </li>
@@ -768,13 +717,13 @@ body::before {
     </div>
   </section>
 
-  <section class="section" id="workshop" aria-labelledby="lab-title">
+  <section class="section" id="class" aria-labelledby="lab-title">
     <div class="wrap lab">
       <figure class="lab-photo reveal">
-        <img src="images/robot-car-sensor.jpg" width="1023" height="682" loading="lazy" alt="Close-up of an educational robot car with wheels, cables and a front sensor.">
-        <div class="sensor" aria-hidden="true">
-          <div class="row"><span>bumper</span><span class="val" id="s-bump">released</span></div>
-          <div class="row"><span>motors</span><span class="val" id="s-motor">forward</span></div>
+        <div class="frame"><img src="images/robot-car-sensor.jpg" width="1023" height="682" alt="Close-up of an educational robot car with wheels, cables and a front sensor."></div>
+        <div class="hud" aria-hidden="true">
+          <div class="row"><span><span class="dot"></span>Bumper</span><span class="val" id="s-bump">released</span></div>
+          <div class="row"><span>Motors</span><span class="val" id="s-motor">forward</span></div>
         </div>
         <figcaption>Illustrative photo of an educational robot car.</figcaption>
       </figure>
@@ -788,6 +737,7 @@ body::before {
           <li><b>Test</b><span>Drive it at a wall. Does it stop in time?</span></li>
           <li><b>Switch and revise</b><span>Trade roles, improve the design, test again.</span></li>
         </ol>
+        <p class="note hand"><svg width="44" height="30" viewBox="0 0 44 30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M2 26 C 12 6, 26 4, 40 10"/><path d="M33 4 L 40 10 L 32 15"/></svg>everyone gets a turn</p>
       </div>
     </div>
   </section>
@@ -798,23 +748,29 @@ body::before {
         <span class="eyebrow">School partnerships</span>
         <h2 id="how-title">How it works</h2>
       </div>
-      <ol class="path">
-        <li class="reveal">
-          <h3>Choose a format</h3>
-          <p>Ask about a single workshop or a series of classes tailored to your students’ ages and learning goals.</p>
-        </li>
-        <li class="reveal">
-          <h3>Plan the visit</h3>
-          <p>We agree on group size, dates, classroom setup and fees with your school. Your school books directly with the society.</p>
-        </li>
-        <li class="reveal">
-          <h3>Meet the instructor</h3>
-          <p>Specialist instructors deliver each class with the materials it needs. The society coordinates the visit from start to finish.</p>
-        </li>
-      </ol>
+      <div class="path-wrap reveal">
+        <ol class="path">
+          <li>
+            <span class="num">1</span>
+            <h3>Choose a format</h3>
+            <p>Ask about a single workshop or a series of classes tailored to your students’ ages and learning goals.</p>
+          </li>
+          <li>
+            <span class="num">2</span>
+            <h3>Plan the visit</h3>
+            <p>We agree on group size, dates, classroom setup and fees with your school. Your school books directly with the society.</p>
+          </li>
+          <li>
+            <span class="num">3</span>
+            <h3>Meet the instructor</h3>
+            <p>Specialist instructors deliver each class with the materials it needs. The society coordinates the visit from start to finish.</p>
+          </li>
+        </ol>
+        <span class="path-line" aria-hidden="true"><img src="images/brand/plane.png" width="360" height="250" alt=""></span>
+      </div>
       <div class="fees reveal">
         <p><strong>Not-for-profit.</strong> Program fees cover delivery costs. Any remaining funds stay with the society to support future youth programs.</p>
-        <a class="btn btn-sm" href="#inquiries">Ask about a visit <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-navy btn-sm" href="#inquiries">Ask about a visit <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -836,7 +792,10 @@ body::before {
   <section class="inquiry" id="inquiries" aria-labelledby="inq-title">
     <div class="wrap">
       <div class="inq reveal">
-        <svg class="inq-flower" viewBox="-32 -32 64 64" aria-hidden="true"><use href="#flower"/></svg>
+        <svg class="inq-flight" viewBox="0 0 500 220" aria-hidden="true">
+          <path pathLength="1" d="M 10 200 C 110 196, 190 170, 230 130 C 262 98, 236 66, 212 84 C 188 102, 222 140, 280 128 C 350 112, 410 70, 452 36"/>
+          <image href="images/brand/plane-white.png" x="430" y="2" width="70" height="49"/>
+        </svg>
         <div class="inq-left">
           <span class="eyebrow">School inquiries</span>
           <h2 id="inq-title">Plan a school visit</h2>
@@ -848,7 +807,7 @@ body::before {
           </div>
           <div class="families">
             <p>Families: share this page with your school’s program coordinator.</p>
-            <button class="btn btn-sm btn-line" type="button" id="copy-link">Copy page link</button>
+            <button class="btn btn-sm btn-outline-light" type="button" id="copy-link">Copy page link</button>
           </div>
           <span class="status-msg" id="copy-status" role="status" aria-live="polite"></span>
         </div>
@@ -872,11 +831,8 @@ body::before {
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot">
-      <div style="display:grid; gap:1rem; align-content:start">
-        <a class="logo" href="#top" aria-label="BC Youth Discovery Society home">
-          <svg width="42" height="42" viewBox="-32 -32 64 64" aria-hidden="true"><use href="#flower"/><circle r="7" fill="var(--forest)"/><circle r="3" fill="var(--on-forest)"/></svg>
-          <span class="logo-word"><b>BC Youth Discovery</b><span>Society</span></span>
-        </a>
+      <div style="display: grid; gap: 1.25rem; align-content: start">
+        <img class="foot-logo" src="images/brand/logo-full-white.png" width="700" height="690" alt="BC Youth Discovery Society">
         <p>A British Columbia not-for-profit bringing hands-on learning to schools.</p>
       </div>
       <div>
@@ -888,11 +844,13 @@ body::before {
       <div class="foot-credits">
         <h4>Photo credits</h4>
         <p>Photos are illustrative and do not show society programs.</p>
-        <p>Students building robots: International Gemini Observatory/NOIRLab/NSF/AURA/J. Pollard, <a href="https://commons.wikimedia.org/w/index.php?curid=146174718" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>, resized and cropped.</p>
-        <p>Science lab: TimBlackman93, <a href="https://commons.wikimedia.org/w/index.php?curid=101299227" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>, resized and cropped.</p>
-        <p>Classroom experiment: Gulliver Schools, <a href="https://commons.wikimedia.org/w/index.php?curid=17227599" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener license">CC BY 2.5</a>, resized and cropped.</p>
-        <p>Painting outdoors: Virginia State Parks staff, <a href="https://commons.wikimedia.org/w/index.php?curid=29261775" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, resized and cropped.</p>
-        <p>Robot car: forumbildig, <a href="https://www.flickr.com/photos/160200532@N02/40802364221" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>, cropped.</p>
+        <p>Students building robots: International Gemini Observatory/NOIRLab/NSF/AURA/J. Pollard, <a href="https://commons.wikimedia.org/w/index.php?curid=146174718" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>.</p>
+        <p>Science lab: TimBlackman93, <a href="https://commons.wikimedia.org/w/index.php?curid=101299227" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>.</p>
+        <p>Classroom experiment: Gulliver Schools, <a href="https://commons.wikimedia.org/w/index.php?curid=17227599" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.5/" target="_blank" rel="noopener license">CC BY 2.5</a>.</p>
+        <p>Painting outdoors: Virginia State Parks staff, <a href="https://commons.wikimedia.org/w/index.php?curid=29261775" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>.</p>
+        <p>Forest school: Sharpe2021, <a href="https://commons.wikimedia.org/w/index.php?curid=108682240" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener license">CC BY-SA 4.0</a>.</p>
+        <p>Robot car: forumbildig, <a href="https://www.flickr.com/photos/160200532@N02/40802364221" target="_blank" rel="noopener">source</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener license">CC BY 2.0</a>.</p>
+        <p>All photos resized and cropped.</p>
       </div>
     </div>
     <div class="foot-base">
@@ -907,17 +865,22 @@ body::before {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.documentElement.classList.add('js');
 
-  /* Header turns solid after the hero starts scrolling away */
+  /* Plane flight: with reduced motion, jump straight to the landed state */
+  var flight = document.getElementById('flight');
+  if (flight && reduce && flight.pauseAnimations) {
+    try { flight.pauseAnimations(); flight.setCurrentTime(2.6); } catch (e) {}
+  }
+
+  /* Header shadow once the page scrolls */
   var header = document.getElementById('header');
-  function onScroll() { header.classList.toggle('is-solid', window.scrollY > 40); }
+  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 12); }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* Rotating activity word in the headline */
+  /* Rotating activity word */
   var rot = document.getElementById('rotator');
   if (rot) {
-    var words = Array.prototype.slice.call(rot.children);
-    var idx = 0;
+    var words = Array.prototype.slice.call(rot.children), idx = 0;
     rot.style.setProperty('--rot', words[0].getAttribute('data-c'));
     if (!reduce) {
       setInterval(function () {
@@ -925,58 +888,49 @@ body::before {
         cur.classList.remove('on'); cur.classList.add('off');
         idx = (idx + 1) % words.length;
         var nxt = words[idx];
-        nxt.classList.remove('off');
-        void nxt.offsetWidth;
-        nxt.classList.add('on');
+        nxt.classList.remove('off'); void nxt.offsetWidth; nxt.classList.add('on');
         rot.style.setProperty('--rot', nxt.getAttribute('data-c'));
         setTimeout(function () { cur.classList.remove('off'); }, 700);
       }, 2400);
     }
   }
 
-  /* Scroll reveals: only elements below the fold start hidden */
+  /* Reveal on scroll: only elements below the fold start hidden */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); e.target.classList.add('in-view'); io.unobserve(e.target); }
-      });
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
     reveals.forEach(function (el) {
-      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
-      else io.observe(el);
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in'); else io.observe(el);
     });
   } else {
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* Activity tour: the sticky stage follows the card in the middle of the screen */
+  /* Activity tour: the sticky stage follows the activity in the middle of the screen */
   var acts = document.querySelectorAll('.act');
-  var petals = document.querySelectorAll('#stage-flower ellipse');
-  var flower = document.getElementById('stage-flower');
-  var glow = document.getElementById('stage-glow');
-  var num = document.getElementById('stage-num');
-  var nameEl = document.getElementById('stage-name');
+  var medias = document.querySelectorAll('.stage .media');
+  var bars = document.querySelectorAll('#stage-bar i');
+  var num = document.getElementById('stage-num'), nameEl = document.getElementById('stage-name');
   var current = 0;
   function setActive(i) {
     if (i === current) return;
     current = i;
     acts.forEach(function (a) { a.classList.toggle('is-active', +a.dataset.i === i); });
-    petals.forEach(function (p) { p.classList.toggle('is-on', +p.dataset.i === i); });
-    var c = getComputedStyle(acts[i]).getPropertyValue('--c');
-    if (glow) glow.style.background = 'radial-gradient(45% 45% at 50% 55%, ' + c + ', transparent 70%)';
-    if (flower) flower.style.rotate = (-60 * i) + 'deg';
-    if (num) num.textContent = '0' + (i + 1);
-    if (nameEl) nameEl.textContent = acts[i].dataset.name;
+    medias.forEach(function (m) { m.classList.toggle('is-on', +m.dataset.i === i); });
+    bars.forEach(function (b, k) { b.classList.toggle('is-on', k <= i); });
+    num.textContent = '0' + (i + 1);
+    nameEl.textContent = acts[i].dataset.name;
   }
   if ('IntersectionObserver' in window) {
-    var actIO = new IntersectionObserver(function (entries) {
+    var tourIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) setActive(+e.target.dataset.i); });
-    }, { rootMargin: '-45% 0px -45% 0px' });
-    acts.forEach(function (a) { actIO.observe(a); });
+    }, { rootMargin: '-48% 0px -48% 0px' });
+    acts.forEach(function (a) { tourIO.observe(a); });
   }
 
-  /* Hero collage parallax with the pointer */
+  /* Collage parallax with the pointer */
   var collage = document.getElementById('collage');
   if (collage && !reduce && window.matchMedia('(pointer: fine)').matches) {
     var tiles = collage.querySelectorAll('[data-depth]');
@@ -996,7 +950,7 @@ body::before {
     }, { passive: true });
   }
 
-  /* Sensor readout on the sample-class photo */
+  /* Live sensor readout on the sample-class photo */
   var bump = document.getElementById('s-bump'), motor = document.getElementById('s-motor');
   if (bump && motor && !reduce) {
     var pressed = false;

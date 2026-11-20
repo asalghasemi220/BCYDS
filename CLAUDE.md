@@ -5,7 +5,7 @@
 - Society name is provisional (not yet approved). Inquiry email, domain and hosting are still to come.
 - Activity areas: robotics (first program), science, arts, outdoor learning, life skills, hands-on projects (everyday life skills through making). Outcomes: students discover new interests, solve problems and work together.
 - Collaborators (mention small, not as the headline): Kavosh AI and Robotics Academy (robotics instructors and kits); Paradise Life Academy (inclusion consulting, including intake interviews for students with special needs such as ADHD and autism). The society coordinates visits; schools book directly with the society.
-- Brand: six-petal logo, one petal colour per activity, deep evergreen base. See `website/README.md`.
+- Brand: the society logo (`brand/logo-original.png`) is a navy paper plane with a looping teal trail above the wordmark. Navy `#002E5D`, teal `#00B79F`, on white. Activity colours are supporting accents only. See `website/README.md`.
 - Program fees cover delivery costs; any surplus stays with the society for future youth programs.
 
 ## Claude's scope in this workspace
