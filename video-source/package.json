@@ -1,0 +1,6 @@
+{
+  "name": "bcyds-intro-video",
+  "private": true,
+  "description": "Renders website/video/bcyds-intro.mp4 from scene.html",
+  "dependencies": { "@fontsource/plus-jakarta-sans": "5.1.1" }
+}
